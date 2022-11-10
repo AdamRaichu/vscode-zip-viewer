@@ -1,0 +1,23 @@
+{
+  "name": "example-namespace",
+  "displayName": "User-visible name",
+  "description": "A short description of the extension",
+  "publisher": "adamraichu",
+  "icon": "logo.png",
+  "authors": "AdamRaichu",
+  "author": {
+    "name": "AdamRaichu"
+  },
+  "categories": [],
+  "repository": {
+    "url": "https://github.com/AdamRaichu/vscode-webext-template"
+  },
+  "version": "1.0.0",
+  "browser": "/extension.js",
+  "main": "/extension.js",
+  "activationEvents": [],
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "contributes": {}
+}
