@@ -15,6 +15,12 @@ JSZip.loadAsync(Uint8Array, {options})
 
 console.log("Debug");
 
-vscode.commands.registerCommand('AdamRaichu.zipViewer.test', () => {
-  vscode.window.showInformationMessage('Test Message');
+vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
+  vscode.window.showInformationMessage("Test Message");
+});
+
+vscode.command.registerCommand("AdamRaichu.zipViewer.extract", function() {
+  vscode.window.showInputBox().then(function(f) {
+    vscode.window.showInformationMessage(f);
+  });
 });

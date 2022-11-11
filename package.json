@@ -29,6 +29,10 @@
         "command": "AdamRaichu.zipViewer.test",
         "title": "Zip Viewer: Test",
         "shortTitle": "ZipTest"
+      },
+      {
+        "command": "AdamRaichu.zipViewer.extract",
+        "title": "Extract a zip file from workspace"
       }
     ]
   },
