@@ -14,6 +14,7 @@ JSZip.loadAsync(Uint8Array, {options})
 
 
 console.log("Debug");
+console.log(`typeof JSZip: ${typeof JSZip}`);
 var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
