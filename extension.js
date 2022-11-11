@@ -14,4 +14,4 @@ JSZip.loadAsync(Uint8Array, {options})
 
 
 console.log("Debug");
-vscode.ExtensionContext.subscriptions.push(vscode.window.registerCustomEditorProvider("AdamRaichu.zipPreview", vscode.CustomReadonlyEditorProvider));
+vscode.window.registerCustomEditorProvider("AdamRaichu.zipPreview", vscode.CustomReadonlyEditorProvider);
