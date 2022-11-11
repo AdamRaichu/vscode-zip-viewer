@@ -16,3 +16,4 @@ var editor = new vscode.CustomReadonlyEditorProvider();
 console.log("Debug");
 console.log(editor);
 vscode.window.registerCustomEditorProvider("AdamRaichu.zipPreview", editor);
+editor.resolveCustomEditor()
