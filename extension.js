@@ -14,6 +14,7 @@ JSZip.loadAsync(Uint8Array, {options})
 
 
 console.log("Debug");
+var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
   vscode.window.showInformationMessage("Test Message");
@@ -21,7 +22,18 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
 });
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function() {
-  vscode.window.showInputBox().then(function(files) {
-    // true
+  vscode.window.showOpenDialog({openLabel: "Extract"}).then(function(files) {
+    for (ext in zipTypes) {
+      if (files[0].path.endsWith(ext)) {
+        var z = new JSZip();
+        vscode.workspace.fs.readFile(files[0]).then(function(Ui8A) {
+          z.loadAsync(Ui8A).then(function(zip) {
+            for (f in z.files) {
+              console.log(f);
+            }
+          });
+        });
+      }
+    }
   });
 });
