@@ -17,6 +17,7 @@ console.log("Debug");
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
   vscode.window.showInformationMessage("Test Message");
+  vscode.window.showOpenDialog().then(function(f) {console.log(f)})
 });
 
 vscode.command.registerCommand("AdamRaichu.zipViewer.extract", function() {
