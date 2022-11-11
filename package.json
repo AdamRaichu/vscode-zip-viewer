@@ -45,6 +45,12 @@
         ],
         "priority": "default"
       }
+    ],
+    "commands": [
+      {
+        "command": "adamraichu.zip-viewer.test",
+        "title": "Test"
+      }
     ]
   },
   "devDependencies": {
