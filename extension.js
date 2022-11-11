@@ -22,3 +22,6 @@ console.log(provider.toString());
 vscode.window.resolveCustomEditor(vscode.CustomDocument, vscode.WebviewPanel, token);
 */
 
+vscode.commands.registerCommand('AdamRaichu.zip-viewer.test', () => {
+  window.showInformationMessage('Hello World!');
+});
