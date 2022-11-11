@@ -37,6 +37,9 @@
             "filenamePattern": "*.mcaddon"
           },
           {
+            "filenamePattern": "*.mcworld"
+          },
+          {
             "filenamePattern": "*.vsix"
           }
         ],
