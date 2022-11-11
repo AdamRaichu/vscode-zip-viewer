@@ -8,48 +8,27 @@
   "author": {
     "name": "AdamRaichu"
   },
-  "categories": [],
+  "categories": [
+    "Visualization"
+  ],
   "repository": {
-    "url": "https://github.com/AdamRaichu/vscode-webext-template"
+    "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
   "version": "1.0.0",
   "browser": "/extension.js",
   "main": "/extension.js",
   "activationEvents": [
-    "onCustomEditor:AdamRaichu.zipPreview"
+    "onCommand:AdamRaichu.zipViewer.test"
   ],
   "engines": {
     "vscode": "^1.61.0"
   },
   "contributes": {
-    "customEditors": [
-      {
-        "viewType": "AdamRaichu.zipPreview",
-        "displayName": "Zip Preview",
-        "selector": [
-          {
-            "filenamePattern": "*.zip"
-          },
-          {
-            "filenamePattern": ".mcpack"
-          },
-          {
-            "filenamePattern": "*.mcaddon"
-          },
-          {
-            "filenamePattern": "*.mcworld"
-          },
-          {
-            "filenamePattern": "*.vsix"
-          }
-        ],
-        "priority": "default"
-      }
-    ],
     "commands": [
       {
-        "command": "adamraichu.zip-viewer.test",
-        "title": "Test"
+        "command": "AdadmRaichu.zipViewer.test",
+        "title": "Test Command",
+        "shortTitle": "Test"
       }
     ]
   },

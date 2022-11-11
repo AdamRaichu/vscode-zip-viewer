@@ -14,14 +14,7 @@ JSZip.loadAsync(Uint8Array, {options})
 
 
 console.log("Debug");
-/*
-console.log(Object.keys(vscode));
-console.log(Object.keys(vscode.window))
-var provider = vscode.window.registerCustomEditorProvider("AdamRaichu.zipPreview", vscode.CustomReadonlyEditorProvider);
-console.log(provider.toString());
-vscode.window.resolveCustomEditor(vscode.CustomDocument, vscode.WebviewPanel, token);
-*/
 
 vscode.commands.registerCommand('AdamRaichu.zip-viewer.test', () => {
-  window.showInformationMessage('Hello World!');
+  vscode.window.showInformationMessage('Test Message');
 });
