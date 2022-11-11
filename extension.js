@@ -30,7 +30,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function() {
         console.log("JSZip created")
         vscode.workspace.fs.readFile(files[0]).then(function(Ui8A) {
           z.loadAsync(Ui8A).then(function(zip) {
-            for (f in z.files) {
+            for (f in zip.files) {
               console.log(f);
             }
           });
