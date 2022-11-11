@@ -13,7 +13,7 @@ JSZip.loadAsync(Uint8Array, {options})
 // end JSZip
 
 var editor = vscode.CustomReadonlyEditorProvider;
-editor.resolveCustomEditor();
 console.log("Debug");
 console.log(editor);
+editor.resolveCustomEditor();
 vscode.window.registerCustomEditorProvider("AdamRaichu.zipPreview", editor);
