@@ -27,8 +27,8 @@
     "commands": [
       {
         "command": "AdadmRaichu.zipViewer.test",
-        "title": "Test Command",
-        "shortTitle": "Test"
+        "title": "Zip Viewer: Test",
+        "shortTitle": "ZipTest"
       }
     ]
   },

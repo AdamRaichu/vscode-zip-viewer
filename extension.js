@@ -15,6 +15,6 @@ JSZip.loadAsync(Uint8Array, {options})
 
 console.log("Debug");
 
-vscode.commands.registerCommand('AdamRaichu.zip-viewer.test', () => {
+vscode.commands.registerCommand('AdamRaichu.zipViewer.test', () => {
   vscode.window.showInformationMessage('Test Message');
 });
