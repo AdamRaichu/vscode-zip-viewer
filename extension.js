@@ -20,7 +20,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
   vscode.window.showOpenDialog().then(function(f) {console.log(f)})
 });
 
-vscode.command.registerCommand("AdamRaichu.zipViewer.extract", function() {
+vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function() {
   vscode.window.showInputBox().then(function(f) {
     vscode.window.showInformationMessage(f);
   });
