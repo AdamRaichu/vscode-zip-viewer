@@ -21,7 +21,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
 });
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function() {
-  vscode.window.showInputBox().then(function(f) {
-    vscode.window.showInformationMessage(f);
+  vscode.window.showInputBox().then(function(files) {
+    // true
   });
 });
