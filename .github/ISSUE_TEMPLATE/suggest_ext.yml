@@ -1,0 +1,27 @@
+name: New Zip File Extension
+description: Add a file extension to the extension to allow it to recognize files
+title: "[Feature] Suggested file extension: "
+labels: [enhancement, good first issue]
+assignees:
+  - AdamRaichu
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to help improve the extension!
+  - type: input
+    id: file_ext
+    attributes:
+      label: Suggested file extension
+      description: The file extension you would like to have added
+      placeholder: .zip
+    validations:
+      required: true
+  - type: input
+    id: docs_link
+    attributes:
+      label: Documentation
+      description: Link to documentation about this file extension
+      placeholder: https://fileinfo.com/extension/zip
+    validations:
+      required: false
