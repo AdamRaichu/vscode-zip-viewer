@@ -11,6 +11,10 @@
   "categories": [
     "Visualization"
   ],
+  "keywords": [
+    "zip",
+    "extract"
+  ],
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
@@ -27,7 +31,7 @@
     "commands": [
       {
         "command": "AdamRaichu.zipViewer.extract",
-        "title": "Zip Viewer: Extract a zip file from workspace",
+        "title": "Zip: Extract a zip file from workspace",
         "shortTitle": "Extract Zip"
       }
     ]
