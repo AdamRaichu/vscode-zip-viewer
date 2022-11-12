@@ -12952,6 +12952,9 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
               return;
             }
           }
+          vscode.window.showErrorMessage(
+            "Selected file does not appear to be a zip file. Go to github.com/AdamRaichu/vscode-zip-viewer to suggest a new file extension."
+          );
         });
     });
 });
