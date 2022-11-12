@@ -12914,7 +12914,6 @@ exports.inflateUndermine = inflateUndermine;
 
 console.log("Debug");
 console.log(`typeof JSZip: ${typeof JSZip}`);
-var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
   vscode.window.showInformationMessage("Test Message");
@@ -12926,8 +12925,10 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   vscode.window.showOpenDialog({ openLabel: "Extract" }).then(function (files) {
     console.log(files);
-    for (var ext in zipTypes) {
+    var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
+    for (var ext = 0; ext < zipTypes.length; ext++) {
       console.log(`ext: ${ext}`);
+      console.log(`zipTypes[ext]: ${zipTypes[ext]}`);
       if (files[0].path.endsWith(ext)) {
         var z = new JSZip();
         console.log("JSZip created");
