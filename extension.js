@@ -12923,7 +12923,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   vscode.window.showOpenDialog({ openLabel: "Extract" }).then(function (files) {
-    console.log(files);
+    console.log(`files[0].path: ${files[0].path}`);
     var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
     for (var ext = 0; ext < zipTypes.length; ext++) {
       console.log(`ext: ${ext}`);
