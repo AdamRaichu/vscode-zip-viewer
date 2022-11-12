@@ -12935,18 +12935,21 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                 z.loadAsync(Ui8A).then(function (zip) {
                   var keys = Object.keys(zip.files);
                   for (var c = 0; c < keys.length; c++) {
-                    var f = zip.files[keys[c]];
-                    if (f.name.endsWith("/")) {
-                    } else {
-                      await f.async("uint8array").then(function (u8) {
-                        console.log(targetPath[0]);
-                        console.log(targetPath[0] + f.name);
-                        vscode.workspace.fs.writeFile(
-                          vscode.Uri.joinPath(targetPath[0], f.name),
-                          u8
-                        );
-                      });
+                    async function temp() {
+                      var f = zip.files[keys[c]];
+                      if (f.name.endsWith("/")) {
+                      } else {
+                        await f.async("uint8array").then(function (u8) {
+                          console.log(targetPath[0]);
+                          console.log(targetPath[0] + f.name);
+                          vscode.workspace.fs.writeFile(
+                            vscode.Uri.joinPath(targetPath[0], f.name),
+                            u8
+                          );
+                        });
+                      }
                     }
+                    await temp();
                   }
                 });
               });
