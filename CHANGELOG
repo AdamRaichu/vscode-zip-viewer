@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Command "Zip: Extract a zip file from workspace" (`AdamRaichu.zipViewer.extract`)
   - Prompts user to select a zip file and a target folder.
+  - Creates a folder in target folder with same name as zip file (minus file extension).
   - Extracts all files to that location.
 
 - Supported File Extensions
