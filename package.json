@@ -18,7 +18,6 @@
   "browser": "/extension.js",
   "main": "/extension.js",
   "activationEvents": [
-    "onCommand:AdamRaichu.zipViewer.test",
     "onCommand:AdamRaichu.zipViewer.extract"
   ],
   "engines": {
@@ -26,11 +25,6 @@
   },
   "contributes": {
     "commands": [
-      {
-        "command": "AdamRaichu.zipViewer.test",
-        "title": "Zip Viewer: Test",
-        "shortTitle": "ZipTest"
-      },
       {
         "command": "AdamRaichu.zipViewer.extract",
         "title": "Zip Viewer: Extract a zip file from workspace",

@@ -12912,15 +12912,6 @@ exports.inflateUndermine = inflateUndermine;
 });
 // end JSZip
 
-console.log("Debug");
-
-vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
-  vscode.window.showInformationMessage("Test Message");
-  vscode.window.showOpenDialog().then(function (f) {
-    console.log(f);
-  });
-});
-
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   vscode.window.showOpenDialog({ openLabel: "Extract" }).then(function (files) {
     console.log(`files[0].path: ${files[0].path}`);
