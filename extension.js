@@ -12926,19 +12926,16 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
     console.log(`files[0].path: ${files[0].path}`);
     var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
     for (var ext = 0; ext < zipTypes.length; ext++) {
-      console.log(`ext: ${ext}`);
-      console.log(`zipTypes[ext]: ${zipTypes[ext]}`);
-      console.log(`file[0].path.endsWith(ext): ${files[0].path.endsWith(ext)}`);
       if (files[0].path.endsWith(zipTypes[ext])) {
-        console.log("Match");
-        console.log(`typeof JSZip: ${typeof JSZip}`);
+        console.log("%cMatch", "color: lawngreen;");
         var z = new JSZip();
         console.log("JSZip created");
         vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
           console.log("File read");
           z.loadAsync(Ui8A).then(function (zip) {
-            for (var f in zip.files) {
-              console.log(f);
+            var keys = Object.keys(zip.files);
+            for (var c = 0; c < keys.length; c++) {
+              console.log("%O", zip.files[keys[c]]);
             }
           });
         });
