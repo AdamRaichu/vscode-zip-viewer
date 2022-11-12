@@ -12939,10 +12939,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                     if (f.name.endsWith("/")) {
                     } else {
                       f.async("uint8array").then(function (u8) {
-                        vscode.workspace.fs.writeFile(
-                          vscode.workspace.workspaceFile + f.name,
-                          u8
-                        );
+                        vscode.workspace.fs.writeFile(targetPath + f.name, u8);
                       });
                     }
                   }
