@@ -12918,7 +12918,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
     .then(function (files) {
       vscode.window
         .showOpenDialog({
-          title: "target",
+          title: "Target Folder",
           canSelectFiles: false,
           canSelectFolders: true,
         })
@@ -12954,7 +12954,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
             }
           }
           vscode.window.showErrorMessage(
-            "Selected file does not appear to be a zip file. Go to github.com/AdamRaichu/vscode-zip-viewer to suggest a new file extension."
+            "Selected file does not have a supported file extension. Go to github.com/AdamRaichu/vscode-zip-viewer to suggest a new file extension."
           );
         });
     });
