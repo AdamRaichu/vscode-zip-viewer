@@ -12926,7 +12926,8 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   vscode.window.showOpenDialog({ openLabel: "Extract" }).then(function (files) {
     console.log(files);
-    for (ext in zipTypes) {
+    for (var ext in zipTypes) {
+      console.log(`ext: ${ext}`);
       if (files[0].path.endsWith(ext)) {
         var z = new JSZip();
         console.log("JSZip created");
@@ -12938,6 +12939,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
             }
           });
         });
+        return;
       }
     }
   });
