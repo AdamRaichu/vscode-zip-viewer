@@ -12913,37 +12913,43 @@ exports.inflateUndermine = inflateUndermine;
 // end JSZip
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
-  vscode.window.showOpenDialog({ openLabel: "Extract" }).then(function (files) {
-    vscode.window
-      .showOpenDialog({ canSelectFiles: false, canSelectFolders: true })
-      .then(function (targetPath) {
-        console.log(`files[0].path: ${files[0].path}`);
-        var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
-        for (var ext = 0; ext < zipTypes.length; ext++) {
-          if (files[0].path.endsWith(zipTypes[ext])) {
-            console.log("%cMatch", "color: lawngreen;");
-            var z = new JSZip();
-            console.log("JSZip created");
-            vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
-              console.log("File read");
-              z.loadAsync(Ui8A).then(function (zip) {
-                var keys = Object.keys(zip.files);
-                for (var c = 0; c < keys.length; c++) {
-                  var f = zip.files[keys[c]];
-                  if (!f.name.endsWith("/")) {
-                    f.async("uint8array").then(function (u8) {
-                      vscode.workspace.fs.writeFile(
-                        targetPath[0].joinPath(targetPath[0], f.name),
-                        u8
-                      );
-                    });
+  vscode.window
+    .showOpenDialog({ title: "Zip File", openLabel: "Extract" })
+    .then(function (files) {
+      vscode.window
+        .showOpenDialog({
+          title: "target",
+          canSelectFiles: false,
+          canSelectFolders: true,
+        })
+        .then(function (targetPath) {
+          console.log(`files[0].path: ${files[0].path}`);
+          var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
+          for (var ext = 0; ext < zipTypes.length; ext++) {
+            if (files[0].path.endsWith(zipTypes[ext])) {
+              console.log("%cMatch", "color: lawngreen;");
+              var z = new JSZip();
+              console.log("JSZip created");
+              vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
+                console.log("File read");
+                z.loadAsync(Ui8A).then(function (zip) {
+                  var keys = Object.keys(zip.files);
+                  for (var c = 0; c < keys.length; c++) {
+                    var f = zip.files[keys[c]];
+                    if (!f.name.endsWith("/")) {
+                      f.async("uint8array").then(function (u8) {
+                        vscode.workspace.fs.writeFile(
+                          targetPath[0].joinPath(targetPath[0], f.name),
+                          u8
+                        );
+                      });
+                    }
                   }
-                }
+                });
               });
-            });
-            return;
+              return;
+            }
           }
-        }
-      });
-  });
+        });
+    });
 });
