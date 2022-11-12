@@ -12913,7 +12913,6 @@ exports.inflateUndermine = inflateUndermine;
 // end JSZip
 
 console.log("Debug");
-console.log(`typeof JSZip: ${typeof JSZip}`);
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.test", function () {
   vscode.window.showInformationMessage("Test Message");
@@ -12930,6 +12929,8 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
       console.log(`ext: ${ext}`);
       console.log(`zipTypes[ext]: ${zipTypes[ext]}`);
       if (files[0].path.endsWith(ext)) {
+        console.log("Match");
+        console.log(`typeof JSZip: ${typeof JSZip}`);
         var z = new JSZip();
         console.log("JSZip created");
         vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
