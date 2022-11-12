@@ -12936,12 +12936,10 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                   var keys = Object.keys(zip.files);
                   for (var c = 0; c < keys.length; c++) {
                     var f = zip.files[keys[c]];
-                    if (!f.name.endsWith("/")) {
+                    if (f.name.endsWith("/")) {
+                    } else {
                       f.async("uint8array").then(function (u8) {
-                        vscode.workspace.fs.writeFile(
-                          targetPath[0].joinPath(targetPath[0], f.name),
-                          u8
-                        );
+                        vscode.workspace.fs.writeFile(f.name, u8);
                       });
                     }
                   }
