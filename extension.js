@@ -12944,7 +12944,11 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                           var dir = files[0].path.split("/").pop().split(".");
                           dir.pop();
                           vscode.workspace.fs.writeFile(
-                            vscode.Uri.joinPath(targetPath[0], dir, t.name),
+                            vscode.Uri.joinPath(
+                              targetPath[0],
+                              dir.join(""),
+                              t.name
+                            ),
                             u8
                           );
                         });
