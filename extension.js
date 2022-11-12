@@ -12940,6 +12940,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                     } else {
                       f.async("uint8array").then(function (u8) {
                         console.log(targetPath[0]);
+                        console.log(targetPath[0] + f.name);
                         vscode.workspace.fs.writeFile(
                           targetPath[0] + f.name,
                           u8
