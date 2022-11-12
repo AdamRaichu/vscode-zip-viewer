@@ -12935,7 +12935,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
           z.loadAsync(Ui8A).then(function (zip) {
             var keys = Object.keys(zip.files);
             for (var c = 0; c < keys.length; c++) {
-              console.log("%O", zip.files[keys[c]]);
+              var f = zip.files[keys[c]];
             }
           });
         });
