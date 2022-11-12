@@ -12937,7 +12937,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
         vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
           console.log("File read");
           z.loadAsync(Ui8A).then(function (zip) {
-            for (f in zip.files) {
+            for (var f in zip.files) {
               console.log(f);
             }
           });
