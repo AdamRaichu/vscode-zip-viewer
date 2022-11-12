@@ -1,0 +1,26 @@
+name: Package Extension
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Full or Pre?"
+        required: true
+        default: "vsce package"
+        type: choice
+        options:
+          - "vsce package"
+          - "vsce package --pre-release"
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: package with vsce
+        run: |
+          npm install -g vsce
+          ${{ inputs.command }}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: Extension Package
+          path: ./*.vsix
