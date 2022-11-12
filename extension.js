@@ -18,7 +18,7 @@ JSZip v3.10.1 - A JavaScript class for generating and reading zip files
 Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/jszip/main/LICENSE.markdown.
 
 JSZip uses the library pako released under the MIT license :
-https://github.com/nodeca/pako/blob/main/LICENSE
+https://github.com/nodeca/pako/blob/master/LICENSE
 */
 
 (function (f) {
