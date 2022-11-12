@@ -12930,8 +12930,8 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
     console.log(files);
     for (ext in zipTypes) {
       if (files[0].path.endsWith(ext)) {
-        // var z = new JSZip();
-        // console.log("JSZip created")
+        var z = new JSZip();
+        console.log("JSZip created");
         vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
           console.log("File read");
           z.loadAsync(Ui8A).then(function (zip) {
