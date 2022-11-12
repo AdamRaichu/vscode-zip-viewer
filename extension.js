@@ -12929,7 +12929,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
       console.log(`ext: ${ext}`);
       console.log(`zipTypes[ext]: ${zipTypes[ext]}`);
       console.log(`file[0].path.endsWith(ext): ${files[0].path.endsWith(ext)}`);
-      if (files[0].path.endsWith(ext)) {
+      if (files[0].path.endsWith(zipTypes[ext])) {
         console.log("Match");
         console.log(`typeof JSZip: ${typeof JSZip}`);
         var z = new JSZip();
