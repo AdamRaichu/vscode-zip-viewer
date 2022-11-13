@@ -41,8 +41,14 @@
         "properties": {
           "zipViewer.zipTypes": {
             "type": "array",
-            "default": [],
-            "description": "An additonal set of file extensions to check files against when extracting. Pattern: `.zip`"
+            "default": [
+              ".zip",
+              ".vsix",
+              ".mcworld",
+              ".mcpack",
+              ".mcaddon"
+            ],
+            "description": "A set of file extensions to check files against when extracting."
           }
         }
       }

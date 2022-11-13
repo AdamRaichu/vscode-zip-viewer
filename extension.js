@@ -12916,8 +12916,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
         })
         .then(function (targetPath) {
           console.log(`files[0].path: ${files[0].path}`);
-          var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
-          console.log(vscode.workspace.getConfiguration());
+          var zipTypes = vscode.workspace.getConfiguration().zipViewer.zipTypes;
           for (var ext = 0; ext < zipTypes.length; ext++) {
             if (files[0].path.endsWith(zipTypes[ext])) {
               console.log("%cMatch", "color: lawngreen;");
