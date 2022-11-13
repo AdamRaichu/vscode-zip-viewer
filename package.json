@@ -34,6 +34,18 @@
         "title": "Zip: Extract a zip file from workspace",
         "shortTitle": "Extract Zip"
       }
+    ],
+    "configuration": [
+      {
+        "title": "Zip Extracter",
+        "properties": {
+          "zipViewer.zipTypes": {
+            "type": "array",
+            "default": [],
+            "description": "An additonal set of file extensions to check files against when extracting. Pattern: `.zip`"
+          }
+        }
+      }
     ]
   }
 }
