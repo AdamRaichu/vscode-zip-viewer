@@ -1,4 +1,4 @@
-# Vscode Zip Viewer <!-- markdownlint-disable MD033 -->
+# VSCode Zip Viewer <!-- markdownlint-disable MD033 -->
 
 <div align="center">
 
