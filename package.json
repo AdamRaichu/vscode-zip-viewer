@@ -35,8 +35,5 @@
         "shortTitle": "Extract Zip"
       }
     ]
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.73.0"
   }
 }
