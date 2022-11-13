@@ -1,13 +1,5 @@
 const vscode = require("vscode");
 
-/* PLAN --->
-
-jszip
-get Uint8Array with fs.readFile // see docs on web extension limitations
-JSZip.loadAsync(Uint8Array, {options})
-
-<---- END PLAN */
-
 // JSZip
 /*!
 
@@ -12925,6 +12917,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
         .then(function (targetPath) {
           console.log(`files[0].path: ${files[0].path}`);
           var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
+          console.log(vscode.workspace.getConfiguration());
           for (var ext = 0; ext < zipTypes.length; ext++) {
             if (files[0].path.endsWith(zipTypes[ext])) {
               console.log("%cMatch", "color: lawngreen;");
