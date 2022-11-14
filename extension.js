@@ -12908,28 +12908,27 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   vscode.window
     .showOpenDialog({ title: "Zip File", openLabel: "Extract" })
     .then(function (files) {
-      vscode.window
-        .showOpenDialog({
-          title: "Target Folder",
-          canSelectFiles: false,
-          canSelectFolders: true,
-        })
-        .then(function (targetPath) {
-          console.log(`files[0].path: ${files[0].path}`);
-          var zipTypes = vscode.workspace.getConfiguration().zipViewer.zipTypes;
-          for (var ext = 0; ext < zipTypes.length; ext++) {
-            if (files[0].path.endsWith(zipTypes[ext])) {
-              console.log("%cMatch", "color: lawngreen;");
-              var z = new JSZip();
-              console.log("JSZip created");
-              vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
-                console.log("File read");
-                z.loadAsync(Ui8A).then(function (zip) {
-                  var keys = Object.keys(zip.files);
-                  for (var c = 0; c < keys.length; c++) {
-                    var f = zip.files[keys[c]];
-                    if (f.name.endsWith("/")) {
-                    } else {
+      console.log(`files[0].path: ${files[0].path}`);
+      var zipTypes = vscode.workspace.getConfiguration().zipViewer.zipTypes;
+      for (var ext = 0; ext < zipTypes.length; ext++) {
+        if (files[0].path.endsWith(zipTypes[ext])) {
+          console.log("%cMatch", "color: lawngreen;");
+          var z = new JSZip();
+          console.log("JSZip created");
+          vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
+            console.log("File read");
+            z.loadAsync(Ui8A).then(function (zip) {
+              var keys = Object.keys(zip.files);
+              for (var c = 0; c < keys.length; c++) {
+                var f = zip.files[keys[c]];
+                if (!f.name.endsWith("/")) {
+                  vscode.window
+                    .showOpenDialog({
+                      title: "Target Folder",
+                      canSelectFiles: false,
+                      canSelectFolders: true,
+                    })
+                    .then(function (targetPath) {
                       function temp(t) {
                         t.async("uint8array").then(function (u8) {
                           console.log(targetPath[0] + t.name);
@@ -12946,16 +12945,16 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                         });
                       }
                       temp(f);
-                    }
-                  }
-                });
-              });
-              return;
-            }
-          }
-          vscode.window.showErrorMessage(
-            "Selected file does not have a supported file extension. Go to https://github.com/AdamRaichu/vscode-zip-viewer/issues to suggest a new file extension."
-          );
-        });
+                    });
+                }
+              }
+            });
+          });
+          return;
+        }
+      }
+      vscode.window.showErrorMessage(
+        "Selected file does not have a supported file extension. Go to https://github.com/AdamRaichu/vscode-zip-viewer/issues to suggest a new file extension."
+      );
     });
 });
