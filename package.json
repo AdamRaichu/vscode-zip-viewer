@@ -48,6 +48,9 @@
               ".mcpack",
               ".mcaddon"
             ],
+            "examples": [
+              ".customzip"
+            ],
             "description": "A set of file extensions to check files against when extracting."
           }
         }
