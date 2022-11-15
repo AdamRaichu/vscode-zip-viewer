@@ -45,7 +45,7 @@
             "items": {
               "type": "string",
               "title": "File Extension",
-              "pattern": "^\\.([A-Za-z0-9\\.])$"
+              "pattern": "\\.([A-Za-z0-9\\.])"
             },
             "default": [
               ".zip",
