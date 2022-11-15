@@ -34,34 +34,6 @@
         "title": "Zip: Extract a zip file from workspace",
         "shortTitle": "Extract Zip"
       }
-    ],
-    "configuration": [
-      {
-        "title": "Zip Extracter",
-        "properties": {
-          "zipViewer.zipTypes": {
-            "type": "array",
-            "description": "",
-            "items": {
-              "type": "string",
-              "title": "File Extension",
-              "pattern": "\\.([A-Za-z0-9\\.])"
-            },
-            "default": [
-              ".zip",
-              ".vsix",
-              ".mcworld",
-              ".mcpack",
-              ".mcaddon"
-            ]
-          },
-          "zipViewer.picky": {
-            "type": "boolean",
-            "markdownDescription": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`",
-            "default": true
-          }
-        }
-      }
     ]
   }
 }
