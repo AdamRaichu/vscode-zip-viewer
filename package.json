@@ -57,7 +57,7 @@
           },
           "zipViewer.picky": {
             "type": "boolean",
-            "markdownDescription": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`",
+            "markdownDescription": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`. If set to false, extension will only attempt to unzip files with extensions found in `zipTypes`.",
             "default": true
           }
         }

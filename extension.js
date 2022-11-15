@@ -12961,9 +12961,15 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
               return;
             }
           }
-          vscode.window.showErrorMessage(
-            "Selected file does not have a supported file extension. Go to https://github.com/AdamRaichu/vscode-zip-viewer/issues to suggest a new file extension."
-          );
+          vscode.window
+            .showErrorMessage(
+              "Selected file does not have a supported file extension. Go to https://github.com/AdamRaichu/vscode-zip-viewer/issues to suggest a new file extension.",
+              "Add Ext",
+              "Disable `picky`"
+            )
+            .then(function (opt) {
+              console.log(opt);
+            });
         });
     });
 });
