@@ -12905,6 +12905,7 @@ exports.inflateUndermine = inflateUndermine;
 // end JSZip
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
+  var config = vscode.workspace.getConfiguration().zipViewer;
   vscode.window
     .showOpenDialog({ title: "Zip File", openLabel: "Extract" })
     .then(function (files) {
@@ -12916,9 +12917,9 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
         })
         .then(function (targetPath) {
           console.log(`files[0].path: ${files[0].path}`);
-          var zipTypes = vscode.workspace.getConfiguration().zipViewer.zipTypes;
+          var zipTypes = config.zipTypes;
           for (var ext = 0; ext < zipTypes.length; ext++) {
-            if (files[0].path.endsWith(zipTypes[ext])) {
+            if (files[0].path.endsWith(zipTypes[ext]) || !config.picky) {
               console.log("%cMatch", "color: lawngreen;");
               var z = new JSZip();
               console.log("JSZip created");
