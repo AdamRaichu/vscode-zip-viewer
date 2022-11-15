@@ -41,17 +41,24 @@
         "properties": {
           "zipViewer.zipTypes": {
             "type": "array",
+            "description": "",
+            "items": {
+              "type": "string",
+              "title": "File Extension",
+              "pattern": "\\.([A-Za-z0-9\\.])"
+            },
             "default": [
               ".zip",
               ".vsix",
               ".mcworld",
               ".mcpack",
               ".mcaddon"
-            ],
-            "examples": [
-              ".customzip"
-            ],
-            "description": "A set of file extensions to check files against when extracting."
+            ]
+          },
+          "zipViewer.picky": {
+            "type": "boolean",
+            "markdownDescription": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`",
+            "default": true
           }
         }
       }
