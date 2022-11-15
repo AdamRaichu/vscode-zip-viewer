@@ -12925,31 +12925,38 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
               console.log("JSZip created");
               vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
                 console.log("File read");
-                z.loadAsync(Ui8A).then(function (zip) {
-                  var keys = Object.keys(zip.files);
-                  for (var c = 0; c < keys.length; c++) {
-                    var f = zip.files[keys[c]];
-                    if (f.name.endsWith("/")) {
-                    } else {
-                      function temp(t) {
-                        t.async("uint8array").then(function (u8) {
-                          console.log(targetPath[0] + t.name);
-                          var dir = files[0].path.split("/").pop().split(".");
-                          dir.pop();
-                          vscode.workspace.fs.writeFile(
-                            vscode.Uri.joinPath(
-                              targetPath[0],
-                              dir.join(""),
-                              t.name
-                            ),
-                            u8
-                          );
-                        });
+                z.loadAsync(Ui8A).then(
+                  function (zip) {
+                    var keys = Object.keys(zip.files);
+                    for (var c = 0; c < keys.length; c++) {
+                      var f = zip.files[keys[c]];
+                      if (f.name.endsWith("/")) {
+                      } else {
+                        function temp(t) {
+                          t.async("uint8array").then(function (u8) {
+                            console.log(targetPath[0] + t.name);
+                            var dir = files[0].path.split("/").pop().split(".");
+                            dir.pop();
+                            vscode.workspace.fs.writeFile(
+                              vscode.Uri.joinPath(
+                                targetPath[0],
+                                dir.join(""),
+                                t.name
+                              ),
+                              u8
+                            );
+                          });
+                        }
+                        temp(f);
                       }
-                      temp(f);
                     }
+                  },
+                  function () {
+                    vscode.showErrorMessage(
+                      `JSZip encountered an error trying to unzip ${files[0].path}`
+                    );
                   }
-                });
+                );
               });
               return;
             }
