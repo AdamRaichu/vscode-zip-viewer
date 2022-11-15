@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Allow user to specify additional file extensions with a setting.
+Currently no planned enhancements.
+
+## [1.1.0-pre] - 2022-11-15
+
+**Note**: This is a pre-release version of the extension. It needs to be manually user-enabled.
+
+Added settings `zipViewer.zipTypes` and `zipViewer.picky`. See README for more information.
 
 ## [1.0.0] - 2022-11-12
 
