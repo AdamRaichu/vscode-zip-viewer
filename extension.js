@@ -12952,7 +12952,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                     }
                   },
                   function () {
-                    vscode.showErrorMessage(
+                    vscode.window.showErrorMessage(
                       `JSZip encountered an error trying to unzip ${files[0].path}`
                     );
                   }
