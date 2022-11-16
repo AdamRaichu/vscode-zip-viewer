@@ -18,7 +18,7 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "browser": "/extension.js",
   "main": "/extension.js",
   "activationEvents": [
@@ -41,7 +41,7 @@
         "properties": {
           "zipViewer.zipTypes": {
             "type": "array",
-            "description": "",
+            "description": "An array of file extensions to check files against when unzipping.",
             "items": {
               "type": "string",
               "title": "File Extension",
