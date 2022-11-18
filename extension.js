@@ -12939,7 +12939,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                               vscode.Uri.joinPath(
                                 targetPath[0],
                                 files[0].path.split("/").pop(),
-                                "/",
+                                "_unzipped/",
                                 t.name
                               ),
                               u8
