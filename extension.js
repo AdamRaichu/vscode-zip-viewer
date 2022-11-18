@@ -12936,7 +12936,12 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                           t.async("uint8array").then(function (u8) {
                             console.log(targetPath[0] + t.name);
                             vscode.workspace.fs.writeFile(
-                              vscode.Uri.joinPath(targetPath[0], t.name),
+                              vscode.Uri.joinPath(
+                                targetPath[0],
+                                files[0].path.split("/").pop(),
+                                "/",
+                                t.name
+                              ),
                               u8
                             );
                           });
