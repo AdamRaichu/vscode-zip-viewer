@@ -1,13 +1,5 @@
 const vscode = require("vscode");
 
-/* PLAN --->
-
-jszip
-get Uint8Array with fs.readFile // see docs on web extension limitations
-JSZip.loadAsync(Uint8Array, {options})
-
-<---- END PLAN */
-
 // JSZip
 /*!
 
@@ -12913,6 +12905,7 @@ exports.inflateUndermine = inflateUndermine;
 // end JSZip
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
+  var config = vscode.workspace.getConfiguration().zipViewer;
   vscode.window
     .showOpenDialog({ title: "Zip File", openLabel: "Extract" })
     .then(function (files) {
@@ -12924,45 +12917,51 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
         })
         .then(function (targetPath) {
           console.log(`files[0].path: ${files[0].path}`);
-          var zipTypes = [".zip", ".vsix", ".mcworld", ".mcpack", ".mcaddon"];
+          var zipTypes = config.zipTypes;
           for (var ext = 0; ext < zipTypes.length; ext++) {
-            if (files[0].path.endsWith(zipTypes[ext])) {
+            if (files[0].path.endsWith(zipTypes[ext]) || !config.picky) {
               console.log("%cMatch", "color: lawngreen;");
               var z = new JSZip();
               console.log("JSZip created");
               vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
                 console.log("File read");
-                z.loadAsync(Ui8A).then(function (zip) {
-                  var keys = Object.keys(zip.files);
-                  for (var c = 0; c < keys.length; c++) {
-                    var f = zip.files[keys[c]];
-                    if (f.name.endsWith("/")) {
-                    } else {
-                      function temp(t) {
-                        t.async("uint8array").then(function (u8) {
-                          console.log(targetPath[0] + t.name);
-                          var dir = files[0].path.split("/").pop().split(".");
-                          dir.pop();
-                          vscode.workspace.fs.writeFile(
-                            vscode.Uri.joinPath(
-                              targetPath[0],
-                              dir.join(""),
-                              t.name
-                            ),
-                            u8
-                          );
-                        });
+                z.loadAsync(Ui8A).then(
+                  function (zip) {
+                    var keys = Object.keys(zip.files);
+                    for (var c = 0; c < keys.length; c++) {
+                      var f = zip.files[keys[c]];
+                      if (f.name.endsWith("/")) {
+                      } else {
+                        function temp(t) {
+                          t.async("uint8array").then(function (u8) {
+                            console.log(targetPath[0] + t.name);
+                            vscode.workspace.fs.writeFile(
+                              vscode.Uri.joinPath(
+                                targetPath[0],
+                                files[0].path.split("/").pop() + "_unzipped",
+                                "/",
+                                t.name
+                              ),
+                              u8
+                            );
+                          });
+                        }
+                        temp(f);
                       }
-                      temp(f);
                     }
+                  },
+                  function () {
+                    vscode.window.showErrorMessage(
+                      `JSZip encountered an error trying to unzip ${files[0].path}`
+                    );
                   }
-                });
+                );
               });
               return;
             }
           }
           vscode.window.showErrorMessage(
-            "Selected file does not have a supported file extension. Go to https://github.com/AdamRaichu/vscode-zip-viewer/issues to suggest a new file extension."
+            "Selected file does not have a supported file extension. Edit the setting `zipViewer.zipTypes` to add a file extension, but please go to the extension repository and open an issue so it can be added to the built in list."
           );
         });
     });

@@ -18,14 +18,14 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "1.0.0",
+  "version": "1.1.1",
   "browser": "/extension.js",
   "main": "/extension.js",
   "activationEvents": [
     "onCommand:AdamRaichu.zipViewer.extract"
   ],
   "engines": {
-    "vscode": "^1.61.0"
+    "vscode": "^1.63.0"
   },
   "contributes": {
     "commands": [
@@ -33,6 +33,34 @@
         "command": "AdamRaichu.zipViewer.extract",
         "title": "Zip: Extract a zip file from workspace",
         "shortTitle": "Extract Zip"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Zip Extracter",
+        "properties": {
+          "zipViewer.zipTypes": {
+            "type": "array",
+            "description": "An array of file extensions to check files against when unzipping.",
+            "items": {
+              "type": "string",
+              "title": "File Extension",
+              "pattern": "\\.([A-Za-z0-9\\.])"
+            },
+            "default": [
+              ".zip",
+              ".vsix",
+              ".mcworld",
+              ".mcpack",
+              ".mcaddon"
+            ]
+          },
+          "zipViewer.picky": {
+            "type": "boolean",
+            "markdownDescription": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`. If set to true, extension will only attempt to unzip files with extensions found in `zipTypes`.",
+            "default": true
+          }
+        }
       }
     ]
   }
