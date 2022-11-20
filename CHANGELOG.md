@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Currently no planned enhancements.
 
+## [1.1.2] - 2022-11-20
+
+Extension now has setting `zipViewer.unzippedSuffix`, which controls the string added to the end of file names when unzipping.
+
 ## [1.1.1] - 2022-11-19
 
 Extension now has setting `zipViewer.zipTypes` and `zipViewer.picky`. See [1.1.0-pre](#110-pre---2022-11-15) and README.
