@@ -12938,7 +12938,8 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                             vscode.workspace.fs.writeFile(
                               vscode.Uri.joinPath(
                                 targetPath[0],
-                                files[0].path.split("/").pop() + "_unzipped",
+                                files[0].path.split("/").pop() +
+                                  config.unzippedSuffix,
                                 "/",
                                 t.name
                               ),
