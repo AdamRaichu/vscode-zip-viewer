@@ -12995,7 +12995,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           if (typeof targetPath === "undefined") {
             return;
           }
-          vscode.workspace.fs.readDirectory(folderToZip).then(function (files) {
+          vscode.workspace.fs.readDirectory(folderToZip[0]).then(function (files) {
             console.log(files);
             for (var f in files) {
               console.log(f);
