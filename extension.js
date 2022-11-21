@@ -12976,13 +12976,21 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
 
 vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
   vscode.window
-    .showOpenDialog({ title: "Folder to zip" })
+    .showOpenDialog({
+      title: "Folder to zip",
+      canSelectFiles: false,
+      canSelectFolders: true,
+    })
     .then(function (folderToZip) {
       if (typeof folderToZip === "undefined") {
         return;
       }
       vscode.window
-        .showOpenDialog({ title: "Target folder" })
+        .showOpenDialog({
+          title: "Target folder",
+          canSelectFiles: false,
+          canSelectFolders: true,
+        })
         .then(function (targetPath) {
           if (typeof targetPath === "undefined") {
             return;

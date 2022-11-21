@@ -22,7 +22,8 @@
   "browser": "/extension.js",
   "main": "/extension.js",
   "activationEvents": [
-    "onCommand:AdamRaichu.zipViewer.extract"
+    "onCommand:AdamRaichu.zipViewer.extract",
+    "onCommand:AdamRaichu.zipViewer.zip"
   ],
   "engines": {
     "vscode": "^1.63.0"
