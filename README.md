@@ -19,7 +19,7 @@ Search `adamraichu.zip-viewer`.
 
 ### Extract a Zip
 
-To extract a zip file, run the command `Zip: Extract a zip file from workspace`. The extension will prompt you to select a zip file, then it will prompt you to choose a target folder. The contents of the zip file will be deposited in that folder.
+To extract a zip file, run the command `Zip Viewer: Extract a zip file from workspace`. The extension will prompt you to select a zip file, then it will prompt you to choose a target folder. The contents of the zip file will be deposited in that folder.
 
 The extension contributes a setting `zipViewer.zipTypes`. If the file you chose does not end with a string in that array, the extension will give an error message. You can edit this setting in settings.json. This setting is ignored if `zipViewer.picky` is set to false.
 
