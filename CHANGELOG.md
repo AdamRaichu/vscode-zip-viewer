@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Currently no planned enhancements.
+The ability to create zip files from folders.
 
-## [1.1.2] - 2022-11-20
+## [1.1.2] - 2022-11-21
 
 Extension now has setting `zipViewer.unzippedSuffix`, which controls the string added to the end of file names when unzipping.
 
