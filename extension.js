@@ -13001,15 +13001,17 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
               console.log(files);
               for (var f in files) {
                 function temp(d) {
-                  if (files[f][1] === 1) {
+                  if (files[d][1] === 1) {
                     vscode.workspace.fs
-                      .readFile(vscode.Uri.joinPath(folderToZip[0], files[d]))
+                      .readFile(
+                        vscode.Uri.joinPath(folderToZip[0], files[d][0])
+                      )
                       .then(function (file) {
                         z.file(files[d][0], file);
                         console.log(z);
                       });
                   } else if (files[f][1] === 2) {
-                    main(vscode.Uri.joinPath(uri, files[f][0], "/"));
+                    main(vscode.Uri.joinPath(uri, files[d][0], "/"));
                   }
                 }
                 temp(f);
