@@ -13010,7 +13010,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
                         z.file(files[d][0], file);
                         console.log(z);
                       });
-                  } else if (files[f][1] === 2) {
+                  } else if (files[d][1] === 2) {
                     main(vscode.Uri.joinPath(uri, files[d][0], "/"));
                   }
                 }
