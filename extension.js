@@ -12995,12 +12995,29 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           if (typeof targetPath === "undefined") {
             return;
           }
-          vscode.workspace.fs.readDirectory(folderToZip[0]).then(function (files) {
-            console.log(files);
-            for (var f in files) {
-              console.log(f);
-            }
-          });
+          var z = new JSZip();
+          function main(uri) {
+            vscode.workspace.fs.readDirectory(uri).then(function (files) {
+              console.log(files);
+              for (var f in files) {
+                function temp(d) {
+                  console.log(vscode.FileType[files[f][1]]);
+                  if (files[f][1] === 1) {
+                    vscode.workspace.fs
+                      .readFile(vscode.Uri.joinPath(folderToZip[0], files[d]))
+                      .then(function (file) {
+                        z.file(files[d][0], file);
+                        console.log(z);
+                      });
+                  } else if (files[f][1] === 2) {
+                    main(vscode.Uri.joinPath(uri, files[f][0], "/"));
+                  }
+                }
+                temp(f);
+              }
+            });
+          }
+          main(folderToZip[0]);
         });
     });
 });
