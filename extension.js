@@ -13001,7 +13001,6 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
               console.log(files);
               for (var f in files) {
                 function temp(d) {
-                  console.log(vscode.FileType[files[f][1]]);
                   if (files[f][1] === 1) {
                     vscode.workspace.fs
                       .readFile(vscode.Uri.joinPath(folderToZip[0], files[d]))
