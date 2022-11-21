@@ -31,8 +31,13 @@
     "commands": [
       {
         "command": "AdamRaichu.zipViewer.extract",
-        "title": "Zip: Extract a zip file from workspace",
+        "title": "Zip Viewer: Extract a zip file from workspace",
         "shortTitle": "Extract Zip"
+      },
+      {
+        "command": "AdamRaichu.zipViewer.zip",
+        "title": "Zip Viewer: Create a zip file from folder",
+        "shortTitle": "Zip Folder"
       }
     ],
     "configuration": [
@@ -64,6 +69,12 @@
             "type": "string",
             "description": "The suffix to add to folder name when unzipping a zip file",
             "default": "_unzipped",
+            "pattern": "^[^\\/?%*:|\"<>\\.]+$"
+          },
+          "zipViewer.zippedSuffix": {
+            "type": "string",
+            "description": "The suffix to add to file name when zipping a folder.",
+            "default": "_zipped",
             "pattern": "^[^\\/?%*:|\"<>\\.]+$"
           }
         }

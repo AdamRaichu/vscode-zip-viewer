@@ -12909,6 +12909,9 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   vscode.window
     .showOpenDialog({ title: "Zip File", openLabel: "Extract" })
     .then(function (files) {
+      if (typeof files === "undefined") {
+        return;
+      }
       vscode.window
         .showOpenDialog({
           title: "Target Folder",
@@ -12916,6 +12919,9 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
           canSelectFolders: true,
         })
         .then(function (targetPath) {
+          if (typeof targetPath === "undefined") {
+            return;
+          }
           console.log(`files[0].path: ${files[0].path}`);
           var zipTypes = config.zipTypes;
           for (var ext = 0; ext < zipTypes.length; ext++) {
@@ -12964,6 +12970,29 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
           vscode.window.showErrorMessage(
             "Selected file does not have a supported file extension. Edit the setting `zipViewer.zipTypes` to add a file extension, but please go to the extension repository and open an issue so it can be added to the built in list."
           );
+        });
+    });
+});
+
+vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
+  vscode.window
+    .showOpenDialog({ title: "Folder to zip" })
+    .then(function (folderToZip) {
+      if (typeof folderToZip === "undefined") {
+        return;
+      }
+      vscode.window
+        .showOpenDialog({ title: "Target folder" })
+        .then(function (targetPath) {
+          if (typeof targetPath === "undefined") {
+            return;
+          }
+          vscode.workspace.fs.readDirectory(folderToZip).then(function (files) {
+            console.log(files);
+            for (var f in files) {
+              console.log(f);
+            }
+          });
         });
     });
 });
