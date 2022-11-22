@@ -13002,10 +13002,10 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           var barItem = vscode.window.createStatusBarItem();
           barItem.text = "$(loading~spin) Creating zip file...";
           console.debug(`barItem: ${barItem}`);
+          done = true;
           function main(uri) {
             vscode.workspace.fs.readDirectory(uri).then(function (files) {
               console.log(files);
-              done = true;
               for (var f in files) {
                 function temp(d) {
                   console.debug(`files[d]: ${files[d]}`);
