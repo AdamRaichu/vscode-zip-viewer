@@ -12996,9 +12996,13 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
             return;
           }
           var z = new JSZip();
+          var done = false;
+          var barItem = vscode.window.createStatusBarItem();
+          barItem.text = "$(loading~spin) Creating zip file...";
           function main(uri) {
             vscode.workspace.fs.readDirectory(uri).then(function (files) {
               console.log(files);
+              done = true;
               for (var f in files) {
                 function temp(d) {
                   if (files[d][1] === 1) {
@@ -13015,10 +13019,24 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
                   }
                 }
                 temp(f);
+                if (files[f][1] === 2) {
+                  done = false;
+                }
               }
             });
           }
           main(folderToZip[0]);
+          while (!done) {}
+          z.generateAsync({ type: "uint8array" }, function (metadata) {
+            // prettier-ignore
+            barItem.text = `$(loading~spin) Zip file compression ${metadata.percent.toFixed(2)}% complete`;
+          }).then(function (zip) {
+            barItem.text = "$(loading~spin) Saving...";
+            vscode.workspace.fs.writeFile(targetPath[0], zip).then(function () {
+              barItem.hide();
+              barItem.dispose();
+            });
+          });
         });
     });
 });
