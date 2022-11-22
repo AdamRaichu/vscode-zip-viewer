@@ -12982,6 +12982,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
       canSelectFolders: true,
     })
     .then(function (folderToZip) {
+      console.debug(`folderToZip: ${folderToZip}`);
       if (typeof folderToZip === "undefined") {
         return;
       }
@@ -12992,6 +12993,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           canSelectFolders: true,
         })
         .then(function (targetPath) {
+          console.debug(`targetPath: ${targetPath}`);
           if (typeof targetPath === "undefined") {
             return;
           }
@@ -12999,12 +13001,14 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           var done = false;
           var barItem = vscode.window.createStatusBarItem();
           barItem.text = "$(loading~spin) Creating zip file...";
+          console.debug(`barItem: ${barItem}`);
           function main(uri) {
             vscode.workspace.fs.readDirectory(uri).then(function (files) {
               console.log(files);
               done = true;
               for (var f in files) {
                 function temp(d) {
+                  console.debug(`files[d]: ${files[d]}`);
                   if (files[d][1] === 1) {
                     vscode.workspace.fs
                       .readFile(
@@ -13026,7 +13030,10 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
             });
           }
           main(folderToZip[0]);
-          while (!done) {}
+          while (!done) {
+            console.debug(`done: ${done}`);
+          }
+          console.debug(`while loop complete`);
           z.generateAsync({ type: "uint8array" }, function (metadata) {
             // prettier-ignore
             barItem.text = `$(loading~spin) Zip file compression ${metadata.percent.toFixed(2)}% complete`;
