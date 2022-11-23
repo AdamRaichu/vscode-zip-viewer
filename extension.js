@@ -1,4 +1,3 @@
-const { config } = require("process");
 const vscode = require("vscode");
 
 // JSZip
