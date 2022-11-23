@@ -1,3 +1,4 @@
+const { config } = require("process");
 const vscode = require("vscode");
 
 // JSZip
@@ -13053,7 +13054,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
                 .writeFile(
                   vscode.Uri.joinPath(
                     targetPath[0],
-                    folderToZip[0].path.split("/").pop()
+                    folderToZip[0].path.split("/").pop() + ".zip"
                   ),
                   zip
                 )

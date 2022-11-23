@@ -71,12 +71,6 @@
             "description": "The suffix to add to folder name when unzipping a zip file",
             "default": "_unzipped",
             "pattern": "^[^\\/?%*:|\"<>\\.]+$"
-          },
-          "zipViewer.zippedSuffix": {
-            "type": "string",
-            "description": "The suffix to add to file name when zipping a folder.",
-            "default": "_zipped",
-            "pattern": "^[^\\/?%*:|\"<>\\.]+$"
           }
         }
       }
