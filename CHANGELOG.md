@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-The ability to create zip files from folders.
+View files in a zip as a tree.
 
-## [1.2.0] - 2022-11-23
+## [1.2.0] - 2022-11-23 (1.1.3-pre)
 
 Added:
 
