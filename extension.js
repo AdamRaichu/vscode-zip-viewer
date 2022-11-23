@@ -12999,8 +12999,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           }
           var z = new JSZip(),
             barItem = vscode.window.createStatusBarItem(),
-            count = 0,
-            done = false;
+            count = 0;
           barItem.text = "$(loading~spin) Creating zip file...";
           barItem.show();
           function main(uri) {
