@@ -75,9 +75,5 @@
         }
       }
     ]
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@types/vscode": "^1.73.1"
   }
 }
