@@ -11,7 +11,12 @@ The ability to create zip files from folders.
 
 ## [1.2.0] - 2022-11-23
 
-Extension now has command...
+Added:
+
+- Command "Zip Viewer: Create a zip file from folder" (`AdamRaichu.zipViewer.zip`)
+  - Prompts user to select a folder to zip.
+  - Prompts user to select a target folder.
+  - Creates a file with the name `<folderToZipName>.zip` in the target folder.
 
 ## [1.1.2] - 2022-11-21
 
