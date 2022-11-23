@@ -13050,7 +13050,13 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
             }).then(function (zip) {
               barItem.text = "$(loading~spin) Saving...";
               vscode.workspace.fs
-                .writeFile(targetPath[0], zip)
+                .writeFile(
+                  vscode.Uri.joinPath(
+                    targetPath[0],
+                    folderToZip[0].path.split("/").pop()
+                  ),
+                  zip
+                )
                 .then(function () {
                   barItem.hide();
                   barItem.dispose();
