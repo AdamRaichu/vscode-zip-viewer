@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The ability to create zip files from folders.
 
+## [1.2.0] - 2022-11-23
+
+Extension now has command...
+
 ## [1.1.2] - 2022-11-21
 
 Extension now has setting `zipViewer.unzippedSuffix`, which controls the string added to the end of file names when unzipping.
@@ -28,6 +32,7 @@ Added settings `zipViewer.zipTypes` and `zipViewer.picky`. See README for more i
 ### Features
 
 - Command "Zip: Extract a zip file from workspace" (`AdamRaichu.zipViewer.extract`)
+
   - Prompts user to select a zip file and a target folder.
   - Creates a folder in target folder with same name as zip file (minus file extension).
   - Extracts all files to that location.
@@ -41,4 +46,4 @@ Added settings `zipViewer.zipTypes` and `zipViewer.picky`. See README for more i
 
 ---
 
-[*back to top*](#changelog)
+[_back to top_](#changelog)

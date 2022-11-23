@@ -32,7 +32,7 @@
     "commands": [
       {
         "command": "AdamRaichu.zipViewer.extract",
-        "title": "Zip Viewer: Extract a zip file from workspace",
+        "title": "Zip Viewer: Extract (unzip) a zip file from workspace",
         "shortTitle": "Extract Zip"
       },
       {
@@ -68,9 +68,9 @@
           },
           "zipViewer.unzippedSuffix": {
             "type": "string",
-            "description": "The suffix to add to folder name when unzipping a zip file",
+            "markdownDescription": "The suffix to add to folder name when unzipping a zip file. Must not contain any of the following characters: `/ ? % * : | \" < >`.",
             "default": "_unzipped",
-            "pattern": "^[^\\/?%*:|\"<>\\.]+$"
+            "pattern": "^[^\\/?%*:|\"<>]+$"
           }
         }
       }
