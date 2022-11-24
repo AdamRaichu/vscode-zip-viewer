@@ -1,7 +1,7 @@
 {
   "name": "zip-viewer",
-  "displayName": "Zip Extracter",
-  "description": "An extension which allows for the extraction of zip files.",
+  "displayName": "Zip Tools",
+  "description": "An extension which allows for the manipulation of zip files.",
   "publisher": "adamraichu",
   "icon": "logo.png",
   "authors": "AdamRaichu",

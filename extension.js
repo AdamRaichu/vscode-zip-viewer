@@ -11935,6 +11935,8 @@ exports.inflateUndermine = inflateUndermine;
 });
 // end JSZip
 
+var o = vscode.window.createOutputChannel("Zip Viewer");
+
 vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
   var config = vscode.workspace.getConfiguration().zipViewer;
   vscode.window.showOpenDialog({ title: "Zip File", openLabel: "Extract" }).then(function (files) {
@@ -11955,11 +11957,8 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
         var zipTypes = config.zipTypes;
         for (var ext = 0; ext < zipTypes.length; ext++) {
           if (files[0].path.endsWith(zipTypes[ext]) || !config.picky) {
-            console.log("%cMatch", "color: lawngreen;");
             var z = new JSZip();
-            console.log("JSZip created");
             vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
-              console.log("File read");
               z.loadAsync(Ui8A).then(
                 function (zip) {
                   var keys = Object.keys(zip.files);
@@ -11969,7 +11968,7 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                     } else {
                       function temp(t) {
                         t.async("uint8array").then(function (u8) {
-                          console.log(targetPath[0] + t.name);
+                          o.appendLine(`[DEBUG] Wrote ${t.name}`);
                           vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], files[0].path.split("/").pop() + config.unzippedSuffix, "/", t.name), u8);
                         });
                       }
@@ -11977,7 +11976,8 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
                     }
                   }
                 },
-                function () {
+                function (err) {
+                  console.error(err);
                   vscode.window.showErrorMessage(`JSZip encountered an error trying to unzip ${files[0].path}`);
                 }
               );
@@ -12000,10 +12000,11 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
       canSelectFolders: true,
     })
     .then(function (folderToZip) {
-      console.debug(`folderToZip: ${folderToZip}`);
       if (typeof folderToZip === "undefined") {
+        o.appendLine(`[DEBUG] Process aborted`);
         return;
       }
+      o.appendLine(`[DEBUG] folderToZip: ${folderToZip}`);
       vscode.window
         .showOpenDialog({
           title: "Target folder",
@@ -12011,10 +12012,11 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           canSelectFolders: true,
         })
         .then(function (targetPath) {
-          console.debug(`targetPath: ${targetPath}`);
           if (typeof targetPath === "undefined") {
+            o.appendLine(`[DEBUG] Process aborted`);
             return;
           }
+          o.appendLine(`[DEBUG] targetPath: ${targetPath}`);
           var z = new JSZip(),
             barItem = vscode.window.createStatusBarItem(),
             count = 0;
@@ -12023,10 +12025,9 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
           function main(uri) {
             vscode.workspace.fs.readDirectory(uri).then(
               function (files) {
-                console.log(files);
                 for (var f in files) {
                   function temp(d) {
-                    console.debug(`files[d]: ${files[d]}`);
+                    o.appendLine(`[DEBUG] Read ${uri.path.substr(folderToZip[0].path.length) + files[d][0]}`);
                     count++;
                     if (files[d][1] === 1) {
                       vscode.workspace.fs.readFile(vscode.Uri.joinPath(uri, files[d][0])).then(function (file) {
@@ -12042,12 +12043,13 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
               function (err) {
                 console.error(err);
                 vscode.showErrorMessage("An error occured creating your zip file.");
+                o.appendLine(`[ERROR] Process failed`);
                 barItem.text = "$(error) Zip file creation failed";
                 barItem.backgroundColor = new vscode.ThemeColor("statusBarItem.errorBackground");
                 setTimeout(function () {
                   barItem.hide();
                   barItem.dispose();
-                }, 3000);
+                }, 5000);
               }
             );
           }
@@ -12076,10 +12078,12 @@ vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
                 function () {
                   barItem.hide();
                   barItem.dispose();
+                  o.appendLine("[INFO] Process completed.");
                 },
                 function (err) {
                   console.error(err);
                   vscode.showErrorMessage("An error occured trying to save your zip file.");
+                  o.appendLine(`[ERROR] Process failed`);
                   barItem.text = "$(error) Zip file save failed";
                   barItem.backgroundColor = new vscode.ThemeColor("statusBarItem.errorBackground");
                   setTimeout(function () {
