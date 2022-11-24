@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: package with vsce
+        continue-on-error: true
         run: |
           npm install -g vsce
           ${{ inputs.command }}
