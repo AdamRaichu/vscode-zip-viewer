@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 View files in a zip as a tree.
 
-## [1.2.0] - 2022-11-23 (1.1.3-pre)
+## [1.2.0] - 2022-12-13 (1.1.3-pre)
 
 Added:
 
