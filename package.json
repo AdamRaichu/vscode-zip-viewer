@@ -1,7 +1,7 @@
 {
   "name": "zip-viewer",
-  "displayName": "Zip Extracter",
-  "description": "An extension which allows for the extraction of zip files.",
+  "displayName": "Zip Tools",
+  "description": "An extension which allows for the manipulation of zip files.",
   "publisher": "adamraichu",
   "icon": "logo.png",
   "authors": "AdamRaichu",
@@ -18,11 +18,12 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "1.1.2",
+  "version": "1.1.3",
   "browser": "/extension.js",
   "main": "/extension.js",
   "activationEvents": [
-    "onCommand:AdamRaichu.zipViewer.extract"
+    "onCommand:AdamRaichu.zipViewer.extract",
+    "onCommand:AdamRaichu.zipViewer.zip"
   ],
   "engines": {
     "vscode": "^1.63.0"
@@ -31,8 +32,13 @@
     "commands": [
       {
         "command": "AdamRaichu.zipViewer.extract",
-        "title": "Zip: Extract a zip file from workspace",
+        "title": "Zip Viewer: Extract (unzip) a zip file from workspace",
         "shortTitle": "Extract Zip"
+      },
+      {
+        "command": "AdamRaichu.zipViewer.zip",
+        "title": "Zip Viewer: Create a zip file from folder",
+        "shortTitle": "Zip Folder"
       }
     ],
     "configuration": [
@@ -62,9 +68,9 @@
           },
           "zipViewer.unzippedSuffix": {
             "type": "string",
-            "description": "The suffix to add to folder name when unzipping a zip file",
+            "markdownDescription": "The suffix to add to folder name when unzipping a zip file. Must not contain any of the following characters: `/ ? % * : | \" < >`.",
             "default": "_unzipped",
-            "pattern": "^[^\\/?%*:|\"<>\\.]+$"
+            "pattern": "^[^\\/?%*:|\"<>]+$"
           }
         }
       }

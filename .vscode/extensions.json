@@ -1,5 +1,6 @@
 {
   "recommendations": [
-    "adamraichu.zip-viewer"
+    "adamraichu.zip-viewer",
+    "esbenp.prettier-vscode"
   ]
 }

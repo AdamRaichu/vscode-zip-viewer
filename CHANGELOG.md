@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-The ability to create zip files from folders.
+View files in a zip as a tree.
+
+## [1.2.0] - 2022-11-23 (1.1.3-pre)
+
+Added:
+
+- Command "Zip Viewer: Create a zip file from folder" (`AdamRaichu.zipViewer.zip`)
+  - Prompts user to select a folder to zip.
+  - Prompts user to select a target folder.
+  - Creates a file with the name `<folderToZipName>.zip` in the target folder.
 
 ## [1.1.2] - 2022-11-21
 
@@ -28,6 +37,7 @@ Added settings `zipViewer.zipTypes` and `zipViewer.picky`. See README for more i
 ### Features
 
 - Command "Zip: Extract a zip file from workspace" (`AdamRaichu.zipViewer.extract`)
+
   - Prompts user to select a zip file and a target folder.
   - Creates a folder in target folder with same name as zip file (minus file extension).
   - Extracts all files to that location.
@@ -41,4 +51,4 @@ Added settings `zipViewer.zipTypes` and `zipViewer.picky`. See README for more i
 
 ---
 
-[*back to top*](#changelog)
+[_back to top_](#changelog)
