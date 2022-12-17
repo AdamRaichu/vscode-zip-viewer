@@ -1,0 +1,53 @@
+name: Build with Webpack
+on:
+  push:
+    paths:
+      - "src/**"
+      - "media/**"
+    branches-ignore:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      type:
+        type: choice
+        options:
+          - "pre"
+          - "full"
+concurrency:
+  group: webpack
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          npm install webpack webpack-cli --save-dev
+          npm install jszip --save
+          npm run build
+      - name: Commit Changes
+        continue-on-error: true
+        if: github.event_name == 'push'
+        run: |
+          git pull
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Build"
+          git push
+  package-pre:
+    name: Package Extension (pre-release)
+    needs: build
+    if: contains(github.event.head_commit.message, '[build pre]') || (github.event_name == 'workflow_dispatch' && inputs.type == 'pre')
+    uses: AdamRaichu/vscode-pdf-viewer/.github/workflows/package.yml@main
+    with:
+      command: vsce package --pre-release
+  package-full:
+    name: Package Extension (full)
+    needs: build
+    if: contains(github.event.head_commit.message, '[build full]') || (github.event_name == 'workflow_dispatch' && inputs.type == 'full')
+    uses: AdamRaichu/vscode-pdf-viewer/.github/workflows/package.yml@main
+    with:
+      command: vsce package

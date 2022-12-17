@@ -18,12 +18,13 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "1.2.0",
-  "browser": "/extension.js",
-  "main": "/extension.js",
+  "version": "2.0.0",
+  "browser": "./dist/main.js",
+  "main": "./dist/main.js",
   "activationEvents": [
     "onCommand:AdamRaichu.zipViewer.extract",
-    "onCommand:AdamRaichu.zipViewer.zip"
+    "onCommand:AdamRaichu.zipViewer.zip",
+    "onCustomEditor:zipViewer.ZipEdit"
   ],
   "engines": {
     "vscode": "^1.63.0"
@@ -39,6 +40,30 @@
         "command": "AdamRaichu.zipViewer.zip",
         "title": "Zip Viewer: Create a zip file from folder",
         "shortTitle": "Zip Folder"
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "zipViewer.ZipEdit",
+        "displayName": "Zip Viewer",
+        "selector": [
+          {
+            "filenamePattern": "*.zip"
+          },
+          {
+            "filenamePattern": "*.vsix"
+          },
+          {
+            "filenamePattern": "*.mcworld"
+          },
+          {
+            "filenamePattern": "*.mcpack"
+          },
+          {
+            "filenamePattern": "*.mcaddon"
+          }
+        ],
+        "priority": "default"
       }
     ],
     "configuration": [
@@ -75,5 +100,8 @@
         }
       }
     ]
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.63.0"
   }
 }
