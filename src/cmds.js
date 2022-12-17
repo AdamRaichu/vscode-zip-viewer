@@ -3,7 +3,7 @@ const JSZip = require("jszip");
 
 var o = vscode.window.createOutputChannel("Zip Viewer");
 
-export class cmds {
+export default class cmds {
   static register() {
     vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
       var config = vscode.workspace.getConfiguration().zipViewer;
