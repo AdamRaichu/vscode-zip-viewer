@@ -21,6 +21,10 @@ window.addEventListener("message", (e) => {
       p.innerText = keys[i];
       if (files[keys[i]].dir) {
         p.classList.add("folder");
+      } else {
+        p.addEventListener("click", function () {
+          vscode.postMessage({ command: "get", uri: this.innerText });
+        });
       }
 
       document.body.appendChild(p);

@@ -57,7 +57,7 @@ export default class ZipEdit {
     panel.webview.onDidReceiveMessage((message) => {
       if (message.command === "DOMContentLoaded") {
         document.getFileData(document.uri).then(function (f) {
-          panel.webview.postMessage({ command: "files", f: JSON.stringify(f), uri: document.uri.toString() });
+          panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
         });
       }
     });
