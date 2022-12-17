@@ -103,5 +103,8 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.63.0"
+  },
+  "scripts": {
+    "build": "webpack"
   }
 }
