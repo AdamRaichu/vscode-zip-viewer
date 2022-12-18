@@ -1,5 +1,7 @@
 const vscode = require("vscode");
 import ZipDoc from "./doc";
+import extTypes from "./ext.json";
+import mime from "./mime.json";
 
 export default class ZipEdit {
   static register() {
@@ -20,37 +22,14 @@ export default class ZipEdit {
 <html>
 <head>
   <script src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "editor.js"))}"></script>
-  <style>
-    body.mc .folder::before {
-      background-image: url(${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "img", "folder-grass.png"))});
-      background-size: contain;
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      content: "";
-    }
-    body.vsix .folder::before {
-      background-image: url(${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "img", "folder-vscode.png"))});
-      background-size: contain;
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      content: "";
-    }
-    .folder::before {
-      background-image: url(${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "img", "folder.png"))});
-      background-size: contain;
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      content: "";
-    }
-  </style>
+  <link rel="stylesheet" href="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "editor.css"))}">
+  <script>var mime = ${JSON.stringify(mime)}</script>
 </head>
 
 <body>
   <h1 id="loading">Loading zip file content...</h1>
   <div id="target"></div>
+  <textarea readonly id="preview"></textarea>
 </body>
 
 </html>`;
@@ -58,6 +37,29 @@ export default class ZipEdit {
       if (message.command === "DOMContentLoaded") {
         document.getFileData(document.uri).then(function (f) {
           panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
+          panel.webview.onDidReceiveMessage((msg) => {
+            if (msg.command === "get") {
+              var ext = msg.uri.split(".").pop();
+
+              // check if string
+              for (var i = 0; i < extTypes.string.length; i++) {
+                if (ext === extTypes.string[i]) {
+                  f.files[msg.uri].async("string").then(function (s) {
+                    panel.webview.postMessage({ command: "content", type: "string", string: s });
+                  });
+                }
+              }
+
+              // check if image
+              for (var i = 0; i < extTypes.image.length; i++) {
+                if (ext === extTypes.image[i]) {
+                  f.files[msg.uri].async("base64").then(function (b64) {
+                    panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext });
+                  });
+                }
+              }
+            }
+          });
         });
       }
     });

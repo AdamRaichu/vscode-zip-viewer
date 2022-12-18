@@ -27,7 +27,16 @@ window.addEventListener("message", (e) => {
         });
       }
 
-      document.body.appendChild(p);
+      target.appendChild(p);
+    }
+  } else if (e.data.command === "content") {
+    var preview = document.getElementById("preview");
+    if (e.data.type === "string") {
+      preview.innerHTML = e.data.s;
+      preview.style.backgroundImage = "";
+    } else if (e.data.type === "image") {
+      preview.innerHTML = "";
+      preview.style.backgroundImage = `url(data:${mime["." + e.data.ext]};base64,${e.data.base64})`;
     }
   }
 });

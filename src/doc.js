@@ -15,7 +15,7 @@ export default class ZipDoc {
   async getFileData(uri) {
     return new Promise(function (resolve, reject) {
       var z = new JSZip();
-      z.loadAsync(vscode.workspace.fs.readFile(uri), { createFolders: true }).then(
+      z.loadAsync(vscode.workspace.fs.readFile(uri)).then(
         function (f) {
           resolve(f);
         },

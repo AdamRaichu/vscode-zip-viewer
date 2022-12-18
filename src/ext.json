@@ -1,0 +1,16 @@
+{
+  "string": [
+    "html",
+    "log",
+    "js",
+    "svg",
+    "ts",
+    "txt"
+  ],
+  "image": [
+    "gif",
+    "jpeg",
+    "jpg",
+    "png"
+  ]
+}
