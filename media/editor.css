@@ -1,5 +1,6 @@
 textarea {
   width: 100%;
+  min-height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
   resize: vertical;

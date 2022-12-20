@@ -1,17 +1,47 @@
-const vscode = require("vscode");
-import ZipDoc from "./doc";
+/**
+ * @author adamraichu
+ * @file Exports {@link ZipEdit}, an implementation of a CustomReadonlyEditorProvider
+ */
+import ZipDoc from "./doc.js";
 import extTypes from "./ext.json";
 import mime from "./mime.json";
+const vscode = require("vscode");
 
+/**
+ * A `CustomReadonlyEditorProvider` for zip files
+ * @class
+ * @implements {vscode.CustomReadonlyEditorProvider}
+ */
 export default class ZipEdit {
+  /**
+   * Registers the editor provider
+   * @static
+   * @returns {vscode.Disposable}
+   */
   static register() {
     return vscode.window.registerCustomEditorProvider(ZipEdit.viewType, new ZipEdit());
   }
 
+  /**
+   * The `viewType` of the editor as found in the manifest
+   * @static
+   * @readonly
+   */
   static viewType = "zipViewer.ZipEdit";
 
+  /**
+   * Creates an instance of ZipEdit
+   * @returns An implemenation of a `CustomReadonlyEditorProvider`
+   */
   constructor() {}
 
+  /**
+   * The method called when opening a file with the custom editor
+   * @async
+   * @param {ZipDoc} document
+   * @param {vscode.WebviewPanel} panel
+   * @param {vscode.CancellationToken} _token
+   */
   async resolveCustomEditor(document, panel, _token) {
     var extUri = vscode.extensions.getExtension("adamraichu.zip-viewer").extensionUri;
 
@@ -29,7 +59,7 @@ export default class ZipEdit {
 <body>
   <h1 id="loading">Loading zip file content...</h1>
   <div id="target"></div>
-  <textarea readonly id="preview"></textarea>
+  <div id="preview"></div>
 </body>
 
 </html>`;
@@ -65,6 +95,14 @@ export default class ZipEdit {
     });
   }
 
+  /**
+   * The method used to create a ZipDoc for the editor
+   * @async
+   * @param {vscode.Uri} uri
+   * @param {vscode.CustomDocumentOpenContext} _context
+   * @param {vscode.CancellationToken} _token
+   * @returns {ZipDoc} An instance of `ZipDoc` with the provided uri
+   */
   async openCustomDocument(uri, _context, _token) {
     return new ZipDoc(uri);
   }

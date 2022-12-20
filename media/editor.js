@@ -1,3 +1,6 @@
+/**
+ * @file media/editor.js provides scripts for use in ZipEdit
+ */
 const vscode = acquireVsCodeApi();
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -16,10 +19,10 @@ window.addEventListener("message", (e) => {
     var target = document.getElementById("target");
     var files = JSON.parse(e.data.f);
     var keys = Object.keys(files);
-    for (var i = 0; i < keys.length; i++) {
+    for (var c = 0; c < keys.length; c++) {
       var p = document.createElement("p");
-      p.innerText = keys[i];
-      if (files[keys[i]].dir) {
+      p.innerText = keys[c];
+      if (files[keys[c]].dir) {
         p.classList.add("folder");
       } else {
         p.addEventListener("click", function () {
@@ -32,11 +35,16 @@ window.addEventListener("message", (e) => {
   } else if (e.data.command === "content") {
     var preview = document.getElementById("preview");
     if (e.data.type === "string") {
-      preview.innerHTML = e.data.s;
-      preview.style.backgroundImage = "";
+      preview.innerHTML = "";
+      var t = document.createElement("textarea");
+      t.readOnly = true;
+      preview.appendChild(t);
     } else if (e.data.type === "image") {
       preview.innerHTML = "";
-      preview.style.backgroundImage = `url(data:${mime["." + e.data.ext]};base64,${e.data.base64})`;
+      var i = document.createElement("img");
+      i.src = `data:${mime["." + e.data.ext]};base64,${e.data.base64}`;
+      preview.appendChild(i);
     }
+    preview.scrollIntoView({ behavior: "smooth" });
   }
 });

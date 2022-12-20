@@ -1,8 +1,19 @@
+/**
+ * @author AdamRaichu
+ * @file Exports {@link cmds}, a wrapper for registering the command handlers
+ */
+
+/**
+ *
+ */
 const vscode = require("vscode");
 const JSZip = require("jszip");
 
 var o = vscode.window.createOutputChannel("Zip Viewer");
 
+/**
+ * A wrapper for registering the commands for this extension
+ */
 export default class cmds {
   static register() {
     vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
