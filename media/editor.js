@@ -31,20 +31,24 @@ window.addEventListener("message", (e) => {
       } else {
         p.addEventListener("click", function () {
           vscode.postMessage({ command: "get", uri: this.innerText });
+          console.debug("Request for info posted");
         });
       }
 
       target.appendChild(p);
     }
   } else if (e.data.command === "content") {
+    console.debug("Received response");
     var preview = document.getElementById("preview");
     if (e.data.type === "string") {
+      console.debug("Response is type string");
       preview.innerHTML = "";
       var t = document.createElement("textarea");
       t.readOnly = true;
       t.innerHTML = e.data.string;
       preview.appendChild(t);
     } else if (e.data.type === "image") {
+      console.debug("Response is type image");
       preview.innerHTML = "";
       var i = document.createElement("img");
       i.src = `data:${mime["." + e.data.ext]};base64,${e.data.base64}`;
