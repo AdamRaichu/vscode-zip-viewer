@@ -1,8 +1,8 @@
 # VSCode Zip Viewer <!-- markdownlint-disable MD033 -->
 
-## Warning! This is a pre-release for testing a new feature.
+## Warning! This is a pre-release for testing a new feature
 
-If you have any problems please return to the regular release version.
+*If you have any problems please return to the regular release version.*
 
 <div align="center">
 
@@ -24,6 +24,8 @@ Search `adamraichu.zip-viewer`.
 ### Creating a Zip
 
 To create a zip file, run the command `Zip Viewer: Create a zip file from folder`. The extension will prompt you to select a folder to copy & compress. Then it will prompt you to pick a target folder, where the compressed folder will be stored. The zip file's name will be of the pattern `<folderToCompressName>.zip`. You may rename it if you wish.
+
+**Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension. Consider downloading the folder and zipping locally on your device.
 
 ### Extract a Zip
 
