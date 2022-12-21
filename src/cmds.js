@@ -15,6 +15,11 @@ var o = vscode.window.createOutputChannel("Zip Viewer");
  * A wrapper for registering the commands for this extension
  */
 export default class cmds {
+  /**
+   * The method which registers the commands.
+   * @static
+   * @returns {void} Nothing
+   */
   static register() {
     vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
       var config = vscode.workspace.getConfiguration().zipViewer;

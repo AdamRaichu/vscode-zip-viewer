@@ -69,6 +69,9 @@ export default class ZipEdit {
           panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
           panel.webview.onDidReceiveMessage((msg) => {
             if (msg.command === "get") {
+              /**
+               * @type {String}
+               */
               var ext = msg.uri.split(".").pop();
 
               // check if string

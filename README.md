@@ -1,5 +1,9 @@
 # VSCode Zip Viewer <!-- markdownlint-disable MD033 -->
 
+## Warning! This is a pre-release for testing a new feature.
+
+If you have any problems please return to the regular release version.
+
 <div align="center">
 
 [![GitHub issues](https://img.shields.io/github/issues/adamraichu/vscode-zip-viewer)](https://github.com/adamraichu/vscode-zip-viewer/issues)

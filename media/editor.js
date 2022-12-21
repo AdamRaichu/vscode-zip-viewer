@@ -1,6 +1,10 @@
 /**
  * @file media/editor.js provides scripts for use in ZipEdit
  */
+
+/**
+ *
+ */
 const vscode = acquireVsCodeApi();
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -38,6 +42,7 @@ window.addEventListener("message", (e) => {
       preview.innerHTML = "";
       var t = document.createElement("textarea");
       t.readOnly = true;
+      t.innerHTML = e.data.string;
       preview.appendChild(t);
     } else if (e.data.type === "image") {
       preview.innerHTML = "";

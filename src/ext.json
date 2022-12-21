@@ -3,9 +3,13 @@
     "html",
     "log",
     "js",
+    "json",
     "svg",
     "ts",
-    "txt"
+    "txt",
+    "xml",
+    "yaml",
+    "yml"
   ],
   "image": [
     "gif",
