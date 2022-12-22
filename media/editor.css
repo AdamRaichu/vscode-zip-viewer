@@ -1,7 +1,28 @@
+body {
+  margin-bottom: 50px;
+}
+
 textarea {
   width: 100%;
   min-height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
   resize: vertical;
+}
+
+p::before {
+  pointer-events: all;
+  display: inline-block;
+  margin-right: 8px;
+  content: "Get Preview";
+  background-color: var(--vscode-button-background, darkblue);
+  color: var(--vscode-button-foreground, white);
+  padding: 2px;
+  cursor: pointer;
+}
+
+p.folder::before {
+  text-decoration: line-through;
+  cursor: not-allowed;
+  opacity: 60%;
 }
