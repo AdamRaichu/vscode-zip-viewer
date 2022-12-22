@@ -1,5 +1,5 @@
-import cmds from "./cmds";
-import ZipEdit from "./editor";
+import cmds from "./cmds.js";
+import ZipEdit from "./editor.js";
 
 cmds.register();
 ZipEdit.register();
