@@ -28,6 +28,7 @@ window.addEventListener("message", (e) => {
       p.innerText = keys[c];
       if (files[keys[c]].dir) {
         p.classList.add("folder");
+        p.title = "Can't get a preview of a folder.";
       } else {
         p.addEventListener("click", function () {
           vscode.postMessage({ command: "get", uri: this.innerText });
@@ -39,7 +40,14 @@ window.addEventListener("message", (e) => {
     }
   } else if (e.data.command === "content") {
     console.debug("Received response");
+    /**
+     * @type {HTMLDivElement}
+     */
     var preview = document.getElementById("preview");
+    /**
+     * @type {HTMLHeadingElement}
+     */
+    var previewTitle = document.getElementById("uri");
     if (e.data.type === "string") {
       console.debug("Response is type string");
       preview.innerHTML = "";
@@ -54,6 +62,7 @@ window.addEventListener("message", (e) => {
       i.src = `data:${mime["." + e.data.ext]};base64,${e.data.base64}`;
       preview.appendChild(i);
     }
+    previewTitle.innerText = e.data.uri;
     preview.scrollIntoView({ behavior: "smooth" });
   }
 });

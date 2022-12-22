@@ -1,20 +1,26 @@
 {
   "string": [
+    "gitignore",
     "html",
     "log",
+    "md",
     "js",
     "json",
     "svg",
     "ts",
     "txt",
+    "vsixmanifest",
     "xml",
     "yaml",
     "yml"
   ],
   "image": [
+    "apng",
+    "avif",
     "gif",
     "jpeg",
     "jpg",
-    "png"
+    "png",
+    "webp"
   ]
 }

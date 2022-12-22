@@ -10,6 +10,10 @@ textarea {
   resize: vertical;
 }
 
+p {
+  pointer-events: none;
+}
+
 p::before {
   pointer-events: all;
   display: inline-block;

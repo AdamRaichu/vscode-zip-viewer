@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Open custom zip file extensions with custom editor via a command.
 - Get preview of files shown in custom editor.
 
+## [2.1.0] - 2022-12-22 (2.0.[1-5]-pre)
+
+Internal file list now has a "Get Preview" button.
+If the file extension matches a hardcoded list of known type/extension pairs, the editor will display a preview of the file and scroll the preview into view.
+
 ## [2.0.1] - 2022-12-17 (2.0.0-pre)
 
 Added:

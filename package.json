@@ -4,7 +4,7 @@
   "description": "An extension which allows for the manipulation of zip files.",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "authors": "AdamRaichu",
+  "license": "MIT",
   "author": {
     "name": "AdamRaichu"
   },
@@ -18,7 +18,7 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.0.5",
+  "version": "2.1.0",
   "browser": "./dist/main.js",
   "main": "./dist/main.js",
   "activationEvents": [
