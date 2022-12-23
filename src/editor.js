@@ -85,7 +85,7 @@ export default class ZipEdit {
               for (var i = 0; i < extTypes.string.length; i++) {
                 if (ext === extTypes.string[i]) {
                   console.debug("File is type string");
-                  f.files[msg.uri].async("string").then(function (s) {
+                  await f.files[msg.uri].async("string").then(function (s) {
                     panel.webview.postMessage({ command: "content", type: "string", string: s });
                     console.debug("Info posted");
                     posted = true;
@@ -97,7 +97,7 @@ export default class ZipEdit {
               for (var i = 0; i < extTypes.image.length; i++) {
                 if (ext === extTypes.image[i]) {
                   console.debug("File is type image");
-                  f.files[msg.uri].async("base64").then(function (b64) {
+                  await f.files[msg.uri].async("base64").then(function (b64) {
                     panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext, uri: msg.uri });
                     console.debug("Info posted");
                     posted = true;

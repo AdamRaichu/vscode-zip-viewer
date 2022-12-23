@@ -17,6 +17,10 @@ This extension allows you to unzip zip files in VSCode.
 Install from the VSCode Extension panel.
 Search `adamraichu.zip-viewer`.
 
+### Viewing Zip File Contents
+
+The editor will display a list of files inside
+
 ### Creating a Zip
 
 To create a zip file, run the command `Zip Viewer: Create a zip file from folder`. The extension will prompt you to select a folder to copy & compress. Then it will prompt you to pick a target folder, where the compressed folder will be stored. The zip file's name will be of the pattern `<folderToCompressName>.zip`. You may rename it if you wish.
