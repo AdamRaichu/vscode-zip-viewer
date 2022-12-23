@@ -18,8 +18,8 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.1.4",
-  "browser": "./dist/main.js",
+  "version": "2.1.5",
+  "browser": "./src/node/main.js",
   "main": "./dist/main.js",
   "activationEvents": [
     "onCommand:AdamRaichu.zipViewer.extract",
@@ -107,7 +107,8 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "jszip": "^3.10.1"
+    "jszip": "^3.10.1",
+    "adm-zip": "^0.5.10"
   },
   "scripts": {
     "build": "webpack"
