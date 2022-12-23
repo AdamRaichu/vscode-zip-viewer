@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Open custom zip file extensions with custom editor via a command.
-- Get preview of files shown in custom editor.
 
 ## [2.1.0] - 2022-12-22 (2.0.[1-5]-pre)
 
