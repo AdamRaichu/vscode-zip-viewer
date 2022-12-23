@@ -87,7 +87,7 @@ export default class ZipEdit {
                   console.debug("File is type string");
                   posted = true;
                   f.files[msg.uri].async("string").then(function (s) {
-                    panel.webview.postMessage({ command: "content", type: "string", string: s });
+                    panel.webview.postMessage({ command: "content", type: "string", string: s, uri: msg.uri });
                     console.debug("Info posted");
                   });
                 }

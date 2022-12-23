@@ -1,11 +1,14 @@
 {
   "string": [
+    "css",
     "gitignore",
     "html",
     "log",
     "md",
     "js",
     "json",
+    "sass",
+    "scss",
     "svg",
     "ts",
     "txt",
