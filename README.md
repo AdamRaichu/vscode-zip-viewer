@@ -19,19 +19,33 @@ Search `adamraichu.zip-viewer`.
 
 ### Viewing Zip File Contents
 
-The editor will display a list of files inside
+The editor will display a list of the files inside the zip being previewed.
+Next to each file name is a `Get Preview` button.
+Clicking on this button will, if available for the file type, display the contents below.
+If the type is not available to the preset list, the extension will show an error message.
 
 ### Creating a Zip
 
-To create a zip file, run the command `Zip Viewer: Create a zip file from folder`. The extension will prompt you to select a folder to copy & compress. Then it will prompt you to pick a target folder, where the compressed folder will be stored. The zip file's name will be of the pattern `<folderToCompressName>.zip`. You may rename it if you wish.
+To create a zip file, run the command `Zip Viewer: Create a zip file from folder`.
+The extension will prompt you to select a folder to copy & compress.
+Then it will prompt you to pick a target folder, where the compressed folder will be stored.
+The zip file's name will be of the pattern `<folderToCompressName>.zip`.
+You may rename it if you wish.
 
-**Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension. Consider downloading the folder and zipping locally on your device.
+**Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension.
+Exceeding the API limit will cause the process to fail, so consider downloading the folder and zipping locally on your device.
 
 ### Extract a Zip
 
-To extract a zip file, run the command `Zip Viewer: Extract (unzip) a zip file from workspace`. The extension will prompt you to select a zip file, then it will prompt you to choose a target folder. The contents of the zip file will be deposited in that folder. The new folder's name will be `<zipFileName><zipViewer.unzippedSuffix>`.
+To extract a zip file, run the command `Zip Viewer: Extract (unzip) a zip file from workspace`.
+The extension will prompt you to select a zip file, then it will prompt you to choose a target folder.
+The contents of the zip file will be deposited in that folder.
+The new folder's name will be `<zipFileName><zipViewer.unzippedSuffix>`.
 
-The extension contributes a setting `zipViewer.zipTypes`. If the file you chose does not end with a string in that array, the extension will give an error message. You can edit this setting in the settings editor. This setting is ignored if `zipViewer.picky` is set to false.
+The extension contributes a setting `zipViewer.zipTypes`.
+If the file you chose does not end with a string in that array, the extension will give an error message.
+You can edit this setting in the settings editor.
+This setting is ignored if `zipViewer.picky` is set to false.
 
 ## Known Issues
 
