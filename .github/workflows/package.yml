@@ -19,6 +19,7 @@ jobs:
       - name: package with vsce
         run: |
           npm i
+          npm i -g @vscode/vsce
           npm run build
           ${{ inputs.command }}
       - name: Upload a Build Artifact
