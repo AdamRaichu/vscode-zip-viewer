@@ -19,8 +19,8 @@
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
   "version": "2.1.5",
-  "browser": "./src/node/main.js",
-  "main": "./dist/main.js",
+  "main": "./src/node/main.js",
+  "browser": "./dist/main.js",
   "activationEvents": [
     "onCommand:AdamRaichu.zipViewer.extract",
     "onCommand:AdamRaichu.zipViewer.zip",
