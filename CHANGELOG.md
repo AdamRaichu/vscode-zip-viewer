@@ -19,7 +19,7 @@ If the file extension matches a hardcoded list of known type/extension pairs, th
 Added:
 
 - Custom Read-only Editor
-  - When attempting to open any of the zip types built into the extension (see [Features](#features)), a webview which lists all file names inside the zip file will appear. At this time the interface is very simple, but more is hopefully on the way.
+  - When attempting to open any of the zip types built into the extension (see README), a webview which lists all file names inside the zip file will appear. At this time the interface is very simple, but more is hopefully on the way.
 
 ## [1.2.0] - 2022-12-13 (1.1.3-pre)
 

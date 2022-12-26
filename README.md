@@ -12,6 +12,17 @@ This extension allows you to unzip zip files in VSCode.
 
 ## Usage
 
+### Supported File Types
+
+All functions for this extension are built to support the following built-in list. If you know of another alias for zip files, please open an issue [here][new-zip-type].
+
+- `.zip`
+- `.vsix`
+- `.mcworld`
+- `.mcpack`
+- `.mcaddon`
+- `.jar`
+
 ### Installation
 
 Install from the VSCode Extension panel.
@@ -54,3 +65,5 @@ You can view issues [here](https://github.com/AdamRaichu/vscode-zip-viewer/issue
 ## Changelog
 
 You can view the changelog [here](CHANGELOG.md).
+
+[new-zip-type]: https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?assignees=AdamRaichu&labels=enhancement%2Cgood+first+issue&template=suggest_ext.yml&title=%5BFeature%5D+Suggested+file+extension%3A+

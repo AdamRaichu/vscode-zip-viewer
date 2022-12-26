@@ -13,7 +13,8 @@
   ],
   "keywords": [
     "zip",
-    "extract"
+    "extract",
+    "jar"
   ],
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
@@ -61,6 +62,9 @@
           },
           {
             "filenamePattern": "*.mcaddon"
+          },
+          {
+            "filenamePattern": "*.jar"
           }
         ],
         "priority": "default"
@@ -83,7 +87,8 @@
               ".vsix",
               ".mcworld",
               ".mcpack",
-              ".mcaddon"
+              ".mcaddon",
+              ".jar"
             ]
           },
           "zipViewer.picky": {
