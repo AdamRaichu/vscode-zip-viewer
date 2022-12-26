@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Open custom zip file extensions with custom editor via a command.
 
+## [2.1.7] - 2022-12-26
+
+Support `.jar` files.
+
 ## [2.1.0] - 2022-12-22 (2.0.[1-5]-pre)
 
 Internal file list now has a "Get Preview" button.
