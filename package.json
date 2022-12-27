@@ -1,7 +1,7 @@
 {
   "name": "zip-viewer",
   "displayName": "Zip Tools",
-  "description": "An extension which allows for the manipulation of zip files.",
+  "description": "An extension which allows for the manipulation of zip (jar, vsix, etc.) files.",
   "publisher": "adamraichu",
   "icon": "logo.png",
   "license": "MIT",
@@ -19,7 +19,7 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.1.7",
+  "version": "2.1.8",
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
   "activationEvents": [
