@@ -46,7 +46,7 @@
         "command": "zipViewer.openFileWighEditor",
         "title": "Zip Viewer: Open a zip file with the custom editor",
         "shortTitle": "Open w/ zip editor",
-        "icon": "$(explorer-view-icon)",
+        "icon": "$(explorer-view-icon)"
       }
     ],
     "customEditors": [
