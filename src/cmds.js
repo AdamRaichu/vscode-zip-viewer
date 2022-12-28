@@ -188,9 +188,9 @@ export default class cmds {
           canSelectFolders: false,
         })
         .then(function (file) {
-          vscode.commands.executeCommand("vscode.openWith", file, "zipViewer.ZipEdit".toString());
+          vscode.commands.executeCommand("vscode.openWith", file, "zipViewer.ZipEdit";
         });
-      //...
+
     });
   }
 }
