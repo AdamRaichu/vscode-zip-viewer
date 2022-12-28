@@ -180,5 +180,17 @@ export default class cmds {
             });
         });
     });
+    vscode.commands.registerCommand("zipViewer.openFileWithEditor", function () {
+      vscode.window
+        .showOpenDialog({
+          title: "Zip file to open",
+          canSelectFiles: true,
+          canSelectFolders: false,
+        })
+        .then(function (file) {
+          vscode.commands.executeCommand("vscode.openWith", file, "zipViewer.ZipEdit".toString());
+        });
+      //...
+    });
   }
 }

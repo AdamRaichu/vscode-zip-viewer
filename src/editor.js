@@ -82,6 +82,7 @@ export default class ZipEdit {
               var posted = false;
 
               // check if string
+              // TODO: Consolidate to function (see line 125)
               for (var i = 0; i < extTypes.string.length; i++) {
                 if (ext === extTypes.string[i]) {
                   console.debug("File is type string");

@@ -41,6 +41,12 @@
         "command": "AdamRaichu.zipViewer.zip",
         "title": "Zip Viewer: Create a zip file from folder",
         "shortTitle": "Zip Folder"
+      },
+      {
+        "command": "zipViewer.openFileWighEditor",
+        "title": "Zip Viewer: Open a zip file with the custom editor",
+        "shortTitle": "Open w/ zip editor",
+        "icon": "$(explorer-view-icon)",
       }
     ],
     "customEditors": [
