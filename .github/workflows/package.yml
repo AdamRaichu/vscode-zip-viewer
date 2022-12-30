@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
+      - uses: nyaa8/package-version@v1
+      - name: Create a tag
+        run: |
+          git tag -a v${{ env.PACKAGE_VERSION }} -m "Version ${{ env.PACKAGE_VERSION }}"
+          git push origin v${{ env.PACKAGE_VERSION }}
       - name: package with vsce
         run: |
           npm i
