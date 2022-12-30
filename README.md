@@ -14,7 +14,7 @@ This extension allows you to unzip zip files in VSCode.
 
 ### Supported File Types
 
-All functions for this extension are designed to support the following built-in list. 
+All functions for this extension are designed to support the following built-in list.
 If you know of another alias for zip files, please open an issue [here][new-zip-type].
 
 - `.zip`
