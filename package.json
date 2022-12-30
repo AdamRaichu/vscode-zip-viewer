@@ -3,7 +3,7 @@
   "displayName": "Zip Tools",
   "description": "An extension which allows for the manipulation of zip (jar, vsix, etc.) files.",
   "publisher": "adamraichu",
-  "icon": "logo.png",
+  "icon": "logo-icons.png",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -19,12 +19,13 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.1.8",
+  "version": "2.2.0",
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
   "activationEvents": [
-    "onCommand:AdamRaichu.zipViewer.extract",
-    "onCommand:AdamRaichu.zipViewer.zip",
+    "onCommand:zipViewer.extract",
+    "onCommand:zipViewer.zip",
+    "onCommand:zipViewer.openFileWithEditor",
     "onCustomEditor:zipViewer.ZipEdit"
   ],
   "engines": {
@@ -33,12 +34,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "AdamRaichu.zipViewer.extract",
+        "command": "zipViewer.extract",
         "title": "Zip Viewer: Extract (unzip) a zip file from workspace",
         "shortTitle": "Extract Zip"
       },
       {
-        "command": "AdamRaichu.zipViewer.zip",
+        "command": "zipViewer.zip",
         "title": "Zip Viewer: Create a zip file from folder",
         "shortTitle": "Zip Folder"
       },

@@ -21,7 +21,7 @@ export default class cmds {
    * @returns {void} Nothing
    */
   static register() {
-    vscode.commands.registerCommand("AdamRaichu.zipViewer.extract", function () {
+    vscode.commands.registerCommand("zipViewer.extract", function () {
       var config = vscode.workspace.getConfiguration().zipViewer;
       vscode.window.showOpenDialog({ title: "Zip File", openLabel: "Extract" }).then(function (files) {
         if (typeof files === "undefined") {
@@ -75,7 +75,7 @@ export default class cmds {
           });
       });
     });
-    vscode.commands.registerCommand("AdamRaichu.zipViewer.zip", function () {
+    vscode.commands.registerCommand("zipViewer.zip", function () {
       vscode.window
         .showOpenDialog({
           title: "Folder to zip",
@@ -188,9 +188,8 @@ export default class cmds {
           canSelectFolders: false,
         })
         .then(function (file) {
-          vscode.commands.executeCommand("vscode.openWith", file, "zipViewer.ZipEdit";
+          vscode.commands.executeCommand("vscode.openWith", file[0], "zipViewer.ZipEdit");
         });
-
     });
   }
 }

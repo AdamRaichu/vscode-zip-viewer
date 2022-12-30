@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Open custom zip file extensions with custom editor via a command.
+No planned features are currently unreleased.
+
+## [2.2.0] - 2022-12-29
+
+Add command `zipViewer.openFileWithEditor`.
+This command allows the user to open a zip file that has a file extension not on the built in list with the custom editor.
 
 ## [2.1.7] - 2022-12-26
 

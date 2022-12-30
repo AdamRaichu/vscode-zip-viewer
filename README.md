@@ -36,6 +36,10 @@ Next to each file name is a `Get Preview` button.
 Clicking on this button will, if available for the file type, display the contents below.
 If the type is not available to the preset list, the extension will show an error message.
 
+If you would like to open a zip file with a file extension that does not match the built in list, use the command `Zip Viewer: Open a zip file with the custom editor`.
+The extension will prompt you to choose a file.
+The file you select will be opened with the zip file editor.
+
 ### Creating a Zip
 
 To create a zip file, run the command `Zip Viewer: Create a zip file from folder`.
