@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 No planned features are currently unreleased.
 
-## [2.2.0] - 2022-12-29
+## [2.2.0] - 2022-12-30
 
 Add command `zipViewer.openFileWithEditor`.
 This command allows the user to open a zip file that has a file extension not on the built in list with the custom editor.
