@@ -2,6 +2,33 @@ body {
   margin-bottom: 50px;
 }
 
+/* 
+  --------START--------
+  TODO: Will be used later
+*/
+input[type=checkbox] {
+  display: none;
+}
+
+#toolbar {
+  display: none;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  padding: 10px;
+}
+
+#toolbar button {
+  background-color: var(--vscode-button-background, darkblue);
+  color: var(--vscode-button-foreground, white);
+  padding: 3px;
+}
+
+/* 
+  --------END--------
+*/
+
 textarea {
   width: 100%;
   min-height: 150px;
@@ -10,11 +37,15 @@ textarea {
   resize: vertical;
 }
 
-p {
+#target div {
+  margin-block: 1em;
+}
+
+#target span {
   pointer-events: none;
 }
 
-p::before {
+#target span::before {
   pointer-events: all;
   display: inline-block;
   margin-right: 8px;
@@ -25,7 +56,7 @@ p::before {
   cursor: pointer;
 }
 
-p.folder::before {
+#target span.folder::before {
   text-decoration: line-through;
   cursor: not-allowed;
   opacity: 60%;

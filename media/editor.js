@@ -9,22 +9,57 @@ const vscode = acquireVsCodeApi();
 
 document.addEventListener("DOMContentLoaded", function () {
   vscode.postMessage({ command: "DOMContentLoaded" });
+
+  /**
+   * @type {HTMLInputElement}
+   */
+  var selectAll = this.getElementById("select-all");
+  selectAll.addEventListener("click", function () {
+    /**
+     * @type {NodeListOf<HTMLInputElement>}
+     */
+    var boxes = this.querySelectorAll("#target input[type=checkbox]");
+    for (var i = 0; i < boxes.length; i++) {
+      boxes[i].checked = selectAll.checked;
+    }
+  });
+
+  /**
+   * @type {HTMLButtonElement}
+   */
+  var extract = this.getElementById("extract");
+  extract.addEventListener("click", function () {
+    /**
+     * @type {NodeListOf<HTMLInputElement>}
+     */
+    var boxes = document.querySelectorAll("#target input[type=checkbox]");
+    /**
+     * @type {NodeListOf<HTMLSpanElement>}
+     */
+    var selected = [];
+    for (var i = 0; i < boxes.length; i++) {
+      if (boxes[i].checked) {
+        selected.push(boxes[i].nextElementSibling);
+      }
+    }
+    // deal with selected uris
+  });
 });
 
 window.addEventListener("message", (e) => {
   if (e.data.command === "files") {
     document.getElementById("loading").remove();
-    if (e.data.uri.endsWith(".mcworld") || e.data.uri.endsWith(".mcpack") || e.data.uri.endsWith(".mcaddon")) {
-      document.body.classList.add("mc");
-    } else if (e.data.uri.endsWith(".vsix")) {
-      document.body.classList.add("vsix");
-    }
 
     var target = document.getElementById("target");
     var files = JSON.parse(e.data.f);
     var keys = Object.keys(files);
     for (var c = 0; c < keys.length; c++) {
-      var p = document.createElement("p");
+      var d = document.createElement("div");
+      var i = document.createElement("input");
+      i.type = "checkbox";
+      d.appendChild(i);
+
+      var p = document.createElement("span");
       p.innerText = keys[c];
       if (files[keys[c]].dir) {
         p.classList.add("folder");
@@ -36,7 +71,8 @@ window.addEventListener("message", (e) => {
         });
       }
 
-      target.appendChild(p);
+      d.appendChild(p);
+      target.appendChild(d);
     }
   } else if (e.data.command === "content") {
     console.debug("Received response");
