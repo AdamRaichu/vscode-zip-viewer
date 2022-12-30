@@ -19,6 +19,8 @@ jobs:
       - uses: nyaa8/package-version@v1
       - name: Create a tag
         run: |
+          git config user.name = "Github Actions"
+          git config user.email = "actions@github.com"
           git tag -a v${{ env.PACKAGE_VERSION }} -m "Version ${{ env.PACKAGE_VERSION }}"
           git push origin v${{ env.PACKAGE_VERSION }}
       - name: package with vsce
