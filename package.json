@@ -14,7 +14,9 @@
   "keywords": [
     "zip",
     "extract",
-    "jar"
+    "jar",
+    "preview",
+    "viewer"
   ],
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
