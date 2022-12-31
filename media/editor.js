@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     var boxes = this.querySelectorAll("#target input[type=checkbox]");
     for (var i = 0; i < boxes.length; i++) {
-      boxes[i].checked = selectAll.checked;
+      boxes[i].checked = selectAll.dataset.checked;
     }
   });
 
@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var selected = [];
     for (var i = 0; i < boxes.length; i++) {
       if (boxes[i].checked) {
-        selected.push(boxes[i].nextElementSibling);
+        selected.push(boxes[i].nextElementSibling.innerText);
       }
     }
-    // deal with selected uris
+    vscode.postMessage({ command: "selective-extract", uriList: JSON.stringify(selected) });
   });
 });
 

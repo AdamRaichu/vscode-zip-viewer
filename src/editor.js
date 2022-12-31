@@ -59,7 +59,7 @@ export default class ZipEdit {
 <body>
   <h1 id="loading">Loading zip file content...</h1>
   <div id="toolbar">
-    <input type="checkbox" id="select-all">
+    <button id="select-all">Select/Deselect All</button>
     <button id="extract">Extract Selected Files Only</button>
   </div>
   <div id="target"></div>
@@ -136,6 +136,18 @@ export default class ZipEdit {
                   console.debug("Info posted");
                 });
               }
+            } else if (msg.command === "selective-extract") {
+              /**
+               * @type {String[]}
+               */
+              (
+                async () => {
+                  var uriList = JSON.parse(msg.uriList);
+                  for (var c = 0; c < uriList.length; c++) {
+                    await f[uriList[c]].async(/* */);
+                  }
+                }
+              )();
             }
           });
         });
