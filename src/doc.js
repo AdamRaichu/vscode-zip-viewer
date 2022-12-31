@@ -41,7 +41,7 @@ export default class ZipDoc {
   /**
    * A function which returns a JSZip object representing the zip file
    * @param {vscode.Uri} uri
-   * @returns {JSZip} A promise of the JSZip zip object
+   * @returns {Promise<JSZip>} A promise of the JSZip zip object
    */
   async getFileData(uri) {
     return new Promise(function (resolve, reject) {

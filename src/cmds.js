@@ -53,7 +53,7 @@ export default class cmds {
                           function temp(t) {
                             t.async("uint8array").then(function (u8) {
                               o.appendLine(`[DEBUG] Wrote ${t.name}`);
-                              vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], files[0].path.split("/").pop() + config.unzippedSuffix, "/", t.name), u8);
+                              vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], files[0].path.split("/").pop() + config.unzippedSuffix, t.name), u8);
                             });
                           }
                           temp(f);
