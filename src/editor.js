@@ -146,7 +146,10 @@ export default class ZipEdit {
                   var uriList = JSON.parse(msg.uriList);
                   var inc = 100 / uriList.length;
                   var config = vscode.workspace.getConfiguration().zipViewer;
+                  console.log(f.files);
+                  console.log(uriList);
                   for (var c = 0; c < uriList.length; c++) {
+                    console.log(f.files[uriList[c]]);
                     await f.files[uriList[c]]
                       .async("uint8array", function (meta) {
                         progress.report({ increment: inc * (meta.percent / 100) });

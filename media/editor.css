@@ -7,11 +7,11 @@ body {
   TODO: Will be used later
 */
 input[type=checkbox] {
-  display: none;
+  /* display: none; */
 }
 
 #toolbar {
-  display: none;
+  /* display: none; */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
