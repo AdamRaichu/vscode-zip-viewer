@@ -9,25 +9,10 @@ const vscode = acquireVsCodeApi();
 
 document.addEventListener("DOMContentLoaded", function () {
   vscode.postMessage({ command: "DOMContentLoaded" });
-
-  /**
-   * @type {HTMLInputElement}
-   */
-  var selectAll = this.getElementById("select-all");
-  selectAll.addEventListener("click", function () {
-    /**
-     * @type {NodeListOf<HTMLInputElement>}
-     */
-    var boxes = this.querySelectorAll("#target input[type=checkbox]");
-    for (var i = 0; i < boxes.length; i++) {
-      boxes[i].checked = selectAll.dataset.checked;
-    }
-  });
-
   /**
    * @type {HTMLButtonElement}
    */
-  var extract = this.getElementById("extract");
+  var extract = this.getElementById("extract-select");
   extract.addEventListener("click", function () {
     /**
      * @type {NodeListOf<HTMLInputElement>}
@@ -54,6 +39,9 @@ window.addEventListener("message", (e) => {
     var files = JSON.parse(e.data.f);
     var keys = Object.keys(files);
     for (var c = 0; c < keys.length; c++) {
+      if (files[keys[c]].dir) {
+        continue;
+      }
       var d = document.createElement("div");
       var i = document.createElement("input");
       i.type = "checkbox";
@@ -61,21 +49,14 @@ window.addEventListener("message", (e) => {
 
       var p = document.createElement("span");
       p.innerText = keys[c];
-      if (files[keys[c]].dir) {
-        p.classList.add("folder");
-        p.title = "Can't get a preview of a folder.";
-      } else {
-        p.addEventListener("click", function () {
-          vscode.postMessage({ command: "get", uri: this.innerText });
-          console.debug("Request for info posted");
-        });
-      }
+      p.addEventListener("click", function () {
+        vscode.postMessage({ command: "get", uri: this.innerText });
+      });
 
       d.appendChild(p);
       target.appendChild(d);
     }
   } else if (e.data.command === "content") {
-    console.debug("Received response");
     /**
      * @type {HTMLDivElement}
      */
@@ -85,14 +66,12 @@ window.addEventListener("message", (e) => {
      */
     var previewTitle = document.getElementById("uri");
     if (e.data.type === "string") {
-      console.debug("Response is type string");
       preview.innerHTML = "";
       var t = document.createElement("textarea");
       t.readOnly = true;
       t.innerHTML = e.data.string;
       preview.appendChild(t);
     } else if (e.data.type === "image") {
-      console.debug("Response is type image");
       preview.innerHTML = "";
       var i = document.createElement("img");
       i.src = `data:${mime["." + e.data.ext]};base64,${e.data.base64}`;

@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-No planned features are currently unreleased.
+Use document backups to prevent reloading zip file every time webview is hidden/shown.
+(Not easily user-noticable, but should improve performance when loading large zip files.)
+
+## [2.3.0] - 2023-1-2
+
+Selective extraction is now available.
+See README for usage.
 
 ## [2.2.0] - 2022-12-30
 

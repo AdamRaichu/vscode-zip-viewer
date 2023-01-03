@@ -59,8 +59,7 @@ export default class ZipEdit {
 <body>
   <h1 id="loading">Loading zip file content...</h1>
   <div id="toolbar">
-    <button id="select-all">Select/Deselect All</button>
-    <button id="extract">Extract Selected Files Only</button>
+    <button id="extract-select">Extract Selected Files Only</button>
   </div>
   <div id="target"></div>
   <hr>
@@ -76,19 +75,15 @@ export default class ZipEdit {
           panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
           panel.webview.onDidReceiveMessage((msg) => {
             if (msg.command === "get") {
-              console.debug(`Received a request for ${msg.uri}`);
               /**
                * @type {String}
                */
               var ext = msg.uri.split(".").pop();
-              console.debug(ext);
-
               var posted = false;
 
               // check if string
               for (var i = 0; i < extTypes.string.length; i++) {
                 if (ext === extTypes.string[i]) {
-                  console.debug("File is type string");
                   posted = true;
                   postStringData();
                 }
@@ -97,11 +92,9 @@ export default class ZipEdit {
               // check if image
               for (var i = 0; i < extTypes.image.length; i++) {
                 if (ext === extTypes.image[i]) {
-                  console.debug("File is type image");
                   posted = true;
                   f.files[msg.uri].async("base64").then(function (b64) {
                     panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext, uri: msg.uri });
-                    console.debug("Info posted");
                   });
                 }
               }
@@ -116,7 +109,6 @@ export default class ZipEdit {
                     "Ignore"
                   )
                   .then(function (choice) {
-                    console.log(choice);
                     switch (choice) {
                       case "Request file type support":
                         var title = `[editor]:+Support+${ext}+in+preview`;
@@ -133,11 +125,11 @@ export default class ZipEdit {
               function postStringData() {
                 f.files[msg.uri].async("string").then(function (s) {
                   panel.webview.postMessage({ command: "content", type: "string", string: s, uri: msg.uri });
-                  console.debug("Info posted");
                 });
               }
             } else if (msg.command === "selective-extract") {
               vscode.window.showOpenDialog({ title: "Target Folder", canSelectFiles: false, canSelectFolders: true }).then(function (targetPath) {
+                if (typeof targetPath === "undefined") return;
                 vscode.window.withProgress({ location: vscode.ProgressLocation.Notification, title: "Extracting Selected Files" }, async function (progress, _token) {
                   progress.report({ increment: 0 });
                   /**
@@ -146,17 +138,19 @@ export default class ZipEdit {
                   var uriList = JSON.parse(msg.uriList);
                   var inc = 100 / uriList.length;
                   var config = vscode.workspace.getConfiguration().zipViewer;
-                  console.log(f.files);
-                  console.log(uriList);
                   for (var c = 0; c < uriList.length; c++) {
-                    console.log(f.files[uriList[c]]);
                     await f.files[uriList[c]]
                       .async("uint8array", function (meta) {
                         progress.report({ increment: inc * (meta.percent / 100) });
                       })
-                      .then(function (data) {
-                        vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], document.uri.path.split("/").pop() + config.unzippedSuffix, f.files[uriList[c]].name), data);
-                      });
+                      .then(
+                        function (data) {
+                          vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], document.uri.path.split("/").pop() + config.unzippedSuffix, f.files[uriList[c]].name), data);
+                        },
+                        function (err) {
+                          console.error(err);
+                        }
+                      );
                   }
                   return;
                 });

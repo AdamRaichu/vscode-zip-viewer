@@ -10,4 +10,7 @@ module.exports = {
     vscode: "commonjs vscode",
   },
   mode: "production",
+  optimization: {
+    minimize: false,
+  },
 };

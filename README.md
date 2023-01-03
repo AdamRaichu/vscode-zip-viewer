@@ -2,13 +2,18 @@
 
 <div align="center">
 
+[![Last Updated](https://img.shields.io/visual-studio-marketplace/last-updated/adamraichu.zip-viewer?color=%2300008b&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
+[![VSCode Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/adamraichu.zip-viewer?color=00008b&logo=Visual%20Studio%20Code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
+[![Install Count](https://img.shields.io/visual-studio-marketplace/i/adamraichu.zip-viewer?color=darkblue&label=Install%20Count&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
+[![Rating](https://img.shields.io/visual-studio-marketplace/stars/adamraichu.zip-viewer?color=darkblue&label=Rating&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details)
+
 [![GitHub issues](https://img.shields.io/github/issues/adamraichu/vscode-zip-viewer)](https://github.com/adamraichu/vscode-zip-viewer/issues)
 [![GitHub stars](https://img.shields.io/github/stars/adamraichu/vscode-zip-viewer)](https://github.com/adamraichu/vscode-zip-viewer/stargazers)
 [![GitHub license](https://img.shields.io/github/license/adamraichu/vscode-zip-viewer)](https://github.com/AdamRaichu/vscode-zip-viewer/blob/main/LICENSE)
 
 </div>
 
-This extension allows you to unzip zip files in VSCode.
+An extension which allows for the manipulation of zip files in VS Code.
 
 ## Usage
 
@@ -77,4 +82,4 @@ If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] 
 
 [new-zip-type]: https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?assignees=AdamRaichu&labels=enhancement%2Cgood+first+issue&template=suggest_ext.yml&title=%5BFeature%5D+Suggested+file+extension%3A+
 [pdf-viewer]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.pdf-viewer
-[font-preview]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.font-viewer
+[font-preview]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer

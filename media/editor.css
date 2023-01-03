@@ -2,21 +2,12 @@ body {
   margin-bottom: 50px;
 }
 
-/* 
-  --------START--------
-  TODO: Will be used later
-*/
-input[type=checkbox] {
-  /* display: none; */
-}
-
 #toolbar {
-  /* display: none; */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-
   padding: 10px;
+  background-color: var(--vscode-editor-background);
 }
 
 #toolbar button {
@@ -24,10 +15,6 @@ input[type=checkbox] {
   color: var(--vscode-button-foreground, white);
   padding: 3px;
 }
-
-/* 
-  --------END--------
-*/
 
 textarea {
   width: 100%;

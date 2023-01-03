@@ -37,7 +37,6 @@ export default class cmds {
             if (typeof targetPath === "undefined") {
               return;
             }
-            console.log(`files[0].path: ${files[0].path}`);
             var zipTypes = config.zipTypes;
             for (var ext = 0; ext < zipTypes.length; ext++) {
               if (files[0].path.endsWith(zipTypes[ext]) || !config.picky) {
