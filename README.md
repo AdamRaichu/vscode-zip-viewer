@@ -48,7 +48,7 @@ Then it will prompt you to pick a target folder, where the compressed folder wil
 The zip file's name will be of the pattern `<folderToCompressName>.zip`.
 You may rename it if you wish.
 
-**Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension.
+> **Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension.
 Exceeding the API limit will cause the process to fail, so consider downloading the folder and zipping locally on your device.
 
 ### Extract a Zip
@@ -73,7 +73,7 @@ You can view the changelog [here](CHANGELOG.md).
 
 ## See Also
 
-If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] or [Font Preview][font-preview]
+If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] or [Font Preview][font-preview].
 
 [new-zip-type]: https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?assignees=AdamRaichu&labels=enhancement%2Cgood+first+issue&template=suggest_ext.yml&title=%5BFeature%5D+Suggested+file+extension%3A+
 [pdf-viewer]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.pdf-viewer
