@@ -37,17 +37,17 @@
     "commands": [
       {
         "command": "zipViewer.extract",
-        "title": "Zip Viewer: Extract (unzip) a zip file from workspace",
+        "title": "Zip Tools: Extract (unzip) a zip file from workspace",
         "shortTitle": "Extract Zip"
       },
       {
         "command": "zipViewer.zip",
-        "title": "Zip Viewer: Create a zip file from folder",
+        "title": "Zip Tools: Create a zip file from folder",
         "shortTitle": "Zip Folder"
       },
       {
         "command": "zipViewer.openFileWighEditor",
-        "title": "Zip Viewer: Open a zip file with the custom editor",
+        "title": "Zip Tools: Open a zip file with the custom editor",
         "shortTitle": "Open w/ zip editor",
         "icon": "$(explorer-view-icon)"
       }
@@ -55,7 +55,7 @@
     "customEditors": [
       {
         "viewType": "zipViewer.ZipEdit",
-        "displayName": "Zip Viewer",
+        "displayName": "Zip Tools",
         "selector": [
           {
             "filenamePattern": "*.zip"
