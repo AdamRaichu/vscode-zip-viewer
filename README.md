@@ -41,7 +41,7 @@ Next to each file name is a `Get Preview` button.
 Clicking on this button will, if available for the file type, display the contents below.
 If the type is not available to the preset list, the extension will show an error message.
 
-If you would like to open a zip file with a file extension that does not match the built in list, use the command `Zip Viewer: Open a zip file with the custom editor`.
+If you would like to open a zip file with a file extension that does not match the built in list, use the command `Zip Tools: Open a zip file with the custom editor`.
 The extension will prompt you to choose a file.
 The file you select will be opened with the zip file editor.
 
@@ -49,7 +49,7 @@ Using the editor, you have the option to extract only selected files. See [selec
 
 ### Creating a Zip
 
-To create a zip file, run the command `Zip Viewer: Create a zip file from folder`.
+To create a zip file, run the command `Zip Tools: Create a zip file from folder`.
 The extension will prompt you to select a folder to copy & compress.
 Then it will prompt you to pick a target folder, where the compressed folder will be stored.
 The zip file's name will be of the pattern `<folderToCompressName>.zip`.
@@ -60,7 +60,7 @@ You may rename it if you wish.
 
 ### Extract a Zip
 
-To extract a zip file, run the command `Zip Viewer: Extract (unzip) a zip file from workspace`.
+To extract a zip file, run the command `Zip Tools: Extract (unzip) a zip file from workspace`.
 The extension will prompt you to select a zip file, then it will prompt you to choose a target folder.
 The contents of the zip file will be deposited in that folder.
 The new folder's name will be `<zipFileName><zipViewer.unzippedSuffix>`.
