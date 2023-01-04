@@ -23,14 +23,8 @@ jobs:
           git config user.email = "actions@github.com"
           git tag -a v${{ env.PACKAGE_VERSION }} -m "Version ${{ env.PACKAGE_VERSION }}"
           git push origin v${{ env.PACKAGE_VERSION }}
-      - name: package with vsce
-        run: |
-          npm i
-          npm i -g @vscode/vsce
-          npm run build
-          ${{ inputs.command }}
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.1
+      - name: Publish to Visual Studio Marketplace
+        uses: HaaLeo/publish-vscode-extension@v1
         with:
-          name: Extension Package
-          path: ./*.vsix
+          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
