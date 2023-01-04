@@ -1,15 +1,6 @@
 name: Package Extension
 on:
   workflow_dispatch:
-    inputs:
-      command:
-        description: "Full or Pre?"
-        required: true
-        default: "vsce package"
-        type: choice
-        options:
-          - "vsce package"
-          - "vsce package --pre-release"
 jobs:
   build:
     runs-on: windows-latest
@@ -23,6 +14,8 @@ jobs:
           git config user.email = "actions@github.com"
           git tag -a v${{ env.PACKAGE_VERSION }} -m "Version ${{ env.PACKAGE_VERSION }}"
           git push origin v${{ env.PACKAGE_VERSION }}
+      - name: Install Deps
+        run: npm i
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
