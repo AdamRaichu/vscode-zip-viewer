@@ -125,7 +125,6 @@
     "jszip": "^3.10.1"
   },
   "scripts": {
-    "build": "webpack",
-    "package": "vsce package --pre-release"
+    "build": "webpack"
   }
 }
