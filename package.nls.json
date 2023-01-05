@@ -1,3 +1,8 @@
 {
-  "command.extract": "Zip Tools: Extract (unzip) a zip file from the workspace"
+  "command.extract": "Zip Tools: Extract (unzip) a zip file from the workspace",
+  "command.extract.short": "Extract Zip",
+  "command.zip": "Zip Tools: Create a zip file from folder",
+  "command.zip.short": "Zip Folder",
+  "command.openFileWithEditor": "Zip Tools: Open a zip file with the custom editor",
+  "command.openFileWithEditor.short": "Open w/ zip editor"
 }

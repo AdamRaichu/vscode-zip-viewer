@@ -21,7 +21,7 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.3.0",
+  "version": "2.3.1",
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
   "activationEvents": [
@@ -38,17 +38,17 @@
       {
         "command": "zipViewer.extract",
         "title": "%command.extract%",
-        "shortTitle": "Extract Zip"
+        "shortTitle": "%command.extract.short%"
       },
       {
         "command": "zipViewer.zip",
-        "title": "Zip Tools: Create a zip file from folder",
-        "shortTitle": "Zip Folder"
+        "title": "%command.zip%",
+        "shortTitle": "%command.zip.short%"
       },
       {
-        "command": "zipViewer.openFileWighEditor",
-        "title": "Zip Tools: Open a zip file with the custom editor",
-        "shortTitle": "Open w/ zip editor",
+        "command": "zipViewer.openFileWithEditor",
+        "title": "%command.openFileWithEditor%",
+        "shortTitle": "%command.openFileWithEditor.short%",
         "icon": "$(explorer-view-icon)"
       }
     ],
