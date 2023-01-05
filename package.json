@@ -37,7 +37,7 @@
     "commands": [
       {
         "command": "zipViewer.extract",
-        "title": "Zip Tools: Extract (unzip) a zip file from workspace",
+        "title": "%command.extract%",
         "shortTitle": "Extract Zip"
       },
       {
