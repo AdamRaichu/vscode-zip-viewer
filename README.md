@@ -7,7 +7,7 @@
 [![Install Count](https://img.shields.io/visual-studio-marketplace/i/adamraichu.zip-viewer?color=darkblue&label=Install%20Count&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
 [![Rating](https://img.shields.io/visual-studio-marketplace/stars/adamraichu.zip-viewer?color=darkblue&label=Rating&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details)
 
-[![GitHub issues](https://img.shields.io/github/issues/adamraichu/vscode-zip-viewer)](https://github.com/adamraichu/vscode-zip-viewer/issues)
+[![GitHub issues by-label](https://img.shields.io/github/issues/adamraichu/vscode-zip-viewer/confirmed?color=orange&logo=github)](https://github.com/AdamRaichu/vscode-zip-viewer/labels/confirmed)
 [![GitHub stars](https://img.shields.io/github/stars/adamraichu/vscode-zip-viewer)](https://github.com/adamraichu/vscode-zip-viewer/stargazers)
 [![GitHub license](https://img.shields.io/github/license/adamraichu/vscode-zip-viewer)](https://github.com/AdamRaichu/vscode-zip-viewer/blob/main/LICENSE)
 
