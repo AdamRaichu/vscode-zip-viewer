@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Use document backups to prevent reloading zip file every time webview is hidden/shown.
 (Not easily user-noticable, but should improve performance when loading large zip files.)
 
+## [2.3.2] - 2023-1-10
+
+Add `.pbit` and `.pbix` file extensions ([#12](https://github.com/AdamRaichu/vscode-zip-viewer/issues/12)).
+
 ## [2.3.0] - 2023-1-2
 
 Selective extraction is now available.

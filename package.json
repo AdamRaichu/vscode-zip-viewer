@@ -21,7 +21,7 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.3.1",
+  "version": "2.3.2",
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
   "activationEvents": [
@@ -74,6 +74,12 @@
           },
           {
             "filenamePattern": "*.jar"
+          },
+          {
+            "filenamePattern": "*.pbit"
+          },
+          {
+            "filenamePattern": "*.pbix"
           }
         ],
         "priority": "default"
@@ -97,7 +103,9 @@
               ".mcworld",
               ".mcpack",
               ".mcaddon",
-              ".jar"
+              ".jar",
+              ".pbit",
+              ".pbix"
             ]
           },
           "zipViewer.picky": {

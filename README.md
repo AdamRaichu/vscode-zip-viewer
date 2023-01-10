@@ -28,6 +28,8 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.mcpack`
 - `.mcaddon`
 - `.jar`
+- `.pbit`
+- `.pbix`
 
 ### Installation
 
