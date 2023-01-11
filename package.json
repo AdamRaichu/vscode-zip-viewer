@@ -1,9 +1,10 @@
 {
   "name": "zip-viewer",
   "displayName": "Zip Tools",
-  "description": "An extension which allows for the manipulation of zip (jar, vsix, etc.) files.",
+  "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo-icons.png",
+  "version": "2.3.3",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -21,7 +22,6 @@
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
   },
-  "version": "2.3.2",
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
   "activationEvents": [
@@ -87,14 +87,14 @@
     ],
     "configuration": [
       {
-        "title": "Zip Extracter",
+        "title": "Zip Tools",
         "properties": {
           "zipViewer.zipTypes": {
             "type": "array",
-            "description": "An array of file extensions to check files against when unzipping.",
+            "description": "%config.zipTypes.description%",
             "items": {
               "type": "string",
-              "title": "File Extension",
+              "title": "%config.zipTypes.items.title%",
               "pattern": "\\.([A-Za-z0-9\\.])"
             },
             "default": [
@@ -110,12 +110,12 @@
           },
           "zipViewer.picky": {
             "type": "boolean",
-            "markdownDescription": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`. If set to true, extension will only attempt to unzip files with extensions found in `zipTypes`.",
+            "markdownDescription": "%config.picky.description%",
             "default": true
           },
           "zipViewer.unzippedSuffix": {
             "type": "string",
-            "markdownDescription": "The suffix to add to folder name when unzipping a zip file. Must not contain any of the following characters: `/ ? % * : | \" < >`.",
+            "markdownDescription": "%config.unzippedSuffix.description%",
             "default": "_unzipped",
             "pattern": "^[^\\/?%*:|\"<>]+$"
           }
