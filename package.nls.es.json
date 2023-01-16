@@ -1,0 +1,13 @@
+{
+  "command.extract": "Zip Tools: Extraiga (descomprime) un archivo zip del espacio de trabajo",
+  "command.extract.short": "Extraiga Zip",
+  "command.zip": "Zip Tools: Crear un archivo zip desde una carpeta",
+  "command.zip.short": "Crear un archivo zip",
+  "command.openFileWithEditor": "Zip Tools: Abre un archivo zip con el editor personalizado.",
+  "command.openFileWithEditor.short": "Abre un archivo zip",
+  "extension.description": "Una extensión que permite la manipulación de archivos zip (y jar, vsix, etc.).",
+  "config.zipTypes.description": "Una matriz de extensiones de archivo para verificar los archivos al descomprimir.",
+  "config.zipTypes.items.title": "Extension de Archivo",
+  "config.picky.description": "Si la extensión debe fallar automáticamente en las operaciones cuando la extensión del archivo no está en `zipTypes`. Si se establece en verdadero, la extensión solo intentará descomprimir archivos con extensiones que se encuentran en `zipTypes`.",
+  "config.unzippedSuffix.description": "El sufijo para agregar al nombre de la carpeta al descomprimir un archivo zip. No debe contener ninguno de los siguientes caracteres: `/ ? % * : | \" < >`."
+}
