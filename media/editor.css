@@ -14,6 +14,7 @@ body {
   background-color: var(--vscode-button-background, darkblue);
   color: var(--vscode-button-foreground, white);
   padding: 3px;
+  cursor: pointer;
 }
 
 textarea {

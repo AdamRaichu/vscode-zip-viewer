@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo-icons.png",
-  "version": "2.3.8",
+  "version": "2.4.2",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -80,6 +80,9 @@
           },
           {
             "filenamePattern": "*.pbix"
+          },
+          {
+            "filenamePattern": "*.ipa"
           }
         ],
         "priority": "default"
@@ -105,13 +108,14 @@
               ".mcaddon",
               ".jar",
               ".pbit",
-              ".pbix"
+              ".pbix",
+              ".ipa"
             ]
           },
           "zipViewer.picky": {
             "type": "boolean",
             "markdownDescription": "%config.picky.description%",
-            "default": true
+            "default": false
           },
           "zipViewer.unzippedSuffix": {
             "type": "string",

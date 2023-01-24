@@ -22,14 +22,15 @@ An extension which allows for the manipulation of zip files in VS Code.
 All functions for this extension are designed to support the following built-in list.
 If you know of another alias for zip files, please open an issue [here][new-zip-type].
 
-- `.zip`
-- `.vsix`
-- `.mcworld`
-- `.mcpack`
-- `.mcaddon`
+- `.ipa`
 - `.jar`
+- `.mcaddon`
+- `.mcpack`
+- `.mcworld`
 - `.pbit`
 - `.pbix`
+- `.vsix`
+- and of course, `.zip`
 
 ### Installation
 

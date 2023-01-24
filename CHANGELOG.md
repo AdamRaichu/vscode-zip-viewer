@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Use document backups to prevent reloading zip file every time webview is hidden/shown.
-(Not easily user-noticable, but should improve performance when loading large zip files.)
+Add a progress counter to the preview that updates before content is loaded.
+
+## [2.4.1] - 2023-1-24
+
+Add `.ipa` file extension to built-in supported list.
+
+The default value of the setting `zipViewer.picky` is now `false`.
 
 ## [2.3.2] - 2023-1-10
 
