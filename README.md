@@ -30,6 +30,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.pbit`
 - `.pbix`
 - `.vsix`
+- `.xlsx`
 - and of course, `.zip`
 
 ### Installation

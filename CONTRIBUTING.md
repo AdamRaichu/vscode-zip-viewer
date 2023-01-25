@@ -1,3 +1,5 @@
+# Contributing
+
 All changes should be proposed in an issue and/or pull request. Below are guidelines for specific scenarios.
 
 ## Adding/updating a `package.nsl.*.json file`

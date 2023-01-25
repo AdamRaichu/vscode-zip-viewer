@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Add a progress counter to the preview that updates before content is loaded.
 
+Support GZip files.
+
+## [2.5.0] - 2023-1-25
+
+Add `.xlsx` file extension to built-in supported list ([#15](https://github.com/AdamRaichu/vscode-zip-viewer/issues/15)).
+
 ## [2.4.1] - 2023-1-24
 
 Add `.ipa` file extension to built-in supported list.

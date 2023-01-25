@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo-icons.png",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -83,6 +83,9 @@
           },
           {
             "filenamePattern": "*.ipa"
+          },
+          {
+            "filenamePattern": "*.xlsx"
           }
         ],
         "priority": "default"
@@ -109,7 +112,8 @@
               ".jar",
               ".pbit",
               ".pbix",
-              ".ipa"
+              ".ipa",
+              ".xlsx"
             ]
           },
           "zipViewer.picky": {
