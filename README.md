@@ -15,7 +15,12 @@
 
 An extension which allows for the manipulation of zip files in VS Code.
 
-## Usage
+## Installation
+
+Install from the VSCode Extension panel.
+Search `adamraichu.zip-viewer`.
+
+## Usage (Regular Zip Compression)
 
 ### Supported File Types
 
@@ -32,11 +37,6 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.vsix`
 - `.xlsx`
 - and of course, `.zip`
-
-### Installation
-
-Install from the VSCode Extension panel.
-Search `adamraichu.zip-viewer`.
 
 ### Viewing Zip File Contents (Custom Editor)
 
@@ -77,6 +77,24 @@ This setting is ignored if `zipViewer.picky` is set to false.
 #### Selective Extraction
 
 Next to each file name there is a checkbox. At the top of the editor is a button labeled `Extract Selected Files Only`. When you click that button, the extension will prompt you to select a Target Folder. The extension will then extract the selected files to that location.
+
+## Usage (GNU Zip Compression)
+
+The extension now contributes a custom "editor" for files compressed with GNU Zip (gzip) compression.
+
+When you open a file with one of the following file extensions, the extension will decompress the file, and write a new file to the workspace.
+Here is an example demonstrating the naming convention.
+
+You open a file called `smile.svg.svgz`.
+The extension decompresses it, and creates a file called `smile<unzippedSuffix>.svg`.
+
+### Supported File Types (gzip)
+
+- `.gz`
+- `.gzip`
+- `.svgz`
+- `.emz`
+- `.tg`
 
 ## Known Issues
 
