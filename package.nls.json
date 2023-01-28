@@ -5,7 +5,7 @@
   "command.zip.short": "Zip Folder",
   "command.openFileWithEditor": "Zip Tools: Open a zip file with the custom editor",
   "command.openFileWithEditor.short": "Open w/ zip editor",
-  "extension.description": "An extension which allows for the manipulation of zip (jar, vsix, etc.) files.",
+  "extension.description": "An extension which allows for the manipulation of zip (jar, vsix, etc.) files. Now with GZip!",
   "config.zipTypes.description": "An array of file extensions to check files against when unzipping.",
   "config.zipTypes.items.title": "File Extension",
   "config.picky.description": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`. If set to true, extension will only attempt to unzip files with extensions found in `zipTypes`.",

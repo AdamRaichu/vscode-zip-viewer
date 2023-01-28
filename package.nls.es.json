@@ -5,7 +5,7 @@
   "command.zip.short": "Crear un archivo zip",
   "command.openFileWithEditor": "Zip Tools: Abre un archivo zip con el editor personalizado.",
   "command.openFileWithEditor.short": "Abre un archivo zip",
-  "extension.description": "Una extensión que permite la manipulación de archivos zip (y jar, vsix, etc.).",
+  "extension.description": "Una extensión que permite la manipulación de archivos zip (y jar, vsix, etc.). Ahora con GZip!",
   "config.zipTypes.description": "Una matriz de extensiones de archivo para verificar los archivos al descomprimir.",
   "config.zipTypes.items.title": "Extension de Archivo",
   "config.picky.description": "Si la extensión debe fallar automáticamente en las operaciones cuando la extensión del archivo no está en `zipTypes`. Si se establece en verdadero, la extensión solo intentará descomprimir archivos con extensiones que se encuentran en `zipTypes`.",

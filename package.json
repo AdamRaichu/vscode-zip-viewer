@@ -3,8 +3,8 @@
   "displayName": "Zip Tools",
   "description": "%extension.description%",
   "publisher": "adamraichu",
-  "icon": "logo-icons.png",
-  "version": "2.5.0",
+  "icon": "logo.png",
+  "version": "3.0.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -17,7 +17,8 @@
     "extract",
     "jar",
     "preview",
-    "viewer"
+    "viewer",
+    "gzip"
   ],
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
@@ -28,7 +29,8 @@
     "onCommand:zipViewer.extract",
     "onCommand:zipViewer.zip",
     "onCommand:zipViewer.openFileWithEditor",
-    "onCustomEditor:zipViewer.ZipEdit"
+    "onCustomEditor:zipViewer.ZipEdit",
+    "onCustomEditor:zipViewer.GZipEdit"
   ],
   "engines": {
     "vscode": "^1.63.0"
