@@ -5,17 +5,41 @@
 [![Last Updated](https://img.shields.io/visual-studio-marketplace/last-updated/adamraichu.zip-viewer?color=%2300008b&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
 [![VSCode Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/adamraichu.zip-viewer?color=00008b&logo=Visual%20Studio%20Code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
 [![Install Count](https://img.shields.io/visual-studio-marketplace/i/adamraichu.zip-viewer?color=darkblue&label=Install%20Count&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer)
-[![Rating](https://img.shields.io/visual-studio-marketplace/stars/adamraichu.zip-viewer?color=darkblue&label=Rating&logo=visual%20studio%20code&logoColor=%23007ACC)](https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details)
+[![Rating](https://img.shields.io/visual-studio-marketplace/stars/adamraichu.zip-viewer?color=darkblue&label=Rating&logo=visual%20studio%20code&logoColor=%23007ACC)][review]
 
 [![GitHub issues by-label](https://img.shields.io/github/issues/adamraichu/vscode-zip-viewer/confirmed?color=orange&logo=github)](https://github.com/AdamRaichu/vscode-zip-viewer/labels/confirmed)
-[![GitHub stars](https://img.shields.io/github/stars/adamraichu/vscode-zip-viewer)](https://github.com/adamraichu/vscode-zip-viewer/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/adamraichu/vscode-zip-viewer)][stargazers]
 [![GitHub license](https://img.shields.io/github/license/adamraichu/vscode-zip-viewer)](https://github.com/AdamRaichu/vscode-zip-viewer/blob/main/LICENSE)
 
 </div>
 
 An extension which allows for the manipulation of zip files in VS Code.
 
-## Usage
+> This extension recently hit 800 downloads.
+> It's crazy to think that 800 people have seen something that I built.
+> Thank you so much for your support!
+>
+> If this extension has helped you at all, please consider [leaving a review][review] on the marketplace and/or [starring the repository][stargazers] on GitHub.
+
+- [Installation](#installation)
+- [Usage (Regular Zip Compression)](#usage-regular-zip-compression)
+  - [Supported File Types](#supported-file-types)
+  - [Viewing Zip File Contents (Custom Editor)](#viewing-zip-file-contents-custom-editor)
+  - [Creating a Zip](#creating-a-zip)
+  - [Extract a Zip](#extract-a-zip)
+    - [Selective Extraction](#selective-extraction)
+- [Usage (GNU Zip Compression)](#usage-gnu-zip-compression)
+  - [Supported File Types (gzip)](#supported-file-types-gzip)
+- [Known Issues](#known-issues)
+- [Changelog](#changelog)
+- [See Also](#see-also)
+
+## Installation
+
+Install from the VSCode Extension panel.
+Search `adamraichu.zip-viewer`.
+
+## Usage (Regular Zip Compression)
 
 ### Supported File Types
 
@@ -32,11 +56,6 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.vsix`
 - `.xlsx`
 - and of course, `.zip`
-
-### Installation
-
-Install from the VSCode Extension panel.
-Search `adamraichu.zip-viewer`.
 
 ### Viewing Zip File Contents (Custom Editor)
 
@@ -78,6 +97,24 @@ This setting is ignored if `zipViewer.picky` is set to false.
 
 Next to each file name there is a checkbox. At the top of the editor is a button labeled `Extract Selected Files Only`. When you click that button, the extension will prompt you to select a Target Folder. The extension will then extract the selected files to that location.
 
+## Usage (GNU Zip Compression)
+
+The extension now contributes a custom "editor" for files compressed with GNU Zip (gzip) compression.
+
+When you open a file with one of the following file extensions, the extension will decompress the file, and write a new file to the workspace.
+Here is an example demonstrating the naming convention.
+
+You open a file called `smile.svg.svgz`.
+The extension decompresses it, and creates a file called `smile<unzippedSuffix>.svg`.
+
+### Supported File Types (gzip)
+
+- `.gz`
+- `.gzip`
+- `.svgz`
+- `.emz`
+- `.tg`
+
 ## Known Issues
 
 You can view issues [here][issues].
@@ -94,3 +131,5 @@ If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] 
 [pdf-viewer]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.pdf-viewer
 [font-preview]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.font-viewer
 [issues]: https://github.com/AdamRaichu/vscode-zip-viewer/issues
+[review]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details
+[stargazers]: https://github.com/adamraichu/vscode-zip-viewer/stargazers

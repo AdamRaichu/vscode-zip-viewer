@@ -3,8 +3,8 @@
   "displayName": "Zip Tools",
   "description": "%extension.description%",
   "publisher": "adamraichu",
-  "icon": "logo-icons.png",
-  "version": "2.5.0",
+  "icon": "logo.png",
+  "version": "3.0.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -17,7 +17,8 @@
     "extract",
     "jar",
     "preview",
-    "viewer"
+    "viewer",
+    "gzip"
   ],
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
@@ -28,7 +29,8 @@
     "onCommand:zipViewer.extract",
     "onCommand:zipViewer.zip",
     "onCommand:zipViewer.openFileWithEditor",
-    "onCustomEditor:zipViewer.ZipEdit"
+    "onCustomEditor:zipViewer.ZipEdit",
+    "onCustomEditor:zipViewer.GZipEdit"
   ],
   "engines": {
     "vscode": "^1.63.0"
@@ -89,6 +91,28 @@
           }
         ],
         "priority": "default"
+      },
+      {
+        "viewType": "zipViewer.GZipEdit",
+        "displayName": "Zip Tools",
+        "selector": [
+          {
+            "filenamePattern": "*.gz"
+          },
+          {
+            "filenamePattern": "*.gzip"
+          },
+          {
+            "filenamePattern": "*.svgz"
+          },
+          {
+            "filenamePattern": "*.emz"
+          },
+          {
+            "filenamePattern": "*.tg"
+          }
+        ],
+        "priority": "default"
       }
     ],
     "configuration": [
@@ -134,11 +158,13 @@
   "devDependencies": {
     "@types/vscode": "^1.63.0",
     "@vscode/vsce": "^2.16.0",
+    "gzip": "^0.1.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "jszip": "^3.10.1"
+    "jszip": "^3.10.1",
+    "pako": "^2.1.0"
   },
   "scripts": {
     "build": "webpack"

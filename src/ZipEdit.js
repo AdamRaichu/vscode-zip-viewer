@@ -2,7 +2,7 @@
  * @author adamraichu
  * @file Exports {@link ZipEdit}, an implementation of a CustomReadonlyEditorProvider
  */
-import ZipDoc from "./doc.js";
+import ZipDoc from "./ZipDoc.js";
 import extTypes from "./ext.json";
 import mime from "./mime.json";
 const vscode = require("vscode");
@@ -51,8 +51,8 @@ export default class ZipEdit {
     panel.webview.html = `<!DOCTYPE html>
 <html>
 <head>
-  <script src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "editor.js"))}"></script>
-  <link rel="stylesheet" href="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "editor.css"))}">
+  <script src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "ZipEditor.js"))}"></script>
+  <link rel="stylesheet" href="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "ZipEditor.css"))}">
   <script>var mime = ${JSON.stringify(mime)}</script>
 </head>
 
