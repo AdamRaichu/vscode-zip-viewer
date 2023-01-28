@@ -3,7 +3,7 @@
   "command.extract.short": "Extraiga Zip",
   "command.zip": "Zip Tools: Crear un archivo zip desde una carpeta",
   "command.zip.short": "Crear un archivo zip",
-  "command.openFileWithEditor": "Zip Tools: Abre un archivo zip con el editor personalizado.",
+  "command.openFileWithEditor": "Zip Tools: Abre un archivo zip con un editor personalizado.",
   "command.openFileWithEditor.short": "Abre un archivo zip",
   "extension.description": "Una extensión que permite la manipulación de archivos zip (y jar, vsix, etc.). Ahora con GZip!",
   "config.zipTypes.description": "Una matriz de extensiones de archivo para verificar los archivos al descomprimir.",

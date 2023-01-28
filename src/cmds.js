@@ -187,7 +187,9 @@ export default class cmds {
           canSelectFolders: false,
         })
         .then(function (file) {
-          vscode.commands.executeCommand("vscode.openWith", file[0], "zipViewer.ZipEdit");
+          vscode.window.showQuickPick(["Zip", "GZip"], { title: "Compression Type" }).then(function (editorChoice) {
+            vscode.commands.executeCommand("vscode.openWith", file[0], `zipViewer.${editorChoice}Edit`);
+          });
         });
     });
   }
