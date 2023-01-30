@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-*Extension version*: (e.g. `2.5.0`)
-
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
