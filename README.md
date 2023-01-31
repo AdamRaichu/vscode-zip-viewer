@@ -74,9 +74,10 @@ Using the editor, you have the option to extract only selected files. See [selec
 
 To create a zip file, run the command `Zip Tools: Create a zip file from folder`.
 The extension will prompt you to select a folder to copy & compress.
-Then it will prompt you to pick a target folder, where the compressed folder will be stored.
 The zip file's name will be of the pattern `<folderToCompressName>.zip`.
-You may rename it if you wish.
+The zip file will be created in the same folder as the folder you zipped.
+
+Alternatively, you can right click a folder in the Explorer menu, and select
 
 > **Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension.
 > Exceeding the API limit will cause the process to fail, so consider downloading the folder and zipping locally on your device.

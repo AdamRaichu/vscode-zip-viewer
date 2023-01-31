@@ -11,6 +11,13 @@ Add a progress counter to the preview that updates before content is loaded.
 
 Old to new file extension mappings for gzip decompressor.
 
+## [3.1.0] - 2023-1-31
+
+Add a context menu item to folders in the explorer view.
+
+Remove the target path selection from `zipViewer.zip`.
+It would be confusing in the context of the context menu command activation.
+
 ## [3.0.0] - 2023-1-28
 
 A new "editor" for files compressed with GNU Zip compression. Supports `.gz`, `.gzip`, `.svgz`, `.emz`, and `.tg`. See README for more information.

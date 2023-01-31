@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -153,7 +153,16 @@
           }
         }
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "zipViewer.zip",
+          "when": "explorerResourceIsFolder",
+          "group": "2_workspace"
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@types/vscode": "^1.63.0",
