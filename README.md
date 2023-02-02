@@ -108,6 +108,8 @@ Here is an example demonstrating the naming convention.
 You open a file called `smile.svg.svgz`.
 The extension decompresses it, and creates a file called `smile<unzippedSuffix>.svg`.
 
+You can disable this editor by setting `zipViewer.gzipEditorEnabled` to false.
+
 ### Supported File Types (gzip)
 
 - `.gz`
