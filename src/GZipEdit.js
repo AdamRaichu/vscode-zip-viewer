@@ -24,9 +24,20 @@ export default class GZipEdit {
    * @param {vscode.CancellationToken} _token
    */
   async resolveCustomEditor(document, panel, _token) {
-    panel.webview.html = `<!DOCTYPE html><html><head></head><body><h1>Please follow popup instructions.</h1></body></html>`;
-    doesItExist(document.uri.toString().split("."), document);
+    var config = vscode.workspace.getConfiguration().zipViewer;
+    if (config.gzipEditorEnabled) {
+      panel.webview.html = this.htmlList.followPopup;
+      doesItExist(document.uri.toString().split("."), document);
+    } else {
+      panel.webview.html = this.htmlList.editorDisabled;
+    }
   }
+
+  htmlList = {
+    editorDisabled:
+      "<!DOCTYPE html><html><head></head><body><h1>The GZip editor has been disabled.</h1><p>You have disabled the GZip editor. Enable the setting `zipViewer.gzipEditorEnabled` to enable the editor.</p></body></html>",
+    followPopup: "<!DOCTYPE html><html><head></head><body><h1>Please follow popup instructions.</h1></body></html>",
+  };
 }
 
 /**
