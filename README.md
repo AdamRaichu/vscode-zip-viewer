@@ -15,9 +15,8 @@
 
 An extension which allows for the manipulation of zip files in VS Code.
 
-> This extension recently hit 800 downloads.
-> It's crazy to think that 800 people have seen something that I built.
-> Thank you so much for your support!
+> This extension recently hit 900 downloads.
+> It's crazy to think that 900 people have seen something that I built!
 >
 > If this extension has helped you at all, please consider [leaving a review][review] on the marketplace and/or [starring the repository][stargazers] on GitHub.
 

@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Add a progress counter to the preview that updates before content is loaded.
 
-Old to new file extension mappings for gzip decompressor.
+## [3.2.1] - 2023-2-2
+
+Add file extension mappings. (e.g. When you open an svgz file, it unzips as .svg.)
 
 ## [3.2.0] - 2023-2-1
 
