@@ -110,6 +110,9 @@
           },
           {
             "filenamePattern": "*.tg"
+          },
+          {
+            "filenamePattern": "*.tgz"
           }
         ],
         "priority": "default"

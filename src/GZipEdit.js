@@ -1,6 +1,6 @@
 import { ungzip } from "pako";
 import GZipDoc from "./GZipDoc.js";
-import extTypes from "./ext.json";
+import gzMap from "./gz-map.json";
 const vscode = require("vscode");
 
 export default class GZipEdit {
@@ -60,12 +60,17 @@ async function showFile(uri, document) {
  */
 function doesItExist(_uri, document) {
   var config = vscode.workspace.getConfiguration().zipViewer;
-  _uri.pop();
+  var ext = _uri.pop();
+  for (var i = 0; i < gzMap.mappings.length; i++) {
+    if (gzMap.mappings[i].compressed === ext) {
+      _uri.push(gzMap.mappings[i].inflated);
+    }
+  }
   _uri[_uri.length - 2] += config.unzippedSuffix;
   var uri = vscode.Uri.parse(_uri.join("."));
   vscode.workspace.fs.stat(uri).then(
     function () {
-      doesItExist((_uri.join(".") + "_gz.file").toString().split("."));
+      doesItExist((_uri.join(".") + "_gz." + ext).toString().split("."));
     },
     function () {
       showFile(uri, document);

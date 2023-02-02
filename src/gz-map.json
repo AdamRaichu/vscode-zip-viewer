@@ -1,0 +1,20 @@
+{
+  "mappings": [
+    {
+      "compressed": "svgz",
+      "inflated": "svg"
+    },
+    {
+      "compressed": "emz",
+      "inflated": "emf"
+    },
+    {
+      "compressed": "tg",
+      "inflated": "tar"
+    },
+    {
+      "compressed": "tgz",
+      "inflated": "tar"
+    }
+  ]
+}
