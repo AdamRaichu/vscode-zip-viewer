@@ -25,13 +25,7 @@
   },
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
-  "activationEvents": [
-    "onCommand:zipViewer.extract",
-    "onCommand:zipViewer.zip",
-    "onCommand:zipViewer.openFileWithEditor",
-    "onCustomEditor:zipViewer.ZipEdit",
-    "onCustomEditor:zipViewer.GZipEdit"
-  ],
+  "activationEvents": [],
   "engines": {
     "vscode": "^1.63.0"
   },
