@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -46,6 +46,11 @@
         "title": "%command.openFileWithEditor%",
         "shortTitle": "%command.openFileWithEditor.short%",
         "icon": "$(explorer-view-icon)"
+      },
+      {
+        "command": "zipViewer.gzip",
+        "title": "%command.gzip%",
+        "shortTitle": "%command.gzip.short%"
       }
     ],
     "customEditors": [
@@ -152,6 +157,11 @@
             "type": "boolean",
             "markdownDescription": "%config.gzipEditorEnabled.description%",
             "default": true
+          },
+          "zipViewer.deleteOldFileWhenGzipping": {
+            "type": "boolean",
+            "markdownDescription": "%config.deleteOldFileWhenGzipping%",
+            "default": true
           }
         }
       }
@@ -161,6 +171,11 @@
         {
           "command": "zipViewer.zip",
           "when": "explorerResourceIsFolder",
+          "group": "2_workspace"
+        },
+        {
+          "command": "zipViewer.gzip",
+          "when": "!explorerResourceIsFolder && resourceExtname != .gz && resourceExtname != .gzip && resourceExtname != .svgz && resourceExtname != .emz && resourceExtname != .tg && resourceExtname != .tgz",
           "group": "2_workspace"
         }
       ]

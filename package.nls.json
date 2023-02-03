@@ -10,5 +10,8 @@
   "config.zipTypes.items.title": "File Extension",
   "config.picky.description": "Whether the extension should automatically fail operations when file extension is not in `zipTypes`. If set to true, extension will only attempt to unzip files with extensions found in `zipTypes`.",
   "config.unzippedSuffix.description": "The suffix to add to folder name when unzipping a zip file. Must not contain any of the following characters: `/ ? % * : | \" < >`.",
-  "config.gzipEditorEnabled.description": "When false, stops the GZip editor from automatically decompressing and instead shows a disabled message."
+  "config.gzipEditorEnabled.description": "When false, stops the GZip editor from automatically decompressing and instead shows a disabled message.",
+  "config.deleteOldFileWhenGzipping": "When true, deletes the file you compressed when using `zipViewer.gzip` command.",
+  "command.gzip": "Zip Tools: Compress file with GZip compression.",
+  "command.gzip.short": "GZip File"
 }

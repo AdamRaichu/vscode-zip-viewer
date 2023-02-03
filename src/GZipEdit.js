@@ -46,6 +46,7 @@ export default class GZipEdit {
  * @param {GZipDoc} document
  */
 async function showFile(uri, document) {
+  console.log(document);
   vscode.workspace.fs.readFile(document.uri).then(async function (data) {
     await vscode.workspace.fs.writeFile(uri, ungzip(data)).then(function () {
       vscode.commands.executeCommand("vscode.open", uri);
@@ -70,7 +71,7 @@ function doesItExist(_uri, document) {
   var uri = vscode.Uri.parse(_uri.join("."));
   vscode.workspace.fs.stat(uri).then(
     function () {
-      doesItExist((_uri.join(".") + "_gz." + ext).toString().split("."));
+      doesItExist((_uri.join(".") + "_gz." + ext).toString().split("."), document);
     },
     function () {
       showFile(uri, document);

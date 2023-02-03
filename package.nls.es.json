@@ -10,5 +10,8 @@
   "config.zipTypes.items.title": "Extension de Archivo",
   "config.picky.description": "Si la extensión debe fallar automáticamente en las operaciones cuando la extensión del archivo no está en `zipTypes`. Si se establece en verdadero, la extensión solo intentará descomprimir archivos con extensiones que se encuentran en `zipTypes`.",
   "config.unzippedSuffix.description": "El sufijo para agregar al nombre de la carpeta al descomprimir un archivo zip. No debe contener ninguno de los siguientes caracteres: `/ ? % * : | \" < >`.",
-  "config.gzipEditorEnabled.description": "Cuando es falso, detiene al editor de GZip de abra automáticamente y en cambio muestra un mensaje de desactivado."
+  "config.gzipEditorEnabled.description": "Cuando es falso, detiene al editor de GZip de abra automáticamente y en cambio muestra un mensaje de desactivado.",
+  "config.deleteOldFileWhenGzipping": "Cuando es cierto, elimina el archivo compriste cuando usas el command `zipViewer.gzip`.",
+  "command.gzip": "Zip Tools: Comprimir un archivo con compresión de GZip.",
+  "command.gzip.short": "Comprimir Archivo (GZip)"
 }

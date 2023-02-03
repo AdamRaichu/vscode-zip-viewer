@@ -109,6 +109,8 @@ The extension decompresses it, and creates a file called `smile<unzippedSuffix>.
 
 You can disable this editor by setting `zipViewer.gzipEditorEnabled` to false.
 
+You can compress a file by right clicking it in the explorer menu, or running the command `Zip Tools: Compress file with GZip compression.`
+
 ### Supported File Types (gzip)
 
 - `.gz`
@@ -116,6 +118,7 @@ You can disable this editor by setting `zipViewer.gzipEditorEnabled` to false.
 - `.svgz`
 - `.emz`
 - `.tg`
+- `.tgz`
 
 ## Known Issues
 

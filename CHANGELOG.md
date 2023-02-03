@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Add a progress counter to the preview that updates before content is loaded.
 
+## [3.3.0] - 2023-2-3
+
+Add command and context menu to explorer view that allows user to GZip files.
+
 ## [3.2.1] - 2023-2-2
 
 Add file extension mappings. (e.g. When you open an svgz file, it unzips as .svg.)
