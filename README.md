@@ -15,8 +15,8 @@
 
 An extension which allows for the manipulation of zip files in VS Code.
 
-> This extension recently hit 900 downloads.
-> It's crazy to think that 900 people have seen something that I built!
+> This extension recently hit 1000 downloads.
+> It's crazy to think that 1000 people have seen something that I built!
 >
 > If this extension has helped you at all, please consider [leaving a review][review] on the marketplace and/or [starring the repository][stargazers] on GitHub.
 
@@ -88,10 +88,7 @@ The extension will prompt you to select a zip file, then it will prompt you to c
 The contents of the zip file will be deposited in that folder.
 The new folder's name will be `<zipFileName><zipViewer.unzippedSuffix>`.
 
-The extension contributes a setting `zipViewer.zipTypes`.
-If the file you chose does not end with a string in that array, the extension will give an error message.
-You can edit this setting in the settings editor.
-This setting is ignored if `zipViewer.picky` is set to false.
+**(Deprecated)** ~~The extension contributes a setting `zipViewer.zipTypes`. If the file you chose does not end with a string in that array, the extension will give an error message.You can edit this setting in the settings editor. This setting is ignored if `zipViewer.picky` is set to false.~~
 
 #### Selective Extraction
 

@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -129,23 +129,14 @@
               "title": "%config.zipTypes.items.title%",
               "pattern": "\\.([A-Za-z0-9\\.])"
             },
-            "default": [
-              ".zip",
-              ".vsix",
-              ".mcworld",
-              ".mcpack",
-              ".mcaddon",
-              ".jar",
-              ".pbit",
-              ".pbix",
-              ".ipa",
-              ".xlsx"
-            ]
+            "deprecationMessage": "%config.zipTypes.deprecated%",
+            "default": []
           },
           "zipViewer.picky": {
             "type": "boolean",
             "markdownDescription": "%config.picky.description%",
-            "default": false
+            "default": false,
+            "deprecationMessage": "%config.zipTypes.deprecated%"
           },
           "zipViewer.unzippedSuffix": {
             "type": "string",

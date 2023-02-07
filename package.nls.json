@@ -13,5 +13,6 @@
   "config.gzipEditorEnabled.description": "When false, stops the GZip editor from automatically decompressing and instead shows a disabled message.",
   "config.deleteOldFileWhenGzipping": "When true, deletes the file you compressed when using `zipViewer.gzip` command.",
   "command.gzip": "Zip Tools: Compress file with GZip compression.",
-  "command.gzip.short": "GZip File"
+  "command.gzip.short": "GZip File",
+  "config.zipTypes.deprecated": "This setting makes very little sense, so it has been removed."
 }
