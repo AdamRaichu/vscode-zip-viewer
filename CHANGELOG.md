@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Add a progress counter to the preview that updates before content is loaded.
 
+## [3.4.0] - 2023-2-7
+
+Remove the settings `zipViewer.zipTypes` and `zipViewer.picky` as they don't make sense.
+
 ## [3.3.0] - 2023-2-3
 
 Add command and context menu to explorer view that allows user to GZip files.

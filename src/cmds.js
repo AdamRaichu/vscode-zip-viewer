@@ -40,40 +40,31 @@ export default class cmds {
             if (typeof targetPath === "undefined") {
               return;
             }
-            var zipTypes = config.zipTypes;
-            for (var ext = 0; ext < zipTypes.length; ext++) {
-              if (files[0].path.endsWith(zipTypes[ext]) || !config.picky) {
-                var z = new JSZip();
-                vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
-                  z.loadAsync(Ui8A).then(
-                    function (zip) {
-                      var keys = Object.keys(zip.files);
-                      for (var c = 0; c < keys.length; c++) {
-                        var f = zip.files[keys[c]];
-                        if (f.name.endsWith("/")) {
-                        } else {
-                          function temp(t) {
-                            t.async("uint8array").then(function (u8) {
-                              o.appendLine(`[DEBUG] Wrote ${t.name}`);
-                              vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], files[0].path.split("/").pop() + config.unzippedSuffix, t.name), u8);
-                            });
-                          }
-                          temp(f);
-                        }
+            var z = new JSZip();
+            vscode.workspace.fs.readFile(files[0]).then(function (Ui8A) {
+              z.loadAsync(Ui8A).then(
+                function (zip) {
+                  var keys = Object.keys(zip.files);
+                  for (var c = 0; c < keys.length; c++) {
+                    var f = zip.files[keys[c]];
+                    if (f.name.endsWith("/")) {
+                    } else {
+                      function temp(t) {
+                        t.async("uint8array").then(function (u8) {
+                          o.appendLine(`[DEBUG] Wrote ${t.name}`);
+                          vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], files[0].path.split("/").pop() + config.unzippedSuffix, t.name), u8);
+                        });
                       }
-                    },
-                    function (err) {
-                      console.error(err);
-                      vscode.window.showErrorMessage(`JSZip encountered an error trying to unzip ${files[0].path}`);
+                      temp(f);
                     }
-                  );
-                });
-                return;
-              }
-            }
-            vscode.window.showErrorMessage(
-              "Selected file does not have a supported file extension. Edit the setting `zipViewer.zipTypes` to add a file extension, but please go to the extension repository and open an issue so it can be added to the built in list."
-            );
+                  }
+                },
+                function (err) {
+                  console.error(err);
+                  vscode.window.showErrorMessage(`JSZip encountered an error trying to unzip ${files[0].path}`);
+                }
+              );
+            });
           });
       });
     });
