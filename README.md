@@ -15,9 +15,8 @@
 
 An extension which allows for the manipulation of zip files in VS Code.
 
-Watch a video explanation of the extension's features. [![YouTube Video Views](https://img.shields.io/youtube/views/eMttQGBadaI?color=%230000ff&label=YouTube%20Views&logo=youtube&logoColor=red&style=plastic)](https://youtu.be/eMttQGBadaI)
+[Watch a video explanation](https://youtu.be/eMttQGBadaI) of the extension's features.
 
->
 > This extension recently hit 1000 downloads.
 > It's crazy to think that 1000 people have seen something that I built!
 >
