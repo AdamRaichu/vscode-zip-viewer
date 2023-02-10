@@ -13,12 +13,13 @@
     "Visualization"
   ],
   "keywords": [
-    "zip",
+    "compress",
     "extract",
+    "gzip",
     "jar",
     "preview",
     "viewer",
-    "gzip"
+    "zip"
   ],
   "repository": {
     "url": "https://github.com/AdamRaichu/vscode-zip-viewer"
