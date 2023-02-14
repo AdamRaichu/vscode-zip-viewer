@@ -15,7 +15,9 @@
 
 An extension which allows for the manipulation of zip files in VS Code.
 
-[Watch a video explanation](https://youtu.be/eMttQGBadaI) of the extension's features.
+## Learn how it works with a video (click below)
+
+[![Video Thumbnail](./thumbnail.jpg)](https://youtu.be/eMttQGBadaI)
 
 > This extension recently hit 1000 downloads.
 > It's crazy to think that 1000 people have seen something that I built!
