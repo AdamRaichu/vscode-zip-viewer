@@ -3,3 +3,5 @@
 node_modules
 src
 tests
+thumbnail.jpg
+webpack.config.js
