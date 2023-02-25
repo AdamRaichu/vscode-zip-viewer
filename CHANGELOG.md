@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Add a progress counter to the preview that updates before content is loaded.
 
+## [3.5.0] - 2022-2-25
+
+Fix [#26](https://github.com/AdamRaichu/vscode-zip-viewer/issues/26) which was preventing contents of subfolders from being readable to downloaded zip files, although JSZip is still able to read them. This was fixed by adding/modifying these lines of code.
+
 ## [3.4.0] - 2023-2-7
 
 Remove the settings `zipViewer.zipTypes` and `zipViewer.picky` as they don't make sense.
