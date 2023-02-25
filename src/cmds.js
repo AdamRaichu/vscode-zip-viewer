@@ -142,7 +142,12 @@ function zipFolder(folderToZip) {
             count++;
             if (files[d][1] === 1) {
               vscode.workspace.fs.readFile(vscode.Uri.joinPath(uri, files[d][0])).then(function (file) {
-                z.file(name, file);
+                var splitPath = name.split("/");
+                var current = z;
+                for (var i = 0; i < splitPath.length - 1; i++) {
+                  current = current.folder(splitPath[i]);
+                }
+                current.file(name, file);
                 barItem.text = `$(loading~spin) Creating zip file. Reading ${name}`;
               });
             } else if (files[d][1] === 2) {
