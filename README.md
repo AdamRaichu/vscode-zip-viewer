@@ -138,4 +138,4 @@ If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] 
 [font-preview]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.font-viewer
 [review]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details
 [stargazers]: https://github.com/adamraichu/vscode-zip-viewer/stargazers
-[known-issues]: https://github.com/adamraichu/vscode-zip-viewer
+[known-issues]: https://github.com/AdamRaichu/vscode-zip-viewer/blob/main/known_issues.md
