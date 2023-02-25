@@ -1,5 +1,6 @@
 .github
 .vscode
+known_issues.md
 node_modules
 src
 tests
