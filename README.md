@@ -123,7 +123,7 @@ You can compress a file by right clicking it in the explorer menu, or running th
 
 ## Known Issues
 
-You can view issues [here][issues].
+You can view issues [here][known-issues].
 
 ## Changelog
 
@@ -136,6 +136,6 @@ If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] 
 [new-zip-type]: https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?assignees=AdamRaichu&labels=enhancement%2Cgood+first+issue&template=suggest_ext.yml&title=%5BFeature%5D+Suggested+file+extension%3A+
 [pdf-viewer]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.pdf-viewer
 [font-preview]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.font-viewer
-[issues]: https://github.com/AdamRaichu/vscode-zip-viewer/issues
 [review]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details
 [stargazers]: https://github.com/adamraichu/vscode-zip-viewer/stargazers
+[known-issues]: https://github.com/adamraichu/vscode-zip-viewer
