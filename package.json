@@ -61,6 +61,46 @@
         "shortTitle": "%command.gzip.short%"
       }
     ],
+    "configuration": [
+      {
+        "title": "Zip Tools",
+        "properties": {
+          "zipViewer.zipTypes": {
+            "type": "array",
+            "description": "%config.zipTypes.description%",
+            "items": {
+              "type": "string",
+              "title": "%config.zipTypes.items.title%",
+              "pattern": "\\.([A-Za-z0-9\\.])"
+            },
+            "deprecationMessage": "%config.zipTypes.deprecated%",
+            "default": []
+          },
+          "zipViewer.picky": {
+            "type": "boolean",
+            "markdownDescription": "%config.picky.description%",
+            "default": false,
+            "deprecationMessage": "%config.zipTypes.deprecated%"
+          },
+          "zipViewer.unzippedSuffix": {
+            "type": "string",
+            "markdownDescription": "%config.unzippedSuffix.description%",
+            "default": "_unzipped",
+            "pattern": "^[^\\/?%*:|\"<>]+$"
+          },
+          "zipViewer.gzipEditorEnabled": {
+            "type": "boolean",
+            "markdownDescription": "%config.gzipEditorEnabled.description%",
+            "default": true
+          },
+          "zipViewer.deleteOldFileWhenGzipping": {
+            "type": "boolean",
+            "markdownDescription": "%config.deleteOldFileWhenGzipping%",
+            "default": true
+          }
+        }
+      }
+    ],
     "customEditors": [
       {
         "viewType": "zipViewer.ZipEdit",
@@ -123,46 +163,6 @@
           }
         ],
         "priority": "default"
-      }
-    ],
-    "configuration": [
-      {
-        "title": "Zip Tools",
-        "properties": {
-          "zipViewer.zipTypes": {
-            "type": "array",
-            "description": "%config.zipTypes.description%",
-            "items": {
-              "type": "string",
-              "title": "%config.zipTypes.items.title%",
-              "pattern": "\\.([A-Za-z0-9\\.])"
-            },
-            "deprecationMessage": "%config.zipTypes.deprecated%",
-            "default": []
-          },
-          "zipViewer.picky": {
-            "type": "boolean",
-            "markdownDescription": "%config.picky.description%",
-            "default": false,
-            "deprecationMessage": "%config.zipTypes.deprecated%"
-          },
-          "zipViewer.unzippedSuffix": {
-            "type": "string",
-            "markdownDescription": "%config.unzippedSuffix.description%",
-            "default": "_unzipped",
-            "pattern": "^[^\\/?%*:|\"<>]+$"
-          },
-          "zipViewer.gzipEditorEnabled": {
-            "type": "boolean",
-            "markdownDescription": "%config.gzipEditorEnabled.description%",
-            "default": true
-          },
-          "zipViewer.deleteOldFileWhenGzipping": {
-            "type": "boolean",
-            "markdownDescription": "%config.deleteOldFileWhenGzipping%",
-            "default": true
-          }
-        }
       }
     ],
     "menus": {
