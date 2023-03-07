@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.5.2",
+  "version": "3.6.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -135,6 +135,9 @@
           },
           {
             "filenamePattern": "*.xlsx"
+          },
+          {
+            "filenamePattern": "*.crx"
           }
         ],
         "priority": "default"

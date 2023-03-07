@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 A workspace setting for recognizing files inside zip files as text files without asking.
 
+## [3.6.0] - 2023-3-7
+
+Add `.crx` file extension to built-in supported list.
+
 ## [3.5.0] - 2022-2-25
 
 Fix [#26](https://github.com/AdamRaichu/vscode-zip-viewer/issues/26) which was preventing contents of subfolders from being readable to downloaded zip files, although JSZip is still able to read them.
