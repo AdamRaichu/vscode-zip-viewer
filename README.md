@@ -132,7 +132,7 @@ You can view the changelog [here](CHANGELOG.md).
 
 ## See Also
 
-If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] or [Font Preview][font-preview].
+If you found this extension useful, you may also want to check out [PDF Viewer][pdf-viewer], [Font Preview][font-preview], or [Docx Renderer][docx-renderer].
 
 [new-zip-type]: https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?assignees=AdamRaichu&labels=enhancement%2Cgood+first+issue&template=suggest_ext.yml&title=%5BFeature%5D+Suggested+file+extension%3A+
 [pdf-viewer]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.pdf-viewer
@@ -140,3 +140,4 @@ If you found this extension useful, you may also enjoy [PDF Viewer][pdf-viewer] 
 [review]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.zip-viewer&ssr=false#review-details
 [stargazers]: https://github.com/adamraichu/vscode-zip-viewer/stargazers
 [known-issues]: https://github.com/AdamRaichu/vscode-zip-viewer/blob/main/known_issues.md
+[docx-renderer]: https://marketplace.visualstudio.com/items?itemName=AdamRaichu.docx-viewer
