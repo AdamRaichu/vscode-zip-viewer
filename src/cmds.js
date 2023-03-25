@@ -133,7 +133,9 @@ function zipFolder(folderToZip) {
   barItem.text = "$(loading~spin) Creating zip file...";
   barItem.show();
   function main(uri) {
-    vscode.workspace.fs.readDirectory(uri).then(
+    // vscode.workspace.fs.readDirectory(uri).then(
+    const substrLength = vscode.workspace.workspaceFolders[0].uri.path.length + 1;
+    vscode.workspace.findFiles(uri.path.substring(substrLength)).then(
       function (files) {
         for (var f in files) {
           function temp(d) {
