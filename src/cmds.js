@@ -12,8 +12,6 @@ import { gzip } from "pako";
 import gzMap from "./gz-map.json";
 import sharedApi from "./shared";
 
-var o = vscode.window.createOutputChannel("Zip Viewer");
-
 /**
  * A wrapper for registering the commands for this extension
  */
@@ -51,7 +49,6 @@ export default class cmds {
                     } else {
                       function temp(t) {
                         t.async("uint8array").then(function (u8) {
-                          o.appendLine(`[DEBUG] Wrote ${t.name}`);
                           vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], files[0].path.split("/").pop() + config.unzippedSuffix, t.name), u8);
                         });
                       }
@@ -117,78 +114,31 @@ export default class cmds {
  */
 function zipFolder(folderToZip) {
   if (typeof folderToZip === "undefined") {
-    o.appendLine(`[DEBUG] Process aborted`);
     return;
   }
-  o.appendLine(`[DEBUG] folderToZip: ${folderToZip}`);
   var targetPath = [sharedApi.uri.getParent(folderToZip[0])];
-  if (typeof targetPath === "undefined") {
-    o.appendLine(`[DEBUG] Process aborted`);
-    return;
-  }
-  o.appendLine(`[DEBUG] targetPath: ${targetPath}`);
-  var z = new JSZip(),
-    barItem = vscode.window.createStatusBarItem(),
-    count = 0;
+  var z = new JSZip();
+  var barItem = vscode.window.createStatusBarItem();
   barItem.text = "$(loading~spin) Creating zip file...";
   barItem.show();
-  function main(uri) {
-    // vscode.workspace.fs.readDirectory(uri).then(
+  /**
+   * Zip a folder using `workspace.findFiles`
+   * @param {vscode.Uri} uri The uri of the folder to zip
+   */
+  async function zipUsingFindFiles(uri) {
     const substrLength = vscode.workspace.workspaceFolders[0].uri.path.length + 1;
-    vscode.workspace.findFiles(uri.path.substring(substrLength)).then(
-      function (files) {
-        for (var f in files) {
-          function temp(d) {
-            var name = uri.path.substr(folderToZip[0].path.length) + files[d][0];
-            o.appendLine(`[DEBUG] Read ${name}`);
-            count++;
-            if (files[d][1] === 1) {
-              vscode.workspace.fs.readFile(vscode.Uri.joinPath(uri, files[d][0])).then(function (file) {
-                var splitPath = name.split("/");
-                var current = z;
-                for (var i = 0; i < splitPath.length - 1; i++) {
-                  current = current.folder(splitPath[i]);
-                }
-                current.file(name, file);
-                barItem.text = `$(loading~spin) Creating zip file. Reading ${name}`;
-              });
-            } else if (files[d][1] === 2) {
-              main(vscode.Uri.joinPath(uri, files[d][0], "/"));
-            }
-          }
-          temp(f);
-        }
-      },
-      function (err) {
-        console.error(err);
-        vscode.showErrorMessage("An error occured creating your zip file.");
-        o.appendLine(`[ERROR] Process failed`);
-        barItem.text = "$(error) Zip file creation failed";
-        barItem.backgroundColor = new vscode.ThemeColor("statusBarItem.errorBackground");
-        setTimeout(function () {
-          barItem.hide();
-          barItem.dispose();
-        }, 5000);
+    const files = await vscode.workspace.findFiles(uri.path.substring(substrLength) + "/**");
+    for (var i in files) {
+      const name = files[i].path.substring(uri.path.length);
+      const file = await vscode.workspace.fs.readFile(vscode.Uri.joinPath(uri, name));
+      const splitPath = name.split("/");
+      var current = z;
+      for (var i = 0; i < splitPath.length - 1; i++) {
+        current = current.folder(splitPath[i]);
       }
-    );
-  }
-  main(folderToZip[0]);
-  var last = -1,
-    same = 0;
-  var i = setInterval(function () {
-    if (last < count) {
-      last++;
-      same = 0;
+      current.file(splitPath.pop(), file);
+      barItem.text = `$(loading~spin) Creating zip file. Reading ${name}`;
     }
-    if (last === count) {
-      same++;
-    }
-    if (same >= 20) {
-      clearInterval(i);
-      gen();
-    }
-  }, 100);
-  function gen() {
     z.generateAsync({ type: "uint8array" }, function (metadata) {
       barItem.text = `$(loading~spin) Zip file compression ${metadata.percent.toFixed(2)}% complete`;
     }).then(function (zip) {
@@ -197,12 +147,10 @@ function zipFolder(folderToZip) {
         function () {
           barItem.hide();
           barItem.dispose();
-          o.appendLine("[INFO] Process completed.");
         },
         function (err) {
           console.error(err);
           vscode.showErrorMessage("An error occured trying to save your zip file.");
-          o.appendLine(`[ERROR] Process failed`);
           barItem.text = "$(error) Zip file save failed";
           barItem.backgroundColor = new vscode.ThemeColor("statusBarItem.errorBackground");
           setTimeout(function () {
@@ -213,6 +161,7 @@ function zipFolder(folderToZip) {
       );
     });
   }
+  zipUsingFindFiles(folderToZip[0]);
 }
 
 /**
