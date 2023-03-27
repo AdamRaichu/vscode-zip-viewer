@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 A workspace setting for recognizing files inside zip files as text files without asking.
 
+## [3.7.0] - 2023-3-27
+
+Make the command `zipViewer.zip` much faster, and allow for zipping much larger folders.
+
+**(For zipping the `.github` folder of this repository):**
+
+- Old time ~4 seconds.
+- New time ~1.5 seconds.
+
+**(For zipping the `node_modules` folder after running `npm i`):**
+
+- Old time reached a silent error state in under 2 minutes and did not finish.
+- New time ~4 minutes 40 seconds. Actually finishes.
+
+This closes [#30](https://github.com/AdamRaichu/vscode-zip-viewer/issues/30).
+
 ## [3.6.0] - 2023-3-7
 
 Add `.crx` file extension to built-in supported list.
