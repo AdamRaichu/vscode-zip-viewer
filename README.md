@@ -81,7 +81,7 @@ The extension will prompt you to select a folder to copy & compress.
 The zip file's name will be of the pattern `<folderToCompressName>.zip`.
 The zip file will be created in the same folder as the folder you zipped.
 
-Alternatively, you can right click a folder in the Explorer menu, and select
+Alternatively, you can right click a folder in the Explorer menu, and select the command name in the context menu.
 
 > **Important**: Each file read when creating a zip file applies to your api rate limit, so it is not recommended to zip large folders using this extension.
 > Exceeding the API limit will cause the process to fail, so consider downloading the folder and zipping locally on your device.
