@@ -97,6 +97,21 @@
             "type": "boolean",
             "markdownDescription": "%config.deleteOldFileWhenGzipping%",
             "default": true
+          },
+          "zipViewer.textFileAssociations": {
+            "type": "array",
+            "description": "%config.textFileAssociations.description%",
+            "items": {
+              "type": "object",
+              "properties": {
+                "zipPath": {
+                  "type": "string"
+                },
+                "subfilePath": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
