@@ -15,5 +15,7 @@
   "command.gzip": "Zip Tools: Comprimir un archivo con compresión de GZip.",
   "command.gzip.short": "Comprimir Archivo (GZip)",
   "config.zipTypes.deprecated": "Esta configuración tiene muy poco sentido, por lo que se ha eliminado.",
-  "config.textFileAssociations.description": "Un conjunto de rutas que identifica los subarchivos de un archivo zip como archivos de texto."
+  "config.textFileAssociations.description": "Un conjunto de rutas que identifica los subarchivos de un archivo zip como archivos de texto.",
+  "config.textFileAssociations.zipPath.description": "La ruta al archivo zip relativa a la raíz del espacio de trabajo.",
+  "config.textFileAssociations.subfilePath.description": "La ruta al archivo de texto relativa a la raíz del archivo zip."
 }

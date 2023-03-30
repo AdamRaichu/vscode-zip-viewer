@@ -105,10 +105,12 @@
               "type": "object",
               "properties": {
                 "zipPath": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "%config.textFileAssociations.zipPath.description%"
                 },
                 "subfilePath": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "%config.textFileAssociations.subfilePath.description%"
                 }
               }
             }
