@@ -54,6 +54,8 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.jar`
 - `.mcaddon`
 - `.mcpack`
+- `.mcproject`
+- `.mctemplate`
 - `.mcworld`
 - `.pbit`
 - `.pbix`

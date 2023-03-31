@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -137,6 +137,12 @@
           },
           {
             "filenamePattern": "*.mcaddon"
+          },
+          {
+            "filenamePattern": "*.mcproject"
+          },
+          {
+            "filenamePattern": "*.mctemplate"
           },
           {
             "filenamePattern": "*.jar"
