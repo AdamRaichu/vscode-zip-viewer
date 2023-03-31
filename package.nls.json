@@ -14,5 +14,8 @@
   "config.deleteOldFileWhenGzipping": "When true, deletes the file you compressed when using `zipViewer.gzip` command.",
   "command.gzip": "Zip Tools: Compress file with GZip compression.",
   "command.gzip.short": "GZip File",
-  "config.zipTypes.deprecated": "This setting makes very little sense, so it has been removed."
+  "config.zipTypes.deprecated": "This setting makes very little sense, so it has been removed.",
+  "config.textFileAssociations.description": "A set of paths which identifies the subfiles of a zip file as text files.",
+  "config.textFileAssociations.zipPath.description": "The path to the zip file relative to the workspace root.",
+  "config.textFileAssociations.subfilePath.description": "The path to the text file relative to the root of the zip file."
 }

@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.7.0",
+  "version": "3.9.0",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -97,6 +97,23 @@
             "type": "boolean",
             "markdownDescription": "%config.deleteOldFileWhenGzipping%",
             "default": true
+          },
+          "zipViewer.textFileAssociations": {
+            "type": "array",
+            "description": "%config.textFileAssociations.description%",
+            "items": {
+              "type": "object",
+              "properties": {
+                "zipPath": {
+                  "type": "string",
+                  "description": "%config.textFileAssociations.zipPath.description%"
+                },
+                "subfilePath": {
+                  "type": "string",
+                  "description": "%config.textFileAssociations.subfilePath.description%"
+                }
+              }
+            }
           }
         }
       }
@@ -120,6 +137,12 @@
           },
           {
             "filenamePattern": "*.mcaddon"
+          },
+          {
+            "filenamePattern": "*.mcproject"
+          },
+          {
+            "filenamePattern": "*.mctemplate"
           },
           {
             "filenamePattern": "*.jar"

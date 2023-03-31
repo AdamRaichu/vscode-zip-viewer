@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-A workspace setting for recognizing files inside zip files as text files without asking.
+## [3.9.0] - 2023-3-31
+
+Add `.mctemplate` and `.mcproject` file extensions.
+
+Add the workspace setting for recognizing files inside zip files as text files without asking every time (`zipViewer.textFileAssociations`).
+See README for more details.
 
 ## [3.7.0] - 2023-3-27
 

@@ -1,3 +1,9 @@
 {
-  "prettier.printWidth": 200
+  "prettier.printWidth": 200,
+  "zipViewer.textFileAssociations": [
+    {
+      "zipPath": "/tests/firstmod-0.0.2-1.19.jar",
+      "subfilePath": "LICENSE_firstmod"
+    }
+  ]
 }

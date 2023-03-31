@@ -73,8 +73,10 @@ export default class ZipEdit {
       if (message.command === "DOMContentLoaded") {
         document.getFileData(document.uri).then(function (f) {
           panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
-          panel.webview.onDidReceiveMessage((msg) => {
+          panel.webview.onDidReceiveMessage((/**@type {Object}*/ msg) => {
             if (msg.command === "get") {
+              const config = vscode.workspace.getConfiguration("zipViewer");
+
               /**
                * @type {String}
                */
@@ -99,6 +101,15 @@ export default class ZipEdit {
                 }
               }
 
+              // check if in settings (`zipViewer.textFileAssociations`)
+              const textFileAssociations = config.get("textFileAssociations");
+              for (var i = 0; i < textFileAssociations.length; i++) {
+                if (document.uri.fsPath.substring(vscode.workspace.workspaceFolders[0].uri.fsPath.length) === textFileAssociations[i].zipPath && msg.uri === textFileAssociations[i].subfilePath) {
+                  posted = true;
+                  postStringData();
+                }
+              }
+
               // if not already posted
               if (!posted) {
                 vscode.window
@@ -117,6 +128,12 @@ export default class ZipEdit {
                         break;
                       case "This is a text file":
                         postStringData();
+                        vscode.window.showInformationMessage("Would you like to always open this subfile as a text file? (This updates a workspace setting.)", "Yes", "No").then(function (yn) {
+                          if (yn === "Yes") {
+                            textFileAssociations.push({ zipPath: document.uri.fsPath.substring(vscode.workspace.workspaceFolders[0].uri.fsPath.length), subfilePath: msg.uri });
+                            config.update("textFileAssociations", textFileAssociations, vscode.ConfigurationTarget.Workspace);
+                          }
+                        });
                         break;
                     }
                   });
