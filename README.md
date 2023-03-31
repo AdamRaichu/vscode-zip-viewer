@@ -70,11 +70,21 @@ Next to each file name is a `Get Preview` button.
 Clicking on this button will, if available for the file type, display the contents below.
 If the type is not available to the preset list, the extension will show an error message.
 
+You tell the extension that the file you would like to preview is a text file.
+If you do so, it will preview it as if it were a text file.
+Selecting this option will generate another prompt, asking if you would like to always open this file as a text file.
+Selecting "Yes" will update `settings.json` in the `.vscode` folder of the workspace.
+
 If you would like to open a zip file with a file extension that does not match the built in list, use the command `Zip Tools: Open a zip file with the custom editor`.
 The extension will prompt you to choose a file.
 The file you select will be opened with the zip file editor.
 
-Using the editor, you have the option to extract only selected files. See [selective extraction](#selective-extraction).
+#### Selective Extraction
+
+Next to each file name there is a checkbox.
+At the top of the editor is a button labeled `Extract Selected Files Only`.
+When you click that button, the extension will prompt you to select a Target Folder.
+The extension will then extract the selected files to that location.
 
 ### Creating a Zip
 
@@ -96,10 +106,6 @@ The contents of the zip file will be deposited in that folder.
 The new folder's name will be `<zipFileName><zipViewer.unzippedSuffix>`.
 
 **(Deprecated)** ~~The extension contributes a setting `zipViewer.zipTypes`. If the file you chose does not end with a string in that array, the extension will give an error message.You can edit this setting in the settings editor. This setting is ignored if `zipViewer.picky` is set to false.~~
-
-#### Selective Extraction
-
-Next to each file name there is a checkbox. At the top of the editor is a button labeled `Extract Selected Files Only`. When you click that button, the extension will prompt you to select a Target Folder. The extension will then extract the selected files to that location.
 
 ## Usage (GNU Zip Compression)
 

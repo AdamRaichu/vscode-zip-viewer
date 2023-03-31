@@ -12,6 +12,6 @@ To allow the editor to recognize a new file extension, there are a couple places
 
 - `{package.json}.contributes.customEditors`
 - **(Deprecated)** ~~`{package.json}.contributes.configuration[0].properties.["zipViewer.zipTypes"].default` (Regular Zip only)~~
-- README ~L50 for Zip, ~L115 for GZip
+- README ~L50 for Zip, ~L125 for GZip
 
 Once you edit those places, go ahead and make a pull request.
