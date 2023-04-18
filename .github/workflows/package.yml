@@ -18,7 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
-      - uses: nyaa8/package-version@v1
+      - uses: jozsefsallai/node-package-version@v1
+        name: get package version as env variable
       - name: Create a tag
         continue-on-error: ${{ inputs.continueOnTagErr }}
         run: |
