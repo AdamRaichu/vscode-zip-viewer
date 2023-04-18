@@ -50,8 +50,11 @@ All functions for this extension are designed to support the following built-in 
 If you know of another alias for zip files, please open an issue [here][new-zip-type].
 
 - `.crx`
+- `.ear`
+- `.epub`
 - `.ipa`
 - `.jar`
+- `.lpkg`
 - `.mcaddon`
 - `.mcpack`
 - `.mcproject`
@@ -60,6 +63,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.pbit`
 - `.pbix`
 - `.vsix`
+- `.war`
 - `.xlsx`
 - and of course, `.zip`
 
