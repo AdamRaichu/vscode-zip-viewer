@@ -153,7 +153,7 @@ export default class ZipEdit {
                */
               var uriList = JSON.parse(msg.uriList);
               if (uriList.length === 0) {
-                vscode.window.showErrorMessage("No files were selected.");
+                vscode.window.showErrorMessage("No files are selected.");
                 return;
               }
               vscode.window.showOpenDialog({ title: "Target Folder", canSelectFiles: false, canSelectFolders: true }).then(function (targetPath) {
