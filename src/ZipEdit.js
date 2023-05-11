@@ -148,14 +148,18 @@ export default class ZipEdit {
                 });
               }
             } else if (msg.command === "selective-extract") {
+              /**
+               * @type {String[]}
+               */
+              var uriList = JSON.parse(msg.uriList);
+              if (uriList.length === 0) {
+                vscode.window.showErrorMessage("No files were selected.");
+                return;
+              }
               vscode.window.showOpenDialog({ title: "Target Folder", canSelectFiles: false, canSelectFolders: true }).then(function (targetPath) {
                 if (typeof targetPath === "undefined") return;
                 vscode.window.withProgress({ location: vscode.ProgressLocation.Notification, title: "Extracting Selected Files" }, async function (progress, _token) {
                   progress.report({ increment: 0 });
-                  /**
-                   * @type {String[]}
-                   */
-                  var uriList = JSON.parse(msg.uriList);
                   var inc = 100 / uriList.length;
                   var config = vscode.workspace.getConfiguration().zipViewer;
                   for (var c = 0; c < uriList.length; c++) {
