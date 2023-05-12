@@ -27,13 +27,18 @@ textarea {
 
 #target div {
   margin-block: 1em;
+  display: flex;
 }
 
 #target span {
   pointer-events: none;
 }
 
-#target span::before {
+vscode-button {
+  margin-inline: 10px;
+}
+
+/* #target span::before {
   pointer-events: all;
   display: inline-block;
   margin-right: 8px;
@@ -42,10 +47,4 @@ textarea {
   color: var(--vscode-button-foreground, white);
   padding: 2px;
   cursor: pointer;
-}
-
-#target span.folder::before {
-  text-decoration: line-through;
-  cursor: not-allowed;
-  opacity: 60%;
-}
+} */

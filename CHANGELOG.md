@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Audio and video files in preview.
+
+## [3.10.7] - 2023-5-12
+
+Improve editor design by using the [`vsocde-ui-toolkit`](https://github.com/microsoft/vscode-webview-ui-toolkit) ([#39](https://github.com/AdamRaichu/vscode-zip-viewer/issues/39)).
+
+## [3.10.3-3.10.6] - 2023-5-11
+
+Add logic for sending notifications to user on certain events.
+See GitHub tag commit messages for details ([#35](https://github.com/AdamRaichu/vscode-zip-viewer/issues/35) and [#36](https://github.com/AdamRaichu/vscode-zip-viewer/issues/36)).
+
+## [3.10.0] - 2023-4-19
+
+Add `.ear`, `.epub`, `.lpkg`, and `.war` file extensions.
+
 ## [3.9.0] - 2023-3-31
 
 Add `.mctemplate` and `.mcproject` file extensions.

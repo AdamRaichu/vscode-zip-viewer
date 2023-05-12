@@ -1,11 +1,14 @@
 /**
- * @file media/editor.js provides scripts for use in ZipEdit
+ * @file media/ZipEditor.js provides scripts for use in ZipEdit
  */
 
 /**
  *
  */
 const vscode = acquireVsCodeApi();
+const uikit = require("@vscode/webview-ui-toolkit");
+
+uikit.provideVSCodeDesignSystem().register(uikit.vsCodeButton(), uikit.vsCodeCheckbox());
 
 document.addEventListener("DOMContentLoaded", function () {
   vscode.postMessage({ command: "DOMContentLoaded" });
@@ -17,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * @type {NodeListOf<HTMLInputElement>}
      */
-    var boxes = document.querySelectorAll("#target input[type=checkbox]");
+    var boxes = document.querySelectorAll("#target vscode-checkbox");
     /**
      * @type {NodeListOf<HTMLSpanElement>}
      */
     var selected = [];
     for (var i = 0; i < boxes.length; i++) {
       if (boxes[i].checked) {
-        selected.push(boxes[i].nextElementSibling.innerText);
+        selected.push(boxes[i].nextElementSibling.nextElementSibling.innerText);
       }
     }
     vscode.postMessage({ command: "selective-extract", uriList: JSON.stringify(selected) });
@@ -43,17 +46,21 @@ window.addEventListener("message", (e) => {
         continue;
       }
       var d = document.createElement("div");
-      var i = document.createElement("input");
-      i.type = "checkbox";
-      d.appendChild(i);
 
-      var p = document.createElement("span");
-      p.innerText = keys[c];
+      var i = document.createElement("vscode-checkbox");
+
+      var p = document.createElement("vscode-button");
+      p.innerText = "Get Preview";
       p.addEventListener("click", function () {
-        vscode.postMessage({ command: "get", uri: this.innerText });
+        vscode.postMessage({ command: "get", uri: this.nextElementSibling.innerText });
       });
 
+      var l = document.createElement("span");
+      l.innerText = keys[c];
+
+      d.appendChild(i);
       d.appendChild(p);
+      d.appendChild(l);
       target.appendChild(d);
     }
   } else if (e.data.command === "content") {
