@@ -74,7 +74,8 @@ export default class ZipEdit {
         document.getFileData(document.uri).then(
           function (f) {
             panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
-            if (f.files.length === 0) {
+            console.debug(f.files);
+            if (Object.keys(f.files).length === 0) {
               vscode.window.showInformationMessage("This zip file does not appear to contain any files.");
             }
             panel.webview.onDidReceiveMessage((/**@type {Object}*/ msg) => {
