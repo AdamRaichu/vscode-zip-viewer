@@ -51,7 +51,7 @@ export default class ZipEdit {
     panel.webview.html = `<!DOCTYPE html>
 <html>
 <head>
-  <script src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "ZipEditor.js"))}"></script>
+  <script src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "dist", "ZipEditor.js"))}"></script>
   <link rel="stylesheet" href="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "ZipEditor.css"))}">
   <script>var mime = ${JSON.stringify(mime)}</script>
 </head>
@@ -59,7 +59,7 @@ export default class ZipEdit {
 <body>
   <h1 id="loading">Loading zip file content...</h1>
   <div id="toolbar">
-    <button id="extract-select">Extract Selected Files Only</button>
+    <vscode-button id="extract-select">Extract Selected Files Only</vscode-button>
   </div>
   <div id="target"></div>
   <hr>

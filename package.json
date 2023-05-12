@@ -226,6 +226,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "@vscode/webview-ui-toolkit": "^1.2.2",
     "jszip": "^3.10.1",
     "pako": "^2.1.0"
   },
