@@ -173,6 +173,9 @@
           },
           {
             "filenamePattern": "*.lpkg"
+          },
+          {
+            "filenamePattern": "*.nba"
           }
         ],
         "priority": "default"

@@ -60,6 +60,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.mcproject`
 - `.mctemplate`
 - `.mcworld`
+- `.nba`
 - `.pbit`
 - `.pbix`
 - `.vsix`
