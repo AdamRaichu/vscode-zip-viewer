@@ -39,6 +39,12 @@ vscode-button {
   margin-inline: 10px;
 }
 
+#preview img {
+  background-image: url("./transparent-background.avif");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
 /* #target span::before {
   pointer-events: all;
   display: inline-block;
