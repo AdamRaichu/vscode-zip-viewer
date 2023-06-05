@@ -176,6 +176,18 @@
           },
           {
             "filenamePattern": "*.nba"
+          },
+          {
+            "filenamePattern": "*.sb2"
+          },
+          {
+            "filenamePattern": "*.sb3"
+          },
+          {
+            "filenamePattern": "*.aia"
+          },
+          {
+            "filenamePattern": "*.appxbundle"
           }
         ],
         "priority": "default"

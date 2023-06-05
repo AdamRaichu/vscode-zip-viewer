@@ -13,6 +13,8 @@ Audio and video files in preview.
 
 File extension checking in editor preview is no longer case-sensitive. ([#58](https://github.com/AdamRaichu/vscode-zip-viewer/issues/58))
 
+Add `.sb3`, `.sb2`, `.aia`, and `.appxbundle` file extensions to supported list.
+
 ## [3.10.7] - 2023-5-12
 
 Improve editor design by using the [`vsocde-ui-toolkit`](https://github.com/microsoft/vscode-webview-ui-toolkit) ([#39](https://github.com/AdamRaichu/vscode-zip-viewer/issues/39)).

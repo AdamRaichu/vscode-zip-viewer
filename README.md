@@ -49,6 +49,8 @@ Search `adamraichu.zip-viewer`.
 All functions for this extension are designed to support the following built-in list.
 If you know of another alias for zip files, please open an issue [here][new-zip-type].
 
+- `.aia`
+- `.appxbundle`
 - `.crx`
 - `.ear`
 - `.epub`
@@ -63,6 +65,8 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.nba`
 - `.pbit`
 - `.pbix`
+- `.sb2`
+- `.sb3`
 - `.vsix`
 - `.war`
 - `.xlsx`
