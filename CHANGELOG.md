@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Audio and video files in preview.
 
+## [3.11.0] - 2023-6-5
+
+File extension checking in editor preview is no longer case-sensitive. ([#58](https://github.com/AdamRaichu/vscode-zip-viewer/issues/58))
+
 ## [3.10.7] - 2023-5-12
 
 Improve editor design by using the [`vsocde-ui-toolkit`](https://github.com/microsoft/vscode-webview-ui-toolkit) ([#39](https://github.com/AdamRaichu/vscode-zip-viewer/issues/39)).

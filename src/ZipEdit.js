@@ -85,7 +85,7 @@ export default class ZipEdit {
                 /**
                  * @type {String}
                  */
-                var ext = msg.uri.split(".").pop();
+                var ext = msg.uri.split(".").pop().toLowerCase();
                 var posted = false;
 
                 // check if string
