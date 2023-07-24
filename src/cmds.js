@@ -99,9 +99,9 @@ export default class cmds {
             canSelectFiles: true,
             canSelectFolders: false,
           })
-          .then(gzipFolder);
+          .then(gzipFile);
       } else {
-        gzipFolder([fileToZip]);
+        gzipFile([fileToZip]);
       }
     });
   }
@@ -169,12 +169,17 @@ function zipFolder(folderToZip) {
  * @param {vscode.Uri[]} fileToZip The file to compress
  * @returns void
  */
-function gzipFolder(fileToZip) {
+function gzipFile(fileToZip) {
   var config = vscode.workspace.getConfiguration().zipViewer;
   var _uri = fileToZip[0].toString().split("/");
   var fileName = _uri.pop();
   var _fileName = fileName.split(".");
-  var ext = _fileName.pop();
+  var ext;
+  if (!config.useLegacyGzipNamingConvention) {
+    ext = _fileName[_fileName.length - 1];
+  } else {
+    ext = _fileName.pop();
+  }
   var newExt = "UNSET";
   for (var i = 0; i < gzMap.mappings.length; i++) {
     if (gzMap.mappings[i].inflated === ext) {

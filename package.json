@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.11.0",
+  "version": "3.11.1",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -114,6 +114,11 @@
                 }
               }
             }
+          },
+          "zipViewer.useLegacyGzipNamingConvention": {
+            "type": "boolean",
+            "markdownDescription": "%config.useLegacyGzipNamingConvention%",
+            "default": false
           }
         }
       }
