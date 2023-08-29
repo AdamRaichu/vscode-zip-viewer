@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Audio and video files in preview.
 
+## [3.12.0] - 2023-8-29
+
+Add `.c4z` file extension to supported list.
+
 ## [3.11.1] - 2023-7-24
 
 Update how file extensions are handled when gzipping files. ([#62](https://github.com/AdamRaichu/vscode-zip-viewer/issues/62))
