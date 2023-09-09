@@ -1,0 +1,49 @@
+name: Add Text File Extension to package.json
+concurrency:
+  group: add-text-file-extension
+permissions: 
+  contents: write
+on: 
+  workflow_dispatch:
+    inputs:
+      publish-release:
+        type: boolean
+        default: false
+        description: Whether to trigger package.yml after updating files.
+        required: true
+      bump-package-version:
+        type: boolean
+        default: true
+        description: Whether to bump the third portion of the package version by one.
+        required: true
+      file-extensions:
+        type: string
+        required: true
+        description: A comma separated list of file extensions to add to ext.json
+jobs:
+  modify-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Modify ext.json
+        run: |
+          npm i
+          node ./.github/actions-scripts/modify-ext.json.js -e "${{inputs.file-extensions}}"
+      - name: Bump Package Version (Optional)
+        if: inputs.bump-package-version
+        run: node ./.github/actions-scripts/bump-package-version-rev.js
+      - name: Save Changes to GitHub
+        run: |
+          git pull
+          git config user.name = "Github Actions"
+          git config user.email = "actions@github.com"
+          git add .
+          git commit -m "Add file extension(s) to ext.json: ${{inputs.file-extensions}}"${{inputs.bump-package-version && ' -m "Bump package version [rev]"' || ''}}
+
+  # publish:
+  #   if: inputs.publish-release
+  #   needs: modify-files
+  #   uses: ./.github/workflows/package.yml
+  #   with:
+  #     preRelease: false
