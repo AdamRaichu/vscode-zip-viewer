@@ -36,8 +36,8 @@ jobs:
       - name: Save Changes to GitHub
         run: |
           git pull
-          git config user.name = "Github Actions"
-          git config user.email = "actions@github.com"
+          git config user.name = "AdamRaichu"
+          git config user.email = "AdamRaichu@users.noreply.github.com"
           git add .
           git commit -m "Add file extension(s) to ext.json: ${{inputs.file-extensions}}"${{inputs.bump-package-version && ' -m "Bump package version [rev]"' || ''}}
           git push
