@@ -1,6 +1,7 @@
 {
   "string": [
     "FAKE_FOR_TESTING",
+    "OTHER_FAKE_FOR_TESTING",
     "code-workspace",
     "css",
     "csv",
