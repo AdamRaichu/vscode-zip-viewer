@@ -1,9 +1,9 @@
 name: Add Text File Extension to package.json
 concurrency:
   group: add-text-file-extension
-permissions: 
+permissions:
   contents: write
-on: 
+on:
   workflow_dispatch:
     inputs:
       publish-release:
@@ -40,10 +40,10 @@ jobs:
           git config user.email = "actions@github.com"
           git add .
           git commit -m "Add file extension(s) to ext.json: ${{inputs.file-extensions}}"${{inputs.bump-package-version && ' -m "Bump package version [rev]"' || ''}}
-
-  # publish:
-  #   if: inputs.publish-release
-  #   needs: modify-files
-  #   uses: ./.github/workflows/package.yml
-  #   with:
-  #     preRelease: false
+          git push
+  publish:
+    if: inputs.publish-release
+    needs: modify-files
+    uses: ./.github/workflows/package.yml
+    with:
+      preRelease: true
