@@ -1,8 +1,5 @@
 {
   "string": [
-    "FAKE_EXT_4",
-    "FAKE_FOR_TESTING",
-    "OTHER_FAKE_FOR_TESTING",
     "code-workspace",
     "css",
     "csv",
@@ -32,7 +29,6 @@
     "pdb",
     "php",
     "project",
-    "properties",
     "properties",
     "ps1",
     "py",
