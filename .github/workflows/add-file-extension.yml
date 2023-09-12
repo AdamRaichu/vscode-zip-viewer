@@ -56,3 +56,5 @@ jobs:
     uses: ./.github/workflows/package.yml
     with:
       preRelease: true
+    secrets:
+      AZURE_PAT: ${{secrets.AZURE_PAT}}

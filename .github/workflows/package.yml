@@ -11,6 +11,10 @@ on:
         required: false
         default: false
   workflow_call:
+    secrets:
+      AZURE_PAT:
+        required: true
+        description: The PAT to use to publish the extension.
     inputs:
       preRelease:
         type: boolean
