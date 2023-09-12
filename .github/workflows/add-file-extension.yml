@@ -56,6 +56,6 @@ jobs:
     needs: modify-files
     uses: ./.github/workflows/package.yml
     with:
-      preRelease: true
+      preRelease: false
     secrets:
       AZURE_PAT: ${{secrets.AZURE_PAT}}
