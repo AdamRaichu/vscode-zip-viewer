@@ -47,7 +47,7 @@ jobs:
         run: |
           git pull
           git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.email "github-actions@github.com"
           git add .
           git commit -m "Add file extension(s) to ext.json: ${{inputs.file-extensions}}"${{inputs.bump-package-version && ' -m "Bump package version [rev]"' || ''}}${{inputs.should-close-issue && ' -m "Closes #' || ''}}${{inputs.should-close-issue && inputs.issue-to-close || ''}}${{inputs.should-close-issue && '"' || ''}}
           git push
