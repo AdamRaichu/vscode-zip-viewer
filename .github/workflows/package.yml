@@ -32,14 +32,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout repository
+      - name: Configure git
+        run: |
+          git config user.name = "Github Actions"
+          git config user.email = "actions@github.com"
+          git pull
       - uses: jozsefsallai/node-package-version@v1.0.4
         name: get package version as env variable
       - name: Create a tag
         continue-on-error: ${{ inputs.continueOnTagErr }}
         run: |
-          git config user.name = "Github Actions"
-          git config user.email = "actions@github.com"
-          git pull
           git tag -a v${{ env.PACKAGE_VERSION }} -m "Version ${{ env.PACKAGE_VERSION }}"
           git push origin v${{ env.PACKAGE_VERSION }}
       - name: Generate Files
