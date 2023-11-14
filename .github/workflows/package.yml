@@ -14,7 +14,10 @@ on:
     secrets:
       AZURE_PAT:
         required: true
-        description: The PAT to use to publish the extension.
+        description: The PAT to use to publish the extension to the vscode marketplace.
+      OPEN_VSX_TOKEN:
+        required: true
+        description: The PAT to use to public the extension to open-vsx.org.
     inputs:
       preRelease:
         type: boolean
