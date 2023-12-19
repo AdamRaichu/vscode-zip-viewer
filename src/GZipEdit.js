@@ -46,7 +46,6 @@ export default class GZipEdit {
  * @param {GZipDoc} document
  */
 async function showFile(uri, document) {
-  console.log(document);
   vscode.workspace.fs.readFile(document.uri).then(async function (data) {
     await vscode.workspace.fs.writeFile(uri, ungzip(data)).then(function () {
       vscode.commands.executeCommand("vscode.open", uri);

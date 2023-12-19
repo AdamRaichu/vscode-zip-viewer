@@ -74,7 +74,6 @@ export default class ZipEdit {
         document.getFileData(document.uri).then(
           function (f) {
             panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
-            console.debug(f.files);
             if (Object.keys(f.files).length === 0) {
               vscode.window.showInformationMessage("This zip file does not appear to contain any files.");
             }
@@ -88,22 +87,17 @@ export default class ZipEdit {
                 var ext = msg.uri.split(".").pop().toLowerCase();
                 var posted = false;
 
-                // check if string
-                for (var i = 0; i < extTypes.string.length; i++) {
-                  if (ext === extTypes.string[i]) {
-                    posted = true;
-                    postStringData();
-                  }
+                if (extTypes.string.includes(ext)) {
+                  posted = true;
+                  postStringData();
                 }
 
                 // check if image
-                for (var i = 0; i < extTypes.image.length; i++) {
-                  if (ext === extTypes.image[i]) {
-                    posted = true;
-                    f.files[msg.uri].async("base64").then(function (b64) {
-                      panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext, uri: msg.uri });
-                    });
-                  }
+                if (extTypes.image.includes(ext)) {
+                  posted = true;
+                  f.files[msg.uri].async("base64").then(function (b64) {
+                    panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext, uri: msg.uri });
+                  });
                 }
 
                 // check if in settings (`zipViewer.textFileAssociations`)

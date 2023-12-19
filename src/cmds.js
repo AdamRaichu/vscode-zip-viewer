@@ -192,7 +192,6 @@ function gzipFile(fileToZip) {
   _fileName.push(newExt);
   _uri.push(_fileName.join("."));
   vscode.workspace.fs.readFile(fileToZip[0]).then(async function (data) {
-    console.log(ifExists(_uri));
     vscode.workspace.fs.writeFile(vscode.Uri.parse(_uri.join("/")), gzip(data)).then(function () {
       if (config.deleteOldFileWhenGzipping) {
         vscode.workspace.fs.delete(fileToZip[0]);
