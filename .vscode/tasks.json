@@ -8,6 +8,6 @@
 			"problemMatcher": [],
 			"label": "npm: build",
 			"detail": "webpack"
-		},
+		}
 	]
 }
