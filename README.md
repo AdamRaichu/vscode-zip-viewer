@@ -68,6 +68,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.vsix`
 - `.war`
 - `.xlsx`
+- `.xpi`
 - and of course, `.zip`
 
 ### Viewing Zip File Contents (Custom Editor)
