@@ -18,7 +18,7 @@ To allow the editor to recognize a new file extension, there are a couple places
 
 Sample commit message:
 
-```
+```plaintext
 add `.ext` file extension to supported list
 
 bump package version [min]
