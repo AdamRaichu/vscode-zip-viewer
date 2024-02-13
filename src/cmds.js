@@ -126,8 +126,7 @@ function zipFolder(folderToZip) {
    * @param {vscode.Uri} uri The uri of the folder to zip
    */
   async function zipUsingFindFiles(uri) {
-    const substrLength = vscode.workspace.workspaceFolders[0].uri.path.length + 1;
-    const files = await vscode.workspace.findFiles(uri.path.substring(substrLength) + "/**");
+    const files = await vscode.workspace.findFiles(new vscode.RelativePattern(uri, "**/**"));
     for (var i in files) {
       const name = files[i].path.substring(uri.path.length);
       const file = await vscode.workspace.fs.readFile(vscode.Uri.joinPath(uri, name));
@@ -198,6 +197,10 @@ function gzipFile(fileToZip) {
       }
     });
   });
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 }
 
 async function ifExists(_uri) {
