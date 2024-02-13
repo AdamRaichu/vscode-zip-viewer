@@ -31,7 +31,7 @@ export default class ZipEdit {
 
   /**
    * Creates an instance of ZipEdit
-   * @returns An implemenation of a `CustomReadonlyEditorProvider`
+   * @returns An implementation of a `CustomReadonlyEditorProvider`
    */
   constructor() {}
 
@@ -51,7 +51,7 @@ export default class ZipEdit {
     panel.webview.html = `<!DOCTYPE html>
 <html>
 <head>
-  <script src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "dist", "ZipEditor.js"))}"></script>
+  <script defer src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "dist", "ZipEditor.js"))}"></script>
   <link rel="stylesheet" href="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "ZipEditor.css"))}">
   <script>var mime = ${JSON.stringify(mime)}</script>
 </head>
@@ -69,119 +69,149 @@ export default class ZipEdit {
 </body>
 
 </html>`;
-    panel.webview.onDidReceiveMessage((message) => {
-      if (message.command === "DOMContentLoaded") {
-        document.getFileData(document.uri).then(
-          function (f) {
-            panel.webview.postMessage({ command: "files", f: JSON.stringify(f.files), uri: document.uri.toString() });
-            if (Object.keys(f.files).length === 0) {
-              vscode.window.showInformationMessage("This zip file does not appear to contain any files.");
+    var zipFileData;
+    document.getFileData(document.uri).then(
+      function (_f) {
+        zipFileData = _f;
+        panel.webview.postMessage({ command: "files", f: JSON.stringify(zipFileData.files), uri: document.uri.toString() });
+        if (Object.keys(zipFileData.files).length === 0) {
+          vscode.window.showInformationMessage("This zip file does not appear to contain any files.");
+        }
+      },
+      function (err) {
+        vscode.window.showErrorMessage("JSZip encountered an error trying to load your zip file: " + err);
+      }
+    );
+    panel.webview.onDidReceiveMessage(async (msg) => {
+      if (msg.command === "get") {
+        const config = vscode.workspace.getConfiguration("zipViewer");
+
+        /**
+         * @type {string}
+         */
+        var ext = msg.uri.split(".").pop().toLowerCase();
+        var handled = false;
+
+        if (extTypes.string.includes(ext)) {
+          handled = true;
+          postStringData();
+        }
+
+        // check if image
+        if (extTypes.image.includes(ext)) {
+          handled = true;
+          zipFileData.files[msg.uri].async("base64").then(function (b64) {
+            panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext, uri: msg.uri });
+          });
+        }
+
+        if (ext === "pdf") {
+          handled = true;
+          var pdfViewerExt = vscode.extensions.getExtension("AdamRaichu.pdf-viewer");
+          if (typeof pdfViewerExt === "undefined") {
+            vscode.window
+              .showInformationMessage(
+                "You need to install the extension `AdamRaichu.pdf-viewer` to preview pdf files. Would you like to install this extension? If so, click yes, install the extension, then try previewing this subfile again.",
+                "Yes",
+                "No"
+              )
+              .then(function (choice) {
+                switch (choice) {
+                  case "Yes":
+                    vscode.commands.executeCommand("workbench.extensions.search", "@id:AdamRaichu.pdf-viewer");
+                    break;
+                  case "No":
+                    break;
+                  default:
+                    break;
+                }
+              });
+          } else {
+            if (!pdfViewerExt.isActive) {
+              await pdfViewerExt.activate();
             }
-            panel.webview.onDidReceiveMessage((/**@type {Object}*/ msg) => {
-              if (msg.command === "get") {
-                const config = vscode.workspace.getConfiguration("zipViewer");
+            const PdfViewerApi = pdfViewerExt.exports.getV1Api();
+            const fileData = await zipFileData.files[msg.uri].async("base64");
+            const provider = PdfViewerApi.PdfFileDataProvider.fromBase64String(fileData).withName("Preview of " + msg.uri);
+            PdfViewerApi.previewPdfFile(provider);
+          }
+        }
 
-                /**
-                 * @type {String}
-                 */
-                var ext = msg.uri.split(".").pop().toLowerCase();
-                var posted = false;
+        // check if in settings (`zipViewer.textFileAssociations`)
+        const textFileAssociations = config.get("textFileAssociations");
+        for (var i = 0; i < textFileAssociations.length; i++) {
+          if (document.uri.fsPath.substring(vscode.workspace.workspaceFolders[0].uri.fsPath.length) === textFileAssociations[i].zipPath && msg.uri === textFileAssociations[i].subfilePath) {
+            handled = true;
+            postStringData();
+          }
+        }
 
-                if (extTypes.string.includes(ext)) {
-                  posted = true;
+        // if not already posted
+        if (!handled) {
+          vscode.window
+            .showErrorMessage(
+              `The file extension ${ext} is not on the list of text or image files. If you would like to request support for this file type, please choose the option below.`,
+              "Request file type support",
+              "This is a text file",
+              "Ignore"
+            )
+            .then(function (choice) {
+              switch (choice) {
+                case "Request file type support":
+                  var title = `[editor]:+Support+${ext}+in+preview`;
+                  var body = `Please+add+support+for+\`.${ext}\`+files+to+the+editor+preview.%0A%0A*Generated by \`adamraichu.zip-viewer\`*`;
+                  vscode.env.openExternal(`https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?title=${title}&body=${body}`);
+                  break;
+                case "This is a text file":
                   postStringData();
-                }
-
-                // check if image
-                if (extTypes.image.includes(ext)) {
-                  posted = true;
-                  f.files[msg.uri].async("base64").then(function (b64) {
-                    panel.webview.postMessage({ command: "content", type: "image", base64: b64, ext: ext, uri: msg.uri });
-                  });
-                }
-
-                // check if in settings (`zipViewer.textFileAssociations`)
-                const textFileAssociations = config.get("textFileAssociations");
-                for (var i = 0; i < textFileAssociations.length; i++) {
-                  if (document.uri.fsPath.substring(vscode.workspace.workspaceFolders[0].uri.fsPath.length) === textFileAssociations[i].zipPath && msg.uri === textFileAssociations[i].subfilePath) {
-                    posted = true;
-                    postStringData();
-                  }
-                }
-
-                // if not already posted
-                if (!posted) {
-                  vscode.window
-                    .showErrorMessage(
-                      `The file extension ${ext} is not on the list of text or image files. If you would like to request support for this file type, please choose the option below.`,
-                      "Request file type support",
-                      "This is a text file",
-                      "Ignore"
-                    )
-                    .then(function (choice) {
-                      switch (choice) {
-                        case "Request file type support":
-                          var title = `[editor]:+Support+${ext}+in+preview`;
-                          var body = `Please+add+support+for+\`.${ext}\`+files+to+the+editor+preview.%0A%0A*Generated by \`adamraichu.zip-viewer\`*`;
-                          vscode.env.openExternal(`https://github.com/AdamRaichu/vscode-zip-viewer/issues/new?title=${title}&body=${body}`);
-                          break;
-                        case "This is a text file":
-                          postStringData();
-                          vscode.window.showInformationMessage("Would you like to always open this subfile as a text file? (This updates a workspace setting.)", "Yes", "No").then(function (yn) {
-                            if (yn === "Yes") {
-                              textFileAssociations.push({ zipPath: document.uri.fsPath.substring(vscode.workspace.workspaceFolders[0].uri.fsPath.length), subfilePath: msg.uri });
-                              config.update("textFileAssociations", textFileAssociations, vscode.ConfigurationTarget.Workspace);
-                            }
-                          });
-                          break;
-                      }
-                    });
-                }
-
-                function postStringData() {
-                  f.files[msg.uri].async("string").then(function (s) {
-                    panel.webview.postMessage({ command: "content", type: "string", string: s, uri: msg.uri });
-                  });
-                }
-              } else if (msg.command === "selective-extract") {
-                /**
-                 * @type {String[]}
-                 */
-                var uriList = JSON.parse(msg.uriList);
-                if (uriList.length === 0) {
-                  vscode.window.showErrorMessage("No files are selected.");
-                  return;
-                }
-                vscode.window.showOpenDialog({ title: "Target Folder", canSelectFiles: false, canSelectFolders: true }).then(function (targetPath) {
-                  if (typeof targetPath === "undefined") return;
-                  vscode.window.withProgress({ location: vscode.ProgressLocation.Notification, title: "Extracting Selected Files" }, async function (progress, _token) {
-                    progress.report({ increment: 0 });
-                    var inc = 100 / uriList.length;
-                    var config = vscode.workspace.getConfiguration().zipViewer;
-                    for (var c = 0; c < uriList.length; c++) {
-                      await f.files[uriList[c]]
-                        .async("uint8array", function (meta) {
-                          progress.report({ increment: inc * (meta.percent / 100) });
-                        })
-                        .then(
-                          function (data) {
-                            vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], document.uri.path.split("/").pop() + config.unzippedSuffix, f.files[uriList[c]].name), data);
-                          },
-                          function (err) {
-                            console.error(err);
-                          }
-                        );
+                  vscode.window.showInformationMessage("Would you like to always open this subfile as a text file? (This updates a workspace setting.)", "Yes", "No").then(function (yn) {
+                    if (yn === "Yes") {
+                      textFileAssociations.push({ zipPath: document.uri.fsPath.substring(vscode.workspace.workspaceFolders[0].uri.fsPath.length), subfilePath: msg.uri });
+                      config.update("textFileAssociations", textFileAssociations, vscode.ConfigurationTarget.Workspace);
                     }
-                    return;
                   });
-                });
+                  break;
               }
             });
-          },
-          function (err) {
-            vscode.window.showErrorMessage("JSZip encountered an error trying to load your zip file: " + err);
-          }
-        );
+        }
+
+        function postStringData() {
+          zipFileData.files[msg.uri].async("string").then(function (s) {
+            panel.webview.postMessage({ command: "content", type: "string", string: s, uri: msg.uri });
+          });
+        }
+      } else if (msg.command === "selective-extract") {
+        /**
+         * @type {String[]}
+         */
+        var uriList = JSON.parse(msg.uriList);
+        if (uriList.length === 0) {
+          vscode.window.showErrorMessage("No files are selected.");
+          return;
+        }
+        vscode.window.showOpenDialog({ title: "Target Folder", canSelectFiles: false, canSelectFolders: true }).then(function (targetPath) {
+          if (typeof targetPath === "undefined") return;
+          vscode.window.withProgress({ location: vscode.ProgressLocation.Notification, title: "Extracting Selected Files" }, async function (progress, _token) {
+            progress.report({ increment: 0 });
+            var inc = 100 / uriList.length;
+            var config = vscode.workspace.getConfiguration().zipViewer;
+            for (var c = 0; c < uriList.length; c++) {
+              await zipFileData.files[uriList[c]]
+                .async("uint8array", function (meta) {
+                  progress.report({ increment: inc * (meta.percent / 100) });
+                })
+                .then(
+                  function (data) {
+                    vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], document.uri.path.split("/").pop() + config.unzippedSuffix, zipFileData.files[uriList[c]].name), data);
+                  },
+                  function (err) {
+                    console.error(err);
+                  }
+                );
+            }
+            return;
+          });
+        });
       }
     });
   }

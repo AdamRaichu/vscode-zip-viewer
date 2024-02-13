@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Audio and video files in preview.
 - API for preview by other extensions.
 
+## [3.14.0] - 2024-2-13
+
+Support previewing PDF files.
+
 ## [3.13.0] - 2023-1-29
 
 Add `.xpi` file extension to supported list.
