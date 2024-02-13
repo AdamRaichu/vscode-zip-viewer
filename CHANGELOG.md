@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Audio and video files in preview.
 - API for preview by other extensions.
 
+## [3.15.0] - 2024-2-13
+
+Add `.mrpack` file extension to supported list.
+
 ## [3.14.0] - 2024-2-13
 
 Support previewing PDF files.
