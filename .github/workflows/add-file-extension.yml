@@ -51,6 +51,16 @@ jobs:
           git add .
           git commit -m "Add file extension(s) to ext.json: ${{inputs.file-extensions}}"${{inputs.bump-package-version && ' -m "Bump package version [rev]"' || ''}}${{inputs.should-close-issue && ' -m "Closes #' || ''}}${{inputs.should-close-issue && inputs.issue-to-close || ''}}${{inputs.should-close-issue && '"' || ''}}
           git push
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v4
+        if: inputs.should-close-issue
+        with:
+          issue-number: inputs.issue-to-close
+          body: |
+            The file extension(s) `${{inputs.file-extensions}}` has been added to the list of text files.
+
+            ${{inputs.publish-release && 'This actions run has also been instructed to publish the extension. Your requested fix should appear in the next release, so make sure to update your extension. (The release process usually takes 5-15 minutes.)' || ''}}
+          # reactions: '+1'
   publish:
     if: inputs.publish-release
     needs: modify-files
