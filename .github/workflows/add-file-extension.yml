@@ -27,7 +27,7 @@ on:
         default: false
         description: Is there an issue that adding this extension should close?
       issue-to-close:
-        type: number
+        type: string
         required: false
         description: The id of the issue this should close.
 jobs:
@@ -55,7 +55,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v4
         if: inputs.should-close-issue
         with:
-          issue-number: inputs.issue-to-close
+          issue-number: ${{ inputs.issue-to-close }}
           body: |
             The file extension(s) `${{inputs.file-extensions}}` has been added to the list of text files.
 
