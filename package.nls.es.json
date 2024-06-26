@@ -18,5 +18,7 @@
   "config.textFileAssociations.description": "Un conjunto de rutas que identifica los subarchivos de un archivo zip como archivos de texto.",
   "config.textFileAssociations.zipPath.description": "La ruta al archivo zip relativa a la raíz del espacio de trabajo.",
   "config.textFileAssociations.subfilePath.description": "La ruta al archivo de texto relativa a la raíz del archivo zip.",
-  "config.useLegacyGzipNamingConvention": "Si es verdadero, intercambia la extensión del archivo anterior con `gz` en lugar de agregar `.gz` al nombre del archivo."
+  "config.useLegacyGzipNamingConvention": "Si es verdadero, intercambia la extensión del archivo anterior con `gz` en lugar de agregar `.gz` al nombre del archivo.",
+  "config.ZipEdit.additionalCSS.description": "CSS a medida que es cargarlo en el editor.",
+  "config.ZipEdit.additionalCSS.default": "/* Reemplace este con su CSS. */"
 }

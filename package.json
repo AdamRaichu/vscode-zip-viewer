@@ -119,6 +119,11 @@
             "type": "boolean",
             "markdownDescription": "%config.useLegacyGzipNamingConvention%",
             "default": false
+          },
+          "zipViewer.ZipEdit.additionalCSS": {
+            "type": "string",
+            "markdownDescription": "%config.ZipEdit.additionalCSS.description%",
+            "default": "%config.ZipEdit.additionalCSS.default%"
           }
         }
       }

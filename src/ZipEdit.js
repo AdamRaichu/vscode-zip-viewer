@@ -14,11 +14,17 @@ const vscode = require("vscode");
  */
 export default class ZipEdit {
   /**
+   * @type {vscode.ExtensionContext}
+   */
+  static context;
+
+  /**
    * Registers the editor provider
    * @static
    * @returns {vscode.Disposable}
    */
-  static register() {
+  static register(ctx) {
+    ZipEdit.context = ctx;
     return vscode.window.registerCustomEditorProvider(ZipEdit.viewType, new ZipEdit());
   }
 
@@ -45,6 +51,17 @@ export default class ZipEdit {
   async resolveCustomEditor(document, panel, _token) {
     var extUri = vscode.extensions.getExtension("adamraichu.zip-viewer").extensionUri;
 
+    console.log(ZipEdit.context.storageUri);
+
+    var customCSS = vscode.workspace.getConfiguration("zipViewer").get("ZipEdit.additionalCSS");
+    if (customCSS.includes("</style>")) {
+      customCSS = "";
+    }
+
+    vscode.window.showErrorMessage(
+      "Hey! The custom CSS that you are trying to load contains the string `</style>`, which probably means someone is trying to do something nefarious. Don't worry, I prevented it from loading, but please check both your user settings and the workspace settings (zipViewer.ZipEdit.additionalCSS). (If it's in the workspace settings, maybe consider not using this workspace since someone is trying to attack you.)"
+    );
+
     panel.webview.options = {
       enableScripts: true,
     };
@@ -53,6 +70,7 @@ export default class ZipEdit {
 <head>
   <script defer src="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "dist", "ZipEditor.js"))}"></script>
   <link rel="stylesheet" href="${panel.webview.asWebviewUri(vscode.Uri.joinPath(extUri, "media", "ZipEditor.css"))}">
+  <style>${customCSS}</style>
   <script>var mime = ${JSON.stringify(mime)}</script>
 </head>
 

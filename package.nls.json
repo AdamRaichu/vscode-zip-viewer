@@ -18,5 +18,7 @@
   "config.textFileAssociations.description": "A set of paths which identifies the subfiles of a zip file as text files.",
   "config.textFileAssociations.zipPath.description": "The path to the zip file relative to the workspace root.",
   "config.textFileAssociations.subfilePath.description": "The path to the text file relative to the root of the zip file.",
-  "config.useLegacyGzipNamingConvention": "If true, swaps old file extension with `gz` instead of adding `.gz` to file name."
+  "config.useLegacyGzipNamingConvention": "If true, swaps old file extension with `gz` instead of adding `.gz` to file name.",
+  "config.ZipEdit.additionalCSS.description": "Custom CSS that is loaded into the zip editor.",
+  "config.ZipEdit.additionalCSS.default": "/* Replace this with your CSS. */"
 }
