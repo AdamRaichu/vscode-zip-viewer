@@ -62,6 +62,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.mcworld`
 - `.mrpack`
 - `.nba`
+- `.nupkg`
 - `.pbit`
 - `.pbix`
 - `.sb2`

@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Audio and video files in preview.
 - API for preview by other extensions.
 
+## [3.17.0] - 2024-6-26
+
+Add the new `additionalCSS` setting.
+
+Add `.nupkg` file extension to supported list. ([#114](https://github.com/AdamRaichu/vscode-zip-viewer/issues/114))
+
 ## [3.15.0] - 2024-2-13
 
 Add `.mrpack` file extension to supported list.
