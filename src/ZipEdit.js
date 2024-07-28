@@ -56,11 +56,10 @@ export default class ZipEdit {
     var customCSS = vscode.workspace.getConfiguration("zipViewer").get("ZipEdit.additionalCSS");
     if (customCSS.includes("</style>")) {
       customCSS = "";
+      vscode.window.showErrorMessage(
+        "Hey! The custom CSS that you are trying to load contains the string `</style>`, which probably means someone is trying to do something nefarious. Don't worry, I prevented it from loading, but please check both your user settings and the workspace settings (zipViewer.ZipEdit.additionalCSS). (If it's in the workspace settings, maybe consider not using this workspace since someone is trying to attack you.)"
+      );
     }
-
-    vscode.window.showErrorMessage(
-      "Hey! The custom CSS that you are trying to load contains the string `</style>`, which probably means someone is trying to do something nefarious. Don't worry, I prevented it from loading, but please check both your user settings and the workspace settings (zipViewer.ZipEdit.additionalCSS). (If it's in the workspace settings, maybe consider not using this workspace since someone is trying to attack you.)"
-    );
 
     panel.webview.options = {
       enableScripts: true,
