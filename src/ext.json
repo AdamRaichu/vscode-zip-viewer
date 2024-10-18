@@ -15,6 +15,7 @@
     "editorconfig",
     "evn",
     "firebaserc",
+    "gitattributes",
     "gitignore",
     "go",
     "gradle",
