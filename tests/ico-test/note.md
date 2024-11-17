@@ -1,0 +1,1 @@
+The ico file used here is from [here](https://github.com/microsoft/Windows-classic-samples/blob/main/Samples/Win7Samples/netds/wlan/WirelessHostedNetwork/HostedNetwork/res/computer.ico). That repo is licensed under the MIT license.

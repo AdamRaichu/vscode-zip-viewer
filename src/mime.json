@@ -2,6 +2,7 @@
   ".apng": "image/apng",
   ".avif": "image/avif",
   ".gif": "image/gif",
+  ".ico": "image/vnd.microsoft.icon",
   ".jpe": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".jpg": "image/jpeg",

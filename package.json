@@ -4,7 +4,7 @@
   "description": "%extension.description%",
   "publisher": "adamraichu",
   "icon": "logo.png",
-  "version": "3.17.9",
+  "version": "3.17.10",
   "license": "MIT",
   "author": {
     "name": "AdamRaichu"
@@ -26,16 +26,9 @@
   },
   "main": "./dist/main.js",
   "browser": "./dist/main.js",
-  "activationEvents": [
-    "onCommand:zipViewer.extract",
-    "onCommand:zipViewer.zip",
-    "onCommand:zipViewer.openFileWithEditor",
-    "onCommand:zipViewer.gzip",
-    "onCustomEditor:zipViewer.ZipEdit",
-    "onCustomEditor:zipViewer.GZipEdit"
-  ],
+  "activationEvents": [],
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.76.0"
   },
   "contributes": {
     "commands": [
