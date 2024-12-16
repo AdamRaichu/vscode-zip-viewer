@@ -34,6 +34,8 @@
     "liquid",
     "log",
     "ltx",
+    "lua",
+    "luau",
     "map",
     "mcfunction",
     "mcmeta",
