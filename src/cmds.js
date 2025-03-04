@@ -112,11 +112,15 @@ export default class cmds {
  * @param {vscode.Uri[]} folderToZip
  * @returns {void} No return value
  */
-function zipFolder(folderToZip) {
+async function zipFolder(folderToZip) {
   if (typeof folderToZip === "undefined") {
     return;
   }
-  var targetPath = [sharedApi.uri.getParent(folderToZip[0])];
+  // var targetPath = [sharedApi.uri.getParent(folderToZip[0])];
+  var targetPath = (await vscode.window.showOpenDialog({ title: "Target Folder", canSelectFiles: false, canSelectFolders: true }))[0];
+  if (typeof targetPath === "undefined") {
+    return;
+  }
   var z = new JSZip();
   var barItem = vscode.window.createStatusBarItem();
   barItem.text = "$(loading~spin) Creating zip file...";
@@ -142,7 +146,7 @@ function zipFolder(folderToZip) {
       barItem.text = `$(loading~spin) Zip file compression ${metadata.percent.toFixed(2)}% complete`;
     }).then(function (zip) {
       barItem.text = "$(loading~spin) Saving...";
-      vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath[0], folderToZip[0].path.split("/").pop() + ".zip"), zip).then(
+      vscode.workspace.fs.writeFile(vscode.Uri.joinPath(targetPath, folderToZip[0].path.split("/").pop() + ".zip"), zip).then(
         function () {
           barItem.hide();
           barItem.dispose();

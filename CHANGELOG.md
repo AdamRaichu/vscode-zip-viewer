@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Audio and video files in preview.
 - API for preview by other extensions.
 
+## [3.18.0] - 2025-3-4
+
+Add `.asice` and `.whl` file extensions.
+
+Add target folder prompt when zipping files.
+
 ## [3.17.0] - 2024-6-26
 
 Add the new `additionalCSS` setting.

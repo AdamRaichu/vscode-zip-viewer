@@ -48,6 +48,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 
 - `.aia`
 - `.appxbundle`
+- `.asice`
 - `.c4z`
 - `.crx`
 - `.ear`
@@ -69,6 +70,7 @@ If you know of another alias for zip files, please open an issue [here][new-zip-
 - `.sb3`
 - `.vsix`
 - `.war`
+- `.whl`
 - `.xlsx`
 - `.xpi`
 - and of course, `.zip`
